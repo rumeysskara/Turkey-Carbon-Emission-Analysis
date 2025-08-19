@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Test Sayfası</title>
+</head>
+<body>
+    <h1>JavaScript Test</h1>
+    <div id="test-div">Yükleniyor...</div>
+    
+    <script>
+        console.log('Test JavaScript çalışıyor!');
+        document.getElementById('test-div').textContent = 'JavaScript çalışıyor!';
+        
+        // JSON test
+        fetch('/static/data/carbon_predictions.json')
+            .then(r => r.json())
+            .then(data => {
+                console.log('JSON yüklendi:', data);
+                document.getElementById('test-div').innerHTML = 
+                    `<p>JavaScript OK!</p>
+                     <p>JSON OK! Current emissions: ${data.current_total_emissions_ton}</p>`;
+            })
+            .catch(e => {
+                console.error('JSON hatası:', e);
+                document.getElementById('test-div').innerHTML = 'JSON hatası: ' + e.message;
+            });
+    </script>
+</body>
+</html>

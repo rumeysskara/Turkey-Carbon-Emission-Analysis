@@ -1,0 +1,2986 @@
+{
+  "prediction_year": 2026,
+  "methodology": "Basit sektörel büyüme + teknoloji + düzenleme etkisi",
+  "city_predictions": [
+    {
+      "region": "Adana, Turkey",
+      "factory_count": 2,
+      "current_total_emissions_ton": 2077.354262144804,
+      "predicted_total_emissions_ton": 2003.458277126338,
+      "emission_change_ton": -73.89598501846604,
+      "emission_change_percent": -3.5572163287243415,
+      "factory_predictions": [
+        {
+          "factory_id": 8231613553,
+          "factory_name": "Koluman Otomotiv Endüstri A.Ş.",
+          "current_emissions_ton": 835.3348340712093,
+          "predicted_emissions_ton": 742.2259671577457,
+          "emission_change_ton": -93.10886691346366,
+          "emission_change_percent": -11.146292853570435,
+          "prediction_year": 2026,
+          "prediction_factors": {
+            "sector_growth": 0.038,
+            "tech_level": "high",
+            "tech_factor": 0.85,
+            "regulation_effect": 0.96,
+            "economic_effect": 1.035
+          }
+        },
+        {
+          "factory_id": 815893124,
+          "factory_name": "Koluman Otomotiv Endüstri A.Ş.",
+          "current_emissions_ton": 1242.0194280735948,
+          "predicted_emissions_ton": 1261.2323099685923,
+          "emission_change_ton": 19.21288189499751,
+          "emission_change_percent": 1.546906711821505,
+          "prediction_year": 2026,
+          "prediction_factors": {
+            "sector_growth": 0.038,
+            "tech_level": "low",
+            "tech_factor": 0.98,
+            "regulation_effect": 0.96,
+            "economic_effect": 1.035
+          }
+        }
+      ]
+    },
+    {
+      "region": "Adiyaman, Turkey",
+      "factory_count": 7,
+      "current_total_emissions_ton": 3799.697393320371,
+      "predicted_total_emissions_ton": 3832.2030762245495,
+      "emission_change_ton": 32.505682904178684,
+      "emission_change_percent": 0.8554808327979389,
+      "factory_predictions": [
+        {
+          "factory_id": 91658857,
+          "factory_name": "Fabrika - Adiyaman 1",
+          "current_emissions_ton": 663.1429128209164,
+          "predicted_emissions_ton": 650.2967111853396,
+          "emission_change_ton": -12.84620163557679,
+          "emission_change_percent": -1.9371694075611636,
+          "prediction_year": 2026,
+          "prediction_factors": {
+            "sector_growth": 0.038,
+            "tech_level": "medium",
+            "tech_factor": 0.92,
+            "regulation_effect": 0.96,
+            "economic_effect": 1.035
+          }
+        },
+        {
+          "factory_id": 314839513,
+          "factory_name": "SANKO Tekstil",
+          "current_emissions_ton": 329.4718495253366,
+          "predicted_emissions_ton": 349.20626379094193,
+          "emission_change_ton": 19.734414265605324,
+          "emission_change_percent": 5.989711805131847,
+          "prediction_year": 2026,
+          "prediction_factors": {
+            "sector_growth": 0.038,
+            "tech_level": "low",
+            "tech_factor": 0.98,
+            "regulation_effect": 0.96,
+            "economic_effect": 1.035
+          }
+        },
+        {
+          "factory_id": 559548113,
+          "factory_name": "Fabrika - Adiyaman 3",
+          "current_emissions_ton": 508.00757409990376,
+          "predicted_emissions_ton": 490.1670857306836,
+          "emission_change_ton": -17.840488369220168,
+          "emission_change_percent": -3.511854798785282,
+          "prediction_year": 2026,
+          "prediction_factors": {
+            "sector_growth": 0.038,
+            "tech_level": "low",
+            "tech_factor": 0.98,
+            "regulation_effect": 0.96,
+            "economic_effect": 1.035
+          }
+        },
+        {
+          "factory_id": 559548114,
+          "factory_name": "Fabrika - Adiyaman 4",
+          "current_emissions_ton": 309.2247620396542,
+          "predicted_emissions_ton": 283.36499647948216,
+          "emission_change_ton": -25.859765560172036,
+          "emission_change_percent": -8.362773210528285,
+          "prediction_year": 2026,
+          "prediction_factors": {
+            "sector_growth": 0.038,
+            "tech_level": "medium",
+            "tech_factor": 0.92,
+            "regulation_effect": 0.96,
+            "economic_effect": 1.035
+          }
+        },
+        {
+          "factory_id": 559548116,
+          "factory_name": "Fabrika - Adiyaman 5",
+          "current_emissions_ton": 1065.5394379270188,
+          "predicted_emissions_ton": 1127.750527492804,
+          "emission_change_ton": 62.21108956578519,
+          "emission_change_percent": 5.838459596278797,
+          "prediction_year": 2026,
+          "prediction_factors": {
+            "sector_growth": 0.038,
+            "tech_level": "low",
+            "tech_factor": 0.98,
+            "regulation_effect": 0.96,
+            "economic_effect": 1.035
+          }
+        },
+        {
+          "factory_id": 559548117,
+          "factory_name": "Fabrika - Adiyaman 6",
+          "current_emissions_ton": 554.0057605712938,
+          "predicted_emissions_ton": 546.7674913928007,
+          "emission_change_ton": -7.238269178493056,
+          "emission_change_percent": -1.306533197602298,
+          "prediction_year": 2026,
+          "prediction_factors": {
+            "sector_growth": 0.038,
+            "tech_level": "medium",
+            "tech_factor": 0.92,
+            "regulation_effect": 0.96,
+            "economic_effect": 1.035
+          }
+        },
+        {
+          "factory_id": 559548118,
+          "factory_name": "Fabrika - Adiyaman 7",
+          "current_emissions_ton": 370.3050963362473,
+          "predicted_emissions_ton": 384.6500001524972,
+          "emission_change_ton": 14.34490381624994,
+          "emission_change_percent": 3.8738067496711874,
+          "prediction_year": 2026,
+          "prediction_factors": {
+            "sector_growth": 0.038,
+            "tech_level": "low",
+            "tech_factor": 0.98,
+            "regulation_effect": 0.96,
+            "economic_effect": 1.035
+          }
+        }
+      ]
+    },
+    {
+      "region": "Afyonkarahisar, Turkey",
+      "factory_count": 1,
+      "current_total_emissions_ton": 255.5298166681083,
+      "predicted_total_emissions_ton": 264.2712481518611,
+      "emission_change_ton": 8.741431483752763,
+      "emission_change_percent": 3.420904690393318,
+      "factory_predictions": [
+        {
+          "factory_id": 775115090,
+          "factory_name": "Tetik Mermer",
+          "current_emissions_ton": 255.5298166681083,
+          "predicted_emissions_ton": 264.2712481518611,
+          "emission_change_ton": 8.741431483752763,
+          "emission_change_percent": 3.420904690393318,
+          "prediction_year": 2026,
+          "prediction_factors": {
+            "sector_growth": 0.038,
+            "tech_level": "low",
+            "tech_factor": 0.98,
+            "regulation_effect": 0.96,
+            "economic_effect": 1.035
+          }
+        }
+      ]
+    },
+    {
+      "region": "Ankara, Turkey",
+      "factory_count": 5,
+      "current_total_emissions_ton": 2803.7700853793976,
+      "predicted_total_emissions_ton": 2801.831683094093,
+      "emission_change_ton": -1.938402285304619,
+      "emission_change_percent": -0.06913556483866687,
+      "factory_predictions": [
+        {
+          "factory_id": 11227996702,
+          "factory_name": "Öztaş PVC",
+          "current_emissions_ton": 428.46387860899983,
+          "predicted_emissions_ton": 453.9611346101474,
+          "emission_change_ton": 25.497256001147548,
+          "emission_change_percent": 5.950853099664767,
+          "prediction_year": 2026,
+          "prediction_factors": {
+            "sector_growth": 0.038,
+            "tech_level": "low",
+            "tech_factor": 0.98,
+            "regulation_effect": 0.96,
+            "economic_effect": 1.035
+          }
+        },
+        {
+          "factory_id": 425321978,
+          "factory_name": "Pimeks Fabrika Çubuk (Factory & Technology Center) - Pimeks Group Aluminyum PVC ve Metal Sanayi Ticaret A.S.",
+          "current_emissions_ton": 263.4382194234616,
+          "predicted_emissions_ton": 256.9436320642206,
+          "emission_change_ton": -6.494587359240995,
+          "emission_change_percent": -2.465317057431718,
+          "prediction_year": 2026,
+          "prediction_factors": {
+            "sector_growth": 0.038,
+            "tech_level": "low",
+            "tech_factor": 0.98,
+            "regulation_effect": 0.96,
+            "economic_effect": 1.035
+          }
+        },
+        {
+          "factory_id": 1039134320,
+          "factory_name": "Ankara Keresteciler Sitesi",
+          "current_emissions_ton": 395.28675019458484,
+          "predicted_emissions_ton": 354.9388483649035,
+          "emission_change_ton": -40.34790182968135,
+          "emission_change_percent": -10.207248740267563,
+          "prediction_year": 2026,
+          "prediction_factors": {
+            "sector_growth": 0.038,
+            "tech_level": "high",
+            "tech_factor": 0.85,
+            "regulation_effect": 0.96,
+            "economic_effect": 1.035
+          }
+        },
+        {
+          "factory_id": 10217357,
+          "factory_name": "Medplast A.Ş.",
+          "current_emissions_ton": 1428.5310957499833,
+          "predicted_emissions_ton": 1470.904309780453,
+          "emission_change_ton": 42.37321403046985,
+          "emission_change_percent": 2.9662087270297595,
+          "prediction_year": 2026,
+          "prediction_factors": {
+            "sector_growth": 0.038,
+            "tech_level": "low",
+            "tech_factor": 0.98,
+            "regulation_effect": 0.96,
+            "economic_effect": 1.035
+          }
+        },
+        {
+          "factory_id": 14615345,
+          "factory_name": "MAN A.Ş.",
+          "current_emissions_ton": 288.05014140236847,
+          "predicted_emissions_ton": 265.0837582743689,
+          "emission_change_ton": -22.966383127999563,
+          "emission_change_percent": -7.973050461349547,
+          "prediction_year": 2026,
+          "prediction_factors": {
+            "sector_growth": 0.038,
+            "tech_level": "medium",
+            "tech_factor": 0.92,
+            "regulation_effect": 0.96,
+            "economic_effect": 1.035
+          }
+        }
+      ]
+    },
+    {
+      "region": "Antalya, Turkey",
+      "factory_count": 1,
+      "current_total_emissions_ton": 381.75522692064476,
+      "predicted_total_emissions_ton": 340.16816608084355,
+      "emission_change_ton": -41.58706083980121,
+      "emission_change_percent": -10.89364543224601,
+      "factory_predictions": [
+        {
+          "factory_id": 1218020030,
+          "factory_name": "DANNIE.CC",
+          "current_emissions_ton": 381.75522692064476,
+          "predicted_emissions_ton": 340.16816608084355,
+          "emission_change_ton": -41.58706083980121,
+          "emission_change_percent": -10.89364543224601,
+          "prediction_year": 2026,
+          "prediction_factors": {
+            "sector_growth": 0.038,
+            "tech_level": "high",
+            "tech_factor": 0.85,
+            "regulation_effect": 0.96,
+            "economic_effect": 1.035
+          }
+        }
+      ]
+    },
+    {
+      "region": "Bartin, Turkey",
+      "factory_count": 2,
+      "current_total_emissions_ton": 2349.6751775167686,
+      "predicted_total_emissions_ton": 2350.115010888535,
+      "emission_change_ton": 0.4398333717663263,
+      "emission_change_percent": 0.01871890106236556,
+      "factory_predictions": [
+        {
+          "factory_id": 757728083,
+          "factory_name": "Mescier Demir Çelik Fabrikası",
+          "current_emissions_ton": 1467.3164772937412,
+          "predicted_emissions_ton": 1441.5386938374209,
+          "emission_change_ton": -25.77778345632032,
+          "emission_change_percent": -1.7567977907440813,
+          "prediction_year": 2026,
+          "prediction_factors": {
+            "sector_growth": 0.038,
+            "tech_level": "medium",
+            "tech_factor": 0.92,
+            "regulation_effect": 0.96,
+            "economic_effect": 1.035
+          }
+        },
+        {
+          "factory_id": 1350910073,
+          "factory_name": "Bartın Toptancılar Sitesi",
+          "current_emissions_ton": 882.3587002230274,
+          "predicted_emissions_ton": 908.5763170511143,
+          "emission_change_ton": 26.217616828086875,
+          "emission_change_percent": 2.971310513678852,
+          "prediction_year": 2026,
+          "prediction_factors": {
+            "sector_growth": 0.038,
+            "tech_level": "low",
+            "tech_factor": 0.98,
+            "regulation_effect": 0.96,
+            "economic_effect": 1.035
+          }
+        }
+      ]
+    },
+    {
+      "region": "Bursa, Turkey",
+      "factory_count": 1,
+      "current_total_emissions_ton": 1645.6504904625183,
+      "predicted_total_emissions_ton": 1579.1990109114226,
+      "emission_change_ton": -66.45147955109564,
+      "emission_change_percent": -4.038006851164315,
+      "factory_predictions": [
+        {
+          "factory_id": 1217972040,
+          "factory_name": "Rudolf-Duraner",
+          "current_emissions_ton": 1645.6504904625183,
+          "predicted_emissions_ton": 1579.1990109114226,
+          "emission_change_ton": -66.45147955109564,
+          "emission_change_percent": -4.038006851164315,
+          "prediction_year": 2026,
+          "prediction_factors": {
+            "sector_growth": 0.038,
+            "tech_level": "medium",
+            "tech_factor": 0.92,
+            "regulation_effect": 0.96,
+            "economic_effect": 1.035
+          }
+        }
+      ]
+    },
+    {
+      "region": "Denizli, Turkey",
+      "factory_count": 2,
+      "current_total_emissions_ton": 756.6365590650239,
+      "predicted_total_emissions_ton": 707.5705567668057,
+      "emission_change_ton": -49.06600229821822,
+      "emission_change_percent": -6.4847517226565285,
+      "factory_predictions": [
+        {
+          "factory_id": 521567736,
+          "factory_name": "Sofidel Kağıt",
+          "current_emissions_ton": 263.6929764351113,
+          "predicted_emissions_ton": 260.3877377633761,
+          "emission_change_ton": -3.3052386717351965,
+          "emission_change_percent": -1.2534420584192307,
+          "prediction_year": 2026,
+          "prediction_factors": {
+            "sector_growth": 0.038,
+            "tech_level": "low",
+            "tech_factor": 0.98,
+            "regulation_effect": 0.96,
+            "economic_effect": 1.035
+          }
+        },
+        {
+          "factory_id": 521567739,
+          "factory_name": "Sofidel Kağıt",
+          "current_emissions_ton": 492.94358262991256,
+          "predicted_emissions_ton": 447.1828190034296,
+          "emission_change_ton": -45.76076362648297,
+          "emission_change_percent": -9.283164491632869,
+          "prediction_year": 2026,
+          "prediction_factors": {
+            "sector_growth": 0.038,
+            "tech_level": "medium",
+            "tech_factor": 0.92,
+            "regulation_effect": 0.96,
+            "economic_effect": 1.035
+          }
+        }
+      ]
+    },
+    {
+      "region": "Edirne, Turkey",
+      "factory_count": 3,
+      "current_total_emissions_ton": 1398.2568475084847,
+      "predicted_total_emissions_ton": 1267.7018060000105,
+      "emission_change_ton": -130.55504150847423,
+      "emission_change_percent": -9.33698567191762,
+      "factory_predictions": [
+        {
+          "factory_id": 131618575,
+          "factory_name": "Kilim Mensucat Havsa İplik Fabrikası",
+          "current_emissions_ton": 508.96845645367006,
+          "predicted_emissions_ton": 442.3366724885561,
+          "emission_change_ton": -66.63178396511398,
+          "emission_change_percent": -13.091535068672627,
+          "prediction_year": 2026,
+          "prediction_factors": {
+            "sector_growth": 0.038,
+            "tech_level": "high",
+            "tech_factor": 0.85,
+            "regulation_effect": 0.96,
+            "economic_effect": 1.035
+          }
+        },
+        {
+          "factory_id": 655487445,
+          "factory_name": "Meriç Tekstil Fabrikası",
+          "current_emissions_ton": 483.60616872894894,
+          "predicted_emissions_ton": 473.0676535598106,
+          "emission_change_ton": -10.53851516913835,
+          "emission_change_percent": -2.1791523455617803,
+          "prediction_year": 2026,
+          "prediction_factors": {
+            "sector_growth": 0.038,
+            "tech_level": "low",
+            "tech_factor": 0.98,
+            "regulation_effect": 0.96,
+            "economic_effect": 1.035
+          }
+        },
+        {
+          "factory_id": 846780654,
+          "factory_name": "Kilim Grubu Kartaltepe Mensucat Fabrikası",
+          "current_emissions_ton": 405.6822223258658,
+          "predicted_emissions_ton": 352.2974799516439,
+          "emission_change_ton": -53.3847423742219,
+          "emission_change_percent": -13.15925111732907,
+          "prediction_year": 2026,
+          "prediction_factors": {
+            "sector_growth": 0.038,
+            "tech_level": "high",
+            "tech_factor": 0.85,
+            "regulation_effect": 0.96,
+            "economic_effect": 1.035
+          }
+        }
+      ]
+    },
+    {
+      "region": "Gaziantep, Turkey",
+      "factory_count": 1,
+      "current_total_emissions_ton": 788.3401915079963,
+      "predicted_total_emissions_ton": 715.0035865859192,
+      "emission_change_ton": -73.33660492207719,
+      "emission_change_percent": -9.302659652781804,
+      "factory_predictions": [
+        {
+          "factory_id": 1138671440,
+          "factory_name": "MY BOX FOR PRINT & PACK",
+          "current_emissions_ton": 788.3401915079963,
+          "predicted_emissions_ton": 715.0035865859192,
+          "emission_change_ton": -73.33660492207719,
+          "emission_change_percent": -9.302659652781804,
+          "prediction_year": 2026,
+          "prediction_factors": {
+            "sector_growth": 0.038,
+            "tech_level": "high",
+            "tech_factor": 0.85,
+            "regulation_effect": 0.96,
+            "economic_effect": 1.035
+          }
+        }
+      ]
+    },
+    {
+      "region": "Istanbul, Turkey",
+      "factory_count": 30,
+      "current_total_emissions_ton": 23278.632387369362,
+      "predicted_total_emissions_ton": 21835.90260242128,
+      "emission_change_ton": -1442.729784948082,
+      "emission_change_percent": -6.197656979758336,
+      "factory_predictions": [
+        {
+          "factory_id": 5666789300,
+          "factory_name": "Adam Matbaacılık",
+          "current_emissions_ton": 155.2776556176565,
+          "predicted_emissions_ton": 136.72580158583582,
+          "emission_change_ton": -18.55185403182068,
+          "emission_change_percent": -11.947536146154414,
+          "prediction_year": 2026,
+          "prediction_factors": {
+            "sector_growth": 0.038,
+            "tech_level": "high",
+            "tech_factor": 0.85,
+            "regulation_effect": 0.96,
+            "economic_effect": 1.035
+          }
+        },
+        {
+          "factory_id": 5667618152,
+          "factory_name": "Süter Gıda",
+          "current_emissions_ton": 1024.4270888653782,
+          "predicted_emissions_ton": 984.5678844434664,
+          "emission_change_ton": -39.85920442191184,
+          "emission_change_percent": -3.8908776285932256,
+          "prediction_year": 2026,
+          "prediction_factors": {
+            "sector_growth": 0.038,
+            "tech_level": "medium",
+            "tech_factor": 0.92,
+            "regulation_effect": 0.96,
+            "economic_effect": 1.035
+          }
+        },
+        {
+          "factory_id": 5667618158,
+          "factory_name": "Adam Matbaacılık",
+          "current_emissions_ton": 316.4579006994952,
+          "predicted_emissions_ton": 309.39196279025504,
+          "emission_change_ton": -7.065937909240176,
+          "emission_change_percent": -2.2328208250202324,
+          "prediction_year": 2026,
+          "prediction_factors": {
+            "sector_growth": 0.038,
+            "tech_level": "medium",
+            "tech_factor": 0.92,
+            "regulation_effect": 0.96,
+            "economic_effect": 1.035
+          }
+        },
+        {
+          "factory_id": 5667618388,
+          "factory_name": "Dilek Kağıtçılık",
+          "current_emissions_ton": 637.7397436420584,
+          "predicted_emissions_ton": 631.6464340745447,
+          "emission_change_ton": -6.0933095675137565,
+          "emission_change_percent": -0.9554539493987885,
+          "prediction_year": 2026,
+          "prediction_factors": {
+            "sector_growth": 0.038,
+            "tech_level": "low",
+            "tech_factor": 0.98,
+            "regulation_effect": 0.96,
+            "economic_effect": 1.035
+          }
+        },
+        {
+          "factory_id": 5667618669,
+          "factory_name": "Aygün Grup",
+          "current_emissions_ton": 598.1478396077792,
+          "predicted_emissions_ton": 544.4908241070249,
+          "emission_change_ton": -53.65701550075437,
+          "emission_change_percent": -8.970527342527665,
+          "prediction_year": 2026,
+          "prediction_factors": {
+            "sector_growth": 0.038,
+            "tech_level": "high",
+            "tech_factor": 0.85,
+            "regulation_effect": 0.96,
+            "economic_effect": 1.035
+          }
+        },
+        {
+          "factory_id": 5667618680,
+          "factory_name": "Çağdaş Kağıt",
+          "current_emissions_ton": 453.89248618633474,
+          "predicted_emissions_ton": 413.94326915682547,
+          "emission_change_ton": -39.94921702950927,
+          "emission_change_percent": -8.801471327531312,
+          "prediction_year": 2026,
+          "prediction_factors": {
+            "sector_growth": 0.038,
+            "tech_level": "high",
+            "tech_factor": 0.85,
+            "regulation_effect": 0.96,
+            "economic_effect": 1.035
+          }
+        },
+        {
+          "factory_id": 5667618816,
+          "factory_name": "Berat Plastik",
+          "current_emissions_ton": 741.8684840617541,
+          "predicted_emissions_ton": 679.2568471934736,
+          "emission_change_ton": -62.61163686828047,
+          "emission_change_percent": -8.439721893222869,
+          "prediction_year": 2026,
+          "prediction_factors": {
+            "sector_growth": 0.038,
+            "tech_level": "high",
+            "tech_factor": 0.85,
+            "regulation_effect": 0.96,
+            "economic_effect": 1.035
+          }
+        },
+        {
+          "factory_id": 5667619226,
+          "factory_name": "Papirüs Kağıtçılık",
+          "current_emissions_ton": 410.9424588182292,
+          "predicted_emissions_ton": 393.1060258027911,
+          "emission_change_ton": -17.836433015438104,
+          "emission_change_percent": -4.340372388565386,
+          "prediction_year": 2026,
+          "prediction_factors": {
+            "sector_growth": 0.038,
+            "tech_level": "medium",
+            "tech_factor": 0.92,
+            "regulation_effect": 0.96,
+            "economic_effect": 1.035
+          }
+        },
+        {
+          "factory_id": 5667661388,
+          "factory_name": "İstanbul kraft tobra",
+          "current_emissions_ton": 796.4014000146128,
+          "predicted_emissions_ton": 787.4553421080755,
+          "emission_change_ton": -8.946057906537362,
+          "emission_change_percent": -1.123310168261032,
+          "prediction_year": 2026,
+          "prediction_factors": {
+            "sector_growth": 0.038,
+            "tech_level": "medium",
+            "tech_factor": 0.92,
+            "regulation_effect": 0.96,
+            "economic_effect": 1.035
+          }
+        },
+        {
+          "factory_id": 5667661726,
+          "factory_name": "Tekta Muna",
+          "current_emissions_ton": 899.4496788690843,
+          "predicted_emissions_ton": 805.2507207714572,
+          "emission_change_ton": -94.19895809762716,
+          "emission_change_percent": -10.472954775643197,
+          "prediction_year": 2026,
+          "prediction_factors": {
+            "sector_growth": 0.038,
+            "tech_level": "high",
+            "tech_factor": 0.85,
+            "regulation_effect": 0.96,
+            "economic_effect": 1.035
+          }
+        },
+        {
+          "factory_id": 43757211,
+          "factory_name": "İMES",
+          "current_emissions_ton": 360.6119439785076,
+          "predicted_emissions_ton": 322.3885248014427,
+          "emission_change_ton": -38.2234191770649,
+          "emission_change_percent": -10.599598769624503,
+          "prediction_year": 2026,
+          "prediction_factors": {
+            "sector_growth": 0.038,
+            "tech_level": "high",
+            "tech_factor": 0.85,
+            "regulation_effect": 0.96,
+            "economic_effect": 1.035
+          }
+        },
+        {
+          "factory_id": 229477330,
+          "factory_name": "Sultangazi Küçük Sanayi Sitesi",
+          "current_emissions_ton": 1667.006581962915,
+          "predicted_emissions_ton": 1488.730009262169,
+          "emission_change_ton": -178.2765727007461,
+          "emission_change_percent": -10.694413245256888,
+          "prediction_year": 2026,
+          "prediction_factors": {
+            "sector_growth": 0.038,
+            "tech_level": "high",
+            "tech_factor": 0.85,
+            "regulation_effect": 0.96,
+            "economic_effect": 1.035
+          }
+        },
+        {
+          "factory_id": 357659119,
+          "factory_name": "ABDİ İBRAHİM İlaç San.",
+          "current_emissions_ton": 197.91152609109628,
+          "predicted_emissions_ton": 169.90802904531427,
+          "emission_change_ton": -28.003497045782012,
+          "emission_change_percent": -14.149502860632959,
+          "prediction_year": 2026,
+          "prediction_factors": {
+            "sector_growth": 0.038,
+            "tech_level": "high",
+            "tech_factor": 0.85,
+            "regulation_effect": 0.96,
+            "economic_effect": 1.035
+          }
+        },
+        {
+          "factory_id": 499547382,
+          "factory_name": "Atabay Kimya Sanayi",
+          "current_emissions_ton": 207.61283361219643,
+          "predicted_emissions_ton": 189.65557095922836,
+          "emission_change_ton": -17.95726265296807,
+          "emission_change_percent": -8.649399143846159,
+          "prediction_year": 2026,
+          "prediction_factors": {
+            "sector_growth": 0.038,
+            "tech_level": "medium",
+            "tech_factor": 0.92,
+            "regulation_effect": 0.96,
+            "economic_effect": 1.035
+          }
+        },
+        {
+          "factory_id": 534547612,
+          "factory_name": "Fabrika - Istanbul 15",
+          "current_emissions_ton": 798.2737571521268,
+          "predicted_emissions_ton": 812.1400621118329,
+          "emission_change_ton": 13.866304959706099,
+          "emission_change_percent": 1.7370363030816258,
+          "prediction_year": 2026,
+          "prediction_factors": {
+            "sector_growth": 0.038,
+            "tech_level": "low",
+            "tech_factor": 0.98,
+            "regulation_effect": 0.96,
+            "economic_effect": 1.035
+          }
+        },
+        {
+          "factory_id": 617610736,
+          "factory_name": "Marmara Un Fabrikası",
+          "current_emissions_ton": 1158.1477875748405,
+          "predicted_emissions_ton": 1206.162132010937,
+          "emission_change_ton": 48.01434443609651,
+          "emission_change_percent": 4.14578734693596,
+          "prediction_year": 2026,
+          "prediction_factors": {
+            "sector_growth": 0.038,
+            "tech_level": "low",
+            "tech_factor": 0.98,
+            "regulation_effect": 0.96,
+            "economic_effect": 1.035
+          }
+        },
+        {
+          "factory_id": 685372773,
+          "factory_name": "Rekor Kauçuk",
+          "current_emissions_ton": 1676.7308096974728,
+          "predicted_emissions_ton": 1634.9536183657733,
+          "emission_change_ton": -41.77719133169944,
+          "emission_change_percent": -2.4915860727362173,
+          "prediction_year": 2026,
+          "prediction_factors": {
+            "sector_growth": 0.038,
+            "tech_level": "medium",
+            "tech_factor": 0.92,
+            "regulation_effect": 0.96,
+            "economic_effect": 1.035
+          }
+        },
+        {
+          "factory_id": 685388349,
+          "factory_name": "Vinçsan Vinç Sanayi ve Ticaret A.Ş",
+          "current_emissions_ton": 178.78185015857446,
+          "predicted_emissions_ton": 163.93673147155258,
+          "emission_change_ton": -14.84511868702188,
+          "emission_change_percent": -8.303481966348754,
+          "prediction_year": 2026,
+          "prediction_factors": {
+            "sector_growth": 0.038,
+            "tech_level": "high",
+            "tech_factor": 0.85,
+            "regulation_effect": 0.96,
+            "economic_effect": 1.035
+          }
+        },
+        {
+          "factory_id": 685388350,
+          "factory_name": "Massan Stant ve Otomotiv Ekipmanları",
+          "current_emissions_ton": 1473.8501166738588,
+          "predicted_emissions_ton": 1257.3654792643993,
+          "emission_change_ton": -216.48463740945954,
+          "emission_change_percent": -14.68837536194085,
+          "prediction_year": 2026,
+          "prediction_factors": {
+            "sector_growth": 0.038,
+            "tech_level": "high",
+            "tech_factor": 0.85,
+            "regulation_effect": 0.96,
+            "economic_effect": 1.035
+          }
+        },
+        {
+          "factory_id": 685670484,
+          "factory_name": "Besler Gıda ve Kimya Sanayi",
+          "current_emissions_ton": 377.07119629089095,
+          "predicted_emissions_ton": 316.47349937001894,
+          "emission_change_ton": -60.59769692087201,
+          "emission_change_percent": -16.070624730010937,
+          "prediction_year": 2026,
+          "prediction_factors": {
+            "sector_growth": 0.038,
+            "tech_level": "high",
+            "tech_factor": 0.85,
+            "regulation_effect": 0.96,
+            "economic_effect": 1.035
+          }
+        },
+        {
+          "factory_id": 685795730,
+          "factory_name": "Remik Kimya Sanayi ve Ticaret A.Ş",
+          "current_emissions_ton": 184.65721763110878,
+          "predicted_emissions_ton": 164.1477162578698,
+          "emission_change_ton": -20.509501373238976,
+          "emission_change_percent": -11.106796493712459,
+          "prediction_year": 2026,
+          "prediction_factors": {
+            "sector_growth": 0.038,
+            "tech_level": "high",
+            "tech_factor": 0.85,
+            "regulation_effect": 0.96,
+            "economic_effect": 1.035
+          }
+        },
+        {
+          "factory_id": 742100056,
+          "factory_name": "Borabay Bisiklet Fabrikası",
+          "current_emissions_ton": 183.80540645236647,
+          "predicted_emissions_ton": 160.95887167654888,
+          "emission_change_ton": -22.846534775817588,
+          "emission_change_percent": -12.429740352462543,
+          "prediction_year": 2026,
+          "prediction_factors": {
+            "sector_growth": 0.038,
+            "tech_level": "high",
+            "tech_factor": 0.85,
+            "regulation_effect": 0.96,
+            "economic_effect": 1.035
+          }
+        },
+        {
+          "factory_id": 746324372,
+          "factory_name": "Döv-Has Çelik Dövme Sanayi",
+          "current_emissions_ton": 401.9659736228318,
+          "predicted_emissions_ton": 345.0588343373724,
+          "emission_change_ton": -56.90713928545944,
+          "emission_change_percent": -14.157203101687383,
+          "prediction_year": 2026,
+          "prediction_factors": {
+            "sector_growth": 0.038,
+            "tech_level": "high",
+            "tech_factor": 0.85,
+            "regulation_effect": 0.96,
+            "economic_effect": 1.035
+          }
+        },
+        {
+          "factory_id": 884281360,
+          "factory_name": "Kaplan Brode Tekstil",
+          "current_emissions_ton": 137.72055133146893,
+          "predicted_emissions_ton": 117.19042981907079,
+          "emission_change_ton": -20.53012151239814,
+          "emission_change_percent": -14.907086352701116,
+          "prediction_year": 2026,
+          "prediction_factors": {
+            "sector_growth": 0.038,
+            "tech_level": "high",
+            "tech_factor": 0.85,
+            "regulation_effect": 0.96,
+            "economic_effect": 1.035
+          }
+        },
+        {
+          "factory_id": 1374794612,
+          "factory_name": "Vatan Plastik",
+          "current_emissions_ton": 1415.3172078976163,
+          "predicted_emissions_ton": 1462.354192591013,
+          "emission_change_ton": 47.03698469339679,
+          "emission_change_percent": 3.323423500465165,
+          "prediction_year": 2026,
+          "prediction_factors": {
+            "sector_growth": 0.038,
+            "tech_level": "low",
+            "tech_factor": 0.98,
+            "regulation_effect": 0.96,
+            "economic_effect": 1.035
+          }
+        },
+        {
+          "factory_id": 1375539470,
+          "factory_name": "Fabrika - Istanbul 26",
+          "current_emissions_ton": 358.79795250824816,
+          "predicted_emissions_ton": 346.55904683750214,
+          "emission_change_ton": -12.238905670746021,
+          "emission_change_percent": -3.411085705809503,
+          "prediction_year": 2026,
+          "prediction_factors": {
+            "sector_growth": 0.038,
+            "tech_level": "low",
+            "tech_factor": 0.98,
+            "regulation_effect": 0.96,
+            "economic_effect": 1.035
+          }
+        },
+        {
+          "factory_id": 1376722666,
+          "factory_name": "Vatan Plastik",
+          "current_emissions_ton": 934.7501580474571,
+          "predicted_emissions_ton": 910.9081574835259,
+          "emission_change_ton": -23.842000563931265,
+          "emission_change_percent": -2.550628139366499,
+          "prediction_year": 2026,
+          "prediction_factors": {
+            "sector_growth": 0.038,
+            "tech_level": "low",
+            "tech_factor": 0.98,
+            "regulation_effect": 0.96,
+            "economic_effect": 1.035
+          }
+        },
+        {
+          "factory_id": 1377061241,
+          "factory_name": "Fabrika - Istanbul 28",
+          "current_emissions_ton": 2134.808616710335,
+          "predicted_emissions_ton": 2148.42038150629,
+          "emission_change_ton": 13.611764795954969,
+          "emission_change_percent": 0.6376105422007439,
+          "prediction_year": 2026,
+          "prediction_factors": {
+            "sector_growth": 0.038,
+            "tech_level": "low",
+            "tech_factor": 0.98,
+            "regulation_effect": 0.96,
+            "economic_effect": 1.035
+          }
+        },
+        {
+          "factory_id": 1377067703,
+          "factory_name": "Fabrika - Istanbul 29",
+          "current_emissions_ton": 337.04733310088346,
+          "predicted_emissions_ton": 304.82340096284344,
+          "emission_change_ton": -32.22393213804003,
+          "emission_change_percent": -9.560654831941633,
+          "prediction_year": 2026,
+          "prediction_factors": {
+            "sector_growth": 0.038,
+            "tech_level": "medium",
+            "tech_factor": 0.92,
+            "regulation_effect": 0.96,
+            "economic_effect": 1.035
+          }
+        },
+        {
+          "factory_id": 1377591482,
+          "factory_name": "Önder Asansör",
+          "current_emissions_ton": 3059.1588304921843,
+          "predicted_emissions_ton": 2627.932802252829,
+          "emission_change_ton": -431.2260282393554,
+          "emission_change_percent": -14.096228804503621,
+          "prediction_year": 2026,
+          "prediction_factors": {
+            "sector_growth": 0.038,
+            "tech_level": "high",
+            "tech_factor": 0.85,
+            "regulation_effect": 0.96,
+            "economic_effect": 1.035
+          }
+        }
+      ]
+    },
+    {
+      "region": "Izmir, Turkey",
+      "factory_count": 6,
+      "current_total_emissions_ton": 6533.915148058927,
+      "predicted_total_emissions_ton": 6189.6966954127265,
+      "emission_change_ton": -344.2184526462006,
+      "emission_change_percent": -5.268180636665596,
+      "factory_predictions": [
+        {
+          "factory_id": 37335787,
+          "factory_name": "Ege Demir Tic",
+          "current_emissions_ton": 1495.350579388593,
+          "predicted_emissions_ton": 1302.5364239329792,
+          "emission_change_ton": -192.81415545561367,
+          "emission_change_percent": -12.894244206896953,
+          "prediction_year": 2026,
+          "prediction_factors": {
+            "sector_growth": 0.038,
+            "tech_level": "high",
+            "tech_factor": 0.85,
+            "regulation_effect": 0.96,
+            "economic_effect": 1.035
+          }
+        },
+        {
+          "factory_id": 37335788,
+          "factory_name": "Movae Motor ve Vantilatör Sanayi",
+          "current_emissions_ton": 671.5238874543983,
+          "predicted_emissions_ton": 596.8464215965317,
+          "emission_change_ton": -74.67746585786654,
+          "emission_change_percent": -11.120597085675186,
+          "prediction_year": 2026,
+          "prediction_factors": {
+            "sector_growth": 0.038,
+            "tech_level": "high",
+            "tech_factor": 0.85,
+            "regulation_effect": 0.96,
+            "economic_effect": 1.035
+          }
+        },
+        {
+          "factory_id": 722809598,
+          "factory_name": "LISI Aerospace",
+          "current_emissions_ton": 329.6010902551873,
+          "predicted_emissions_ton": 317.2996024308133,
+          "emission_change_ton": -12.301487824373964,
+          "emission_change_percent": -3.732235173994654,
+          "prediction_year": 2026,
+          "prediction_factors": {
+            "sector_growth": 0.038,
+            "tech_level": "medium",
+            "tech_factor": 0.92,
+            "regulation_effect": 0.96,
+            "economic_effect": 1.035
+          }
+        },
+        {
+          "factory_id": 875559868,
+          "factory_name": "GURUMEN GIDA ÜRETİM TESİSİ",
+          "current_emissions_ton": 2003.9167700240278,
+          "predicted_emissions_ton": 2011.3585920433072,
+          "emission_change_ton": 7.441822019279471,
+          "emission_change_percent": 0.37136382760997805,
+          "prediction_year": 2026,
+          "prediction_factors": {
+            "sector_growth": 0.038,
+            "tech_level": "low",
+            "tech_factor": 0.98,
+            "regulation_effect": 0.96,
+            "economic_effect": 1.035
+          }
+        },
+        {
+          "factory_id": 1135876984,
+          "factory_name": "BMC",
+          "current_emissions_ton": 675.5914505406017,
+          "predicted_emissions_ton": 658.0776743582073,
+          "emission_change_ton": -17.513776182394395,
+          "emission_change_percent": -2.5923620212156386,
+          "prediction_year": 2026,
+          "prediction_factors": {
+            "sector_growth": 0.038,
+            "tech_level": "medium",
+            "tech_factor": 0.92,
+            "regulation_effect": 0.96,
+            "economic_effect": 1.035
+          }
+        },
+        {
+          "factory_id": 1172330576,
+          "factory_name": "Fabrika - Izmir 6",
+          "current_emissions_ton": 1357.9313703961188,
+          "predicted_emissions_ton": 1303.5779810508877,
+          "emission_change_ton": -54.35338934523111,
+          "emission_change_percent": -4.002660998204631,
+          "prediction_year": 2026,
+          "prediction_factors": {
+            "sector_growth": 0.038,
+            "tech_level": "medium",
+            "tech_factor": 0.92,
+            "regulation_effect": 0.96,
+            "economic_effect": 1.035
+          }
+        }
+      ]
+    },
+    {
+      "region": "Karaman, Turkey",
+      "factory_count": 2,
+      "current_total_emissions_ton": 551.9720356949247,
+      "predicted_total_emissions_ton": 542.7983608159477,
+      "emission_change_ton": -9.173674878976954,
+      "emission_change_percent": -1.6619818189570839,
+      "factory_predictions": [
+        {
+          "factory_id": 175867655,
+          "factory_name": "Karaman Organize Sanayi Bölgesi",
+          "current_emissions_ton": 317.1420602062015,
+          "predicted_emissions_ton": 296.75309369854466,
+          "emission_change_ton": -20.388966507656846,
+          "emission_change_percent": -6.428969558437066,
+          "prediction_year": 2026,
+          "prediction_factors": {
+            "sector_growth": 0.038,
+            "tech_level": "medium",
+            "tech_factor": 0.92,
+            "regulation_effect": 0.96,
+            "economic_effect": 1.035
+          }
+        },
+        {
+          "factory_id": 1312560608,
+          "factory_name": "Karaman Biyokütle Enerji Santrali",
+          "current_emissions_ton": 234.82997548872322,
+          "predicted_emissions_ton": 246.0452671174031,
+          "emission_change_ton": 11.215291628679893,
+          "emission_change_percent": 4.775919941795703,
+          "prediction_year": 2026,
+          "prediction_factors": {
+            "sector_growth": 0.038,
+            "tech_level": "low",
+            "tech_factor": 0.98,
+            "regulation_effect": 0.96,
+            "economic_effect": 1.035
+          }
+        }
+      ]
+    },
+    {
+      "region": "Kirikkale, Turkey",
+      "factory_count": 2,
+      "current_total_emissions_ton": 422.8504762352275,
+      "predicted_total_emissions_ton": 380.5633564238519,
+      "emission_change_ton": -42.28711981137559,
+      "emission_change_percent": -10.000490052150653,
+      "factory_predictions": [
+        {
+          "factory_id": 316939227,
+          "factory_name": "Yeni Sanayi",
+          "current_emissions_ton": 307.3296733318172,
+          "predicted_emissions_ton": 264.58869302568354,
+          "emission_change_ton": -42.74098030613368,
+          "emission_change_percent": -13.907209103101204,
+          "prediction_year": 2026,
+          "prediction_factors": {
+            "sector_growth": 0.038,
+            "tech_level": "high",
+            "tech_factor": 0.85,
+            "regulation_effect": 0.96,
+            "economic_effect": 1.035
+          }
+        },
+        {
+          "factory_id": 467792741,
+          "factory_name": "Hacıbalı Organize Sanayi Bölgesi",
+          "current_emissions_ton": 115.52080290341031,
+          "predicted_emissions_ton": 115.9746633981684,
+          "emission_change_ton": 0.4538604947580893,
+          "emission_change_percent": 0.3928820466540324,
+          "prediction_year": 2026,
+          "prediction_factors": {
+            "sector_growth": 0.038,
+            "tech_level": "low",
+            "tech_factor": 0.98,
+            "regulation_effect": 0.96,
+            "economic_effect": 1.035
+          }
+        }
+      ]
+    },
+    {
+      "region": "Kirklareli, Turkey",
+      "factory_count": 2,
+      "current_total_emissions_ton": 842.7351202875105,
+      "predicted_total_emissions_ton": 834.5142382139962,
+      "emission_change_ton": -8.220882073514304,
+      "emission_change_percent": -0.9755001157077253,
+      "factory_predictions": [
+        {
+          "factory_id": 744216475,
+          "factory_name": "Yaşar Örs Tarım Aletleri Sanayi ve Ticaret Limited Şirketi",
+          "current_emissions_ton": 459.90171068771144,
+          "predicted_emissions_ton": 464.309087035453,
+          "emission_change_ton": 4.407376347741547,
+          "emission_change_percent": 0.9583300616888338,
+          "prediction_year": 2026,
+          "prediction_factors": {
+            "sector_growth": 0.038,
+            "tech_level": "low",
+            "tech_factor": 0.98,
+            "regulation_effect": 0.96,
+            "economic_effect": 1.035
+          }
+        },
+        {
+          "factory_id": 1209987141,
+          "factory_name": "Soylu Yağ Entegre Tesisleri",
+          "current_emissions_ton": 382.8334095997991,
+          "predicted_emissions_ton": 370.20515117854325,
+          "emission_change_ton": -12.62825842125585,
+          "emission_change_percent": -3.29863018863923,
+          "prediction_year": 2026,
+          "prediction_factors": {
+            "sector_growth": 0.038,
+            "tech_level": "medium",
+            "tech_factor": 0.92,
+            "regulation_effect": 0.96,
+            "economic_effect": 1.035
+          }
+        }
+      ]
+    },
+    {
+      "region": "Kocaeli, Turkey",
+      "factory_count": 1,
+      "current_total_emissions_ton": 277.58681346164093,
+      "predicted_total_emissions_ton": 258.4537549675675,
+      "emission_change_ton": -19.133058494073452,
+      "emission_change_percent": -6.8926395513803485,
+      "factory_predictions": [
+        {
+          "factory_id": 1084045983,
+          "factory_name": "Federal-Mogul",
+          "current_emissions_ton": 277.58681346164093,
+          "predicted_emissions_ton": 258.4537549675675,
+          "emission_change_ton": -19.133058494073452,
+          "emission_change_percent": -6.8926395513803485,
+          "prediction_year": 2026,
+          "prediction_factors": {
+            "sector_growth": 0.038,
+            "tech_level": "medium",
+            "tech_factor": 0.92,
+            "regulation_effect": 0.96,
+            "economic_effect": 1.035
+          }
+        }
+      ]
+    },
+    {
+      "region": "Konya, Turkey",
+      "factory_count": 74,
+      "current_total_emissions_ton": 49561.332717833386,
+      "predicted_total_emissions_ton": 46504.90707257782,
+      "emission_change_ton": -3056.4256452555637,
+      "emission_change_percent": -6.166956128191013,
+      "factory_predictions": [
+        {
+          "factory_id": 128081925,
+          "factory_name": "Şeker Fabrikası",
+          "current_emissions_ton": 464.77958598048406,
+          "predicted_emissions_ton": 441.60245894208293,
+          "emission_change_ton": -23.177127038401125,
+          "emission_change_percent": -4.9866921305305185,
+          "prediction_year": 2026,
+          "prediction_factors": {
+            "sector_growth": 0.038,
+            "tech_level": "medium",
+            "tech_factor": 0.92,
+            "regulation_effect": 0.96,
+            "economic_effect": 1.035
+          }
+        },
+        {
+          "factory_id": 1107078016,
+          "factory_name": "Fabrika - Konya 2",
+          "current_emissions_ton": 159.2440323833707,
+          "predicted_emissions_ton": 132.95539500330534,
+          "emission_change_ton": -26.288637380065353,
+          "emission_change_percent": -16.508397198067048,
+          "prediction_year": 2026,
+          "prediction_factors": {
+            "sector_growth": 0.038,
+            "tech_level": "high",
+            "tech_factor": 0.85,
+            "regulation_effect": 0.96,
+            "economic_effect": 1.035
+          }
+        },
+        {
+          "factory_id": 1107078017,
+          "factory_name": "Fabrika - Konya 3",
+          "current_emissions_ton": 260.5044955344629,
+          "predicted_emissions_ton": 255.35727434264666,
+          "emission_change_ton": -5.1472211918162145,
+          "emission_change_percent": -1.9758665512685074,
+          "prediction_year": 2026,
+          "prediction_factors": {
+            "sector_growth": 0.038,
+            "tech_level": "medium",
+            "tech_factor": 0.92,
+            "regulation_effect": 0.96,
+            "economic_effect": 1.035
+          }
+        },
+        {
+          "factory_id": 1107081694,
+          "factory_name": "Fabrika - Konya 4",
+          "current_emissions_ton": 1384.4208699137823,
+          "predicted_emissions_ton": 1177.976883586321,
+          "emission_change_ton": -206.4439863274613,
+          "emission_change_percent": -14.911938328430285,
+          "prediction_year": 2026,
+          "prediction_factors": {
+            "sector_growth": 0.038,
+            "tech_level": "high",
+            "tech_factor": 0.85,
+            "regulation_effect": 0.96,
+            "economic_effect": 1.035
+          }
+        },
+        {
+          "factory_id": 1107081695,
+          "factory_name": "Fabrika - Konya 5",
+          "current_emissions_ton": 70.24796386601359,
+          "predicted_emissions_ton": 64.56590301441739,
+          "emission_change_ton": -5.682060851596205,
+          "emission_change_percent": -8.08857728949098,
+          "prediction_year": 2026,
+          "prediction_factors": {
+            "sector_growth": 0.038,
+            "tech_level": "high",
+            "tech_factor": 0.85,
+            "regulation_effect": 0.96,
+            "economic_effect": 1.035
+          }
+        },
+        {
+          "factory_id": 1107081696,
+          "factory_name": "Fabrika - Konya 6",
+          "current_emissions_ton": 195.80308813818314,
+          "predicted_emissions_ton": 184.69840265713702,
+          "emission_change_ton": -11.104685481046118,
+          "emission_change_percent": -5.671353596430135,
+          "prediction_year": 2026,
+          "prediction_factors": {
+            "sector_growth": 0.038,
+            "tech_level": "medium",
+            "tech_factor": 0.92,
+            "regulation_effect": 0.96,
+            "economic_effect": 1.035
+          }
+        },
+        {
+          "factory_id": 1107081697,
+          "factory_name": "Fabrika - Konya 7",
+          "current_emissions_ton": 161.16519333137467,
+          "predicted_emissions_ton": 146.10987866631044,
+          "emission_change_ton": -15.05531466506423,
+          "emission_change_percent": -9.341542273404361,
+          "prediction_year": 2026,
+          "prediction_factors": {
+            "sector_growth": 0.038,
+            "tech_level": "medium",
+            "tech_factor": 0.92,
+            "regulation_effect": 0.96,
+            "economic_effect": 1.035
+          }
+        },
+        {
+          "factory_id": 1107081698,
+          "factory_name": "Fabrika - Konya 8",
+          "current_emissions_ton": 68.07628155278374,
+          "predicted_emissions_ton": 62.33504564479275,
+          "emission_change_ton": -5.7412359079909905,
+          "emission_change_percent": -8.433533349701916,
+          "prediction_year": 2026,
+          "prediction_factors": {
+            "sector_growth": 0.038,
+            "tech_level": "medium",
+            "tech_factor": 0.92,
+            "regulation_effect": 0.96,
+            "economic_effect": 1.035
+          }
+        },
+        {
+          "factory_id": 1107081699,
+          "factory_name": "Fabrika - Konya 9",
+          "current_emissions_ton": 978.9105105397663,
+          "predicted_emissions_ton": 988.2297259247089,
+          "emission_change_ton": 9.319215384942595,
+          "emission_change_percent": 0.9519987051527342,
+          "prediction_year": 2026,
+          "prediction_factors": {
+            "sector_growth": 0.038,
+            "tech_level": "low",
+            "tech_factor": 0.98,
+            "regulation_effect": 0.96,
+            "economic_effect": 1.035
+          }
+        },
+        {
+          "factory_id": 1107081700,
+          "factory_name": "Fabrika - Konya 10",
+          "current_emissions_ton": 668.2322605231582,
+          "predicted_emissions_ton": 640.4982048498549,
+          "emission_change_ton": -27.73405567330326,
+          "emission_change_percent": -4.150361679873148,
+          "prediction_year": 2026,
+          "prediction_factors": {
+            "sector_growth": 0.038,
+            "tech_level": "medium",
+            "tech_factor": 0.92,
+            "regulation_effect": 0.96,
+            "economic_effect": 1.035
+          }
+        },
+        {
+          "factory_id": 1107081701,
+          "factory_name": "Fabrika - Konya 11",
+          "current_emissions_ton": 1040.1553978898169,
+          "predicted_emissions_ton": 900.1726607212247,
+          "emission_change_ton": -139.98273716859217,
+          "emission_change_percent": -13.457867685211058,
+          "prediction_year": 2026,
+          "prediction_factors": {
+            "sector_growth": 0.038,
+            "tech_level": "high",
+            "tech_factor": 0.85,
+            "regulation_effect": 0.96,
+            "economic_effect": 1.035
+          }
+        },
+        {
+          "factory_id": 1107081702,
+          "factory_name": "Fabrika - Konya 12",
+          "current_emissions_ton": 211.54206657632565,
+          "predicted_emissions_ton": 198.51760229502656,
+          "emission_change_ton": -13.024464281299089,
+          "emission_change_percent": -6.156914552311885,
+          "prediction_year": 2026,
+          "prediction_factors": {
+            "sector_growth": 0.038,
+            "tech_level": "medium",
+            "tech_factor": 0.92,
+            "regulation_effect": 0.96,
+            "economic_effect": 1.035
+          }
+        },
+        {
+          "factory_id": 1107081703,
+          "factory_name": "Fabrika - Konya 13",
+          "current_emissions_ton": 289.6786570604149,
+          "predicted_emissions_ton": 287.9023963537294,
+          "emission_change_ton": -1.7762607066854912,
+          "emission_change_percent": -0.6131831473918485,
+          "prediction_year": 2026,
+          "prediction_factors": {
+            "sector_growth": 0.038,
+            "tech_level": "low",
+            "tech_factor": 0.98,
+            "regulation_effect": 0.96,
+            "economic_effect": 1.035
+          }
+        },
+        {
+          "factory_id": 1107335753,
+          "factory_name": "Fabrika - Konya 14",
+          "current_emissions_ton": 485.36028371204065,
+          "predicted_emissions_ton": 464.31396711643663,
+          "emission_change_ton": -21.046316595604026,
+          "emission_change_percent": -4.336225542527207,
+          "prediction_year": 2026,
+          "prediction_factors": {
+            "sector_growth": 0.038,
+            "tech_level": "medium",
+            "tech_factor": 0.92,
+            "regulation_effect": 0.96,
+            "economic_effect": 1.035
+          }
+        },
+        {
+          "factory_id": 1107335754,
+          "factory_name": "Fabrika - Konya 15",
+          "current_emissions_ton": 686.7520502216072,
+          "predicted_emissions_ton": 700.5927780243125,
+          "emission_change_ton": 13.84072780270526,
+          "emission_change_percent": 2.015389367711245,
+          "prediction_year": 2026,
+          "prediction_factors": {
+            "sector_growth": 0.038,
+            "tech_level": "low",
+            "tech_factor": 0.98,
+            "regulation_effect": 0.96,
+            "economic_effect": 1.035
+          }
+        },
+        {
+          "factory_id": 1107335755,
+          "factory_name": "Fabrika - Konya 16",
+          "current_emissions_ton": 377.95277908277217,
+          "predicted_emissions_ton": 350.58417724679174,
+          "emission_change_ton": -27.368601835980428,
+          "emission_change_percent": -7.241275458378536,
+          "prediction_year": 2026,
+          "prediction_factors": {
+            "sector_growth": 0.038,
+            "tech_level": "medium",
+            "tech_factor": 0.92,
+            "regulation_effect": 0.96,
+            "economic_effect": 1.035
+          }
+        },
+        {
+          "factory_id": 1154919802,
+          "factory_name": "BESTOCLASS TEKNOLOJİ",
+          "current_emissions_ton": 515.1294863629939,
+          "predicted_emissions_ton": 464.6236753785288,
+          "emission_change_ton": -50.50581098446514,
+          "emission_change_percent": -9.804488448342372,
+          "prediction_year": 2026,
+          "prediction_factors": {
+            "sector_growth": 0.038,
+            "tech_level": "medium",
+            "tech_factor": 0.92,
+            "regulation_effect": 0.96,
+            "economic_effect": 1.035
+          }
+        },
+        {
+          "factory_id": 1154920060,
+          "factory_name": "Fabrika - Konya 18",
+          "current_emissions_ton": 1336.5123178883275,
+          "predicted_emissions_ton": 1291.3868197280751,
+          "emission_change_ton": -45.12549816025239,
+          "emission_change_percent": -3.3763623092939468,
+          "prediction_year": 2026,
+          "prediction_factors": {
+            "sector_growth": 0.038,
+            "tech_level": "low",
+            "tech_factor": 0.98,
+            "regulation_effect": 0.96,
+            "economic_effect": 1.035
+          }
+        },
+        {
+          "factory_id": 1154920061,
+          "factory_name": "SAFA TARIM SANAYİ SİTESİ",
+          "current_emissions_ton": 499.4198486886911,
+          "predicted_emissions_ton": 434.8580509249688,
+          "emission_change_ton": -64.56179776372232,
+          "emission_change_percent": -12.927359201529523,
+          "prediction_year": 2026,
+          "prediction_factors": {
+            "sector_growth": 0.038,
+            "tech_level": "high",
+            "tech_factor": 0.85,
+            "regulation_effect": 0.96,
+            "economic_effect": 1.035
+          }
+        },
+        {
+          "factory_id": 1154920062,
+          "factory_name": "SAFA TARIM SANAYİ SİTESİ",
+          "current_emissions_ton": 465.34515499341956,
+          "predicted_emissions_ton": 446.8249195085545,
+          "emission_change_ton": -18.520235484865054,
+          "emission_change_percent": -3.9798921910182883,
+          "prediction_year": 2026,
+          "prediction_factors": {
+            "sector_growth": 0.038,
+            "tech_level": "low",
+            "tech_factor": 0.98,
+            "regulation_effect": 0.96,
+            "economic_effect": 1.035
+          }
+        },
+        {
+          "factory_id": 1154920063,
+          "factory_name": "SAFA TARIM SANAYİ SİTESİ",
+          "current_emissions_ton": 210.14702782569137,
+          "predicted_emissions_ton": 209.52320789380386,
+          "emission_change_ton": -0.6238199318875104,
+          "emission_change_percent": -0.2968492765955007,
+          "prediction_year": 2026,
+          "prediction_factors": {
+            "sector_growth": 0.038,
+            "tech_level": "low",
+            "tech_factor": 0.98,
+            "regulation_effect": 0.96,
+            "economic_effect": 1.035
+          }
+        },
+        {
+          "factory_id": 1193783651,
+          "factory_name": "SC Group Lift Asansör",
+          "current_emissions_ton": 1527.7435533652465,
+          "predicted_emissions_ton": 1476.875443942732,
+          "emission_change_ton": -50.86810942251441,
+          "emission_change_percent": -3.329623568724238,
+          "prediction_year": 2026,
+          "prediction_factors": {
+            "sector_growth": 0.038,
+            "tech_level": "low",
+            "tech_factor": 0.98,
+            "regulation_effect": 0.96,
+            "economic_effect": 1.035
+          }
+        },
+        {
+          "factory_id": 1217064212,
+          "factory_name": "Fabrika - Konya 23",
+          "current_emissions_ton": 986.9239974310166,
+          "predicted_emissions_ton": 952.5724444778227,
+          "emission_change_ton": -34.351552953193845,
+          "emission_change_percent": -3.4806685259059096,
+          "prediction_year": 2026,
+          "prediction_factors": {
+            "sector_growth": 0.038,
+            "tech_level": "low",
+            "tech_factor": 0.98,
+            "regulation_effect": 0.96,
+            "economic_effect": 1.035
+          }
+        },
+        {
+          "factory_id": 1217064213,
+          "factory_name": "Fabrika - Konya 24",
+          "current_emissions_ton": 597.6972191787015,
+          "predicted_emissions_ton": 541.7034113306481,
+          "emission_change_ton": -55.99380784805339,
+          "emission_change_percent": -9.368256376530368,
+          "prediction_year": 2026,
+          "prediction_factors": {
+            "sector_growth": 0.038,
+            "tech_level": "high",
+            "tech_factor": 0.85,
+            "regulation_effect": 0.96,
+            "economic_effect": 1.035
+          }
+        },
+        {
+          "factory_id": 1217064214,
+          "factory_name": "Fabrika - Konya 25",
+          "current_emissions_ton": 674.601068105723,
+          "predicted_emissions_ton": 625.9794594698042,
+          "emission_change_ton": -48.62160863591885,
+          "emission_change_percent": -7.207460962439345,
+          "prediction_year": 2026,
+          "prediction_factors": {
+            "sector_growth": 0.038,
+            "tech_level": "medium",
+            "tech_factor": 0.92,
+            "regulation_effect": 0.96,
+            "economic_effect": 1.035
+          }
+        },
+        {
+          "factory_id": 1217064215,
+          "factory_name": "Fabrika - Konya 26",
+          "current_emissions_ton": 404.9950019048018,
+          "predicted_emissions_ton": 393.80810549843187,
+          "emission_change_ton": -11.186896406369954,
+          "emission_change_percent": -2.7622307321707504,
+          "prediction_year": 2026,
+          "prediction_factors": {
+            "sector_growth": 0.038,
+            "tech_level": "low",
+            "tech_factor": 0.98,
+            "regulation_effect": 0.96,
+            "economic_effect": 1.035
+          }
+        },
+        {
+          "factory_id": 1217064216,
+          "factory_name": "Fabrika - Konya 27",
+          "current_emissions_ton": 1280.6984537385886,
+          "predicted_emissions_ton": 1346.3420482366932,
+          "emission_change_ton": 65.64359449810468,
+          "emission_change_percent": 5.125608944594197,
+          "prediction_year": 2026,
+          "prediction_factors": {
+            "sector_growth": 0.038,
+            "tech_level": "low",
+            "tech_factor": 0.98,
+            "regulation_effect": 0.96,
+            "economic_effect": 1.035
+          }
+        },
+        {
+          "factory_id": 1217064217,
+          "factory_name": "Fabrika - Konya 28",
+          "current_emissions_ton": 1580.3902789988722,
+          "predicted_emissions_ton": 1343.3108919894908,
+          "emission_change_ton": -237.07938700938143,
+          "emission_change_percent": -15.00131898808969,
+          "prediction_year": 2026,
+          "prediction_factors": {
+            "sector_growth": 0.038,
+            "tech_level": "high",
+            "tech_factor": 0.85,
+            "regulation_effect": 0.96,
+            "economic_effect": 1.035
+          }
+        },
+        {
+          "factory_id": 1217064218,
+          "factory_name": "Fabrika - Konya 29",
+          "current_emissions_ton": 409.1843692290706,
+          "predicted_emissions_ton": 424.86852025625603,
+          "emission_change_ton": 15.684151027185408,
+          "emission_change_percent": 3.8330278980928196,
+          "prediction_year": 2026,
+          "prediction_factors": {
+            "sector_growth": 0.038,
+            "tech_level": "low",
+            "tech_factor": 0.98,
+            "regulation_effect": 0.96,
+            "economic_effect": 1.035
+          }
+        },
+        {
+          "factory_id": 1217064219,
+          "factory_name": "Fabrika - Konya 30",
+          "current_emissions_ton": 420.88333930982014,
+          "predicted_emissions_ton": 375.31141464554895,
+          "emission_change_ton": -45.571924664271194,
+          "emission_change_percent": -10.827685585987247,
+          "prediction_year": 2026,
+          "prediction_factors": {
+            "sector_growth": 0.038,
+            "tech_level": "high",
+            "tech_factor": 0.85,
+            "regulation_effect": 0.96,
+            "economic_effect": 1.035
+          }
+        },
+        {
+          "factory_id": 1217064220,
+          "factory_name": "Fabrika - Konya 31",
+          "current_emissions_ton": 644.0775076542067,
+          "predicted_emissions_ton": 583.6190012712391,
+          "emission_change_ton": -60.458506382967585,
+          "emission_change_percent": -9.386837090952513,
+          "prediction_year": 2026,
+          "prediction_factors": {
+            "sector_growth": 0.038,
+            "tech_level": "high",
+            "tech_factor": 0.85,
+            "regulation_effect": 0.96,
+            "economic_effect": 1.035
+          }
+        },
+        {
+          "factory_id": 1217064221,
+          "factory_name": "Fabrika - Konya 32",
+          "current_emissions_ton": 291.8777456052412,
+          "predicted_emissions_ton": 245.5502009533479,
+          "emission_change_ton": -46.327544651893305,
+          "emission_change_percent": -15.872242865185884,
+          "prediction_year": 2026,
+          "prediction_factors": {
+            "sector_growth": 0.038,
+            "tech_level": "high",
+            "tech_factor": 0.85,
+            "regulation_effect": 0.96,
+            "economic_effect": 1.035
+          }
+        },
+        {
+          "factory_id": 1217064222,
+          "factory_name": "Fabrika - Konya 33",
+          "current_emissions_ton": 297.268072594889,
+          "predicted_emissions_ton": 286.57223103387463,
+          "emission_change_ton": -10.69584156101439,
+          "emission_change_percent": -3.5980458539153206,
+          "prediction_year": 2026,
+          "prediction_factors": {
+            "sector_growth": 0.038,
+            "tech_level": "low",
+            "tech_factor": 0.98,
+            "regulation_effect": 0.96,
+            "economic_effect": 1.035
+          }
+        },
+        {
+          "factory_id": 1217064223,
+          "factory_name": "Fabrika - Konya 34",
+          "current_emissions_ton": 355.9876430667192,
+          "predicted_emissions_ton": 308.57587117631647,
+          "emission_change_ton": -47.41177189040275,
+          "emission_change_percent": -13.318375739664882,
+          "prediction_year": 2026,
+          "prediction_factors": {
+            "sector_growth": 0.038,
+            "tech_level": "high",
+            "tech_factor": 0.85,
+            "regulation_effect": 0.96,
+            "economic_effect": 1.035
+          }
+        },
+        {
+          "factory_id": 1217064224,
+          "factory_name": "Fabrika - Konya 35",
+          "current_emissions_ton": 2164.7548405188722,
+          "predicted_emissions_ton": 2220.776915209476,
+          "emission_change_ton": 56.02207469060386,
+          "emission_change_percent": 2.5879177467124115,
+          "prediction_year": 2026,
+          "prediction_factors": {
+            "sector_growth": 0.038,
+            "tech_level": "low",
+            "tech_factor": 0.98,
+            "regulation_effect": 0.96,
+            "economic_effect": 1.035
+          }
+        },
+        {
+          "factory_id": 1217064225,
+          "factory_name": "Fabrika - Konya 36",
+          "current_emissions_ton": 288.97818226827894,
+          "predicted_emissions_ton": 245.62770371037448,
+          "emission_change_ton": -43.35047855790447,
+          "emission_change_percent": -15.001298097189613,
+          "prediction_year": 2026,
+          "prediction_factors": {
+            "sector_growth": 0.038,
+            "tech_level": "high",
+            "tech_factor": 0.85,
+            "regulation_effect": 0.96,
+            "economic_effect": 1.035
+          }
+        },
+        {
+          "factory_id": 1217064226,
+          "factory_name": "Fabrika - Konya 37",
+          "current_emissions_ton": 468.2687258153566,
+          "predicted_emissions_ton": 448.3027905559499,
+          "emission_change_ton": -19.965935259406706,
+          "emission_change_percent": -4.263777219937487,
+          "prediction_year": 2026,
+          "prediction_factors": {
+            "sector_growth": 0.038,
+            "tech_level": "medium",
+            "tech_factor": 0.92,
+            "regulation_effect": 0.96,
+            "economic_effect": 1.035
+          }
+        },
+        {
+          "factory_id": 1217064227,
+          "factory_name": "Fabrika - Konya 38",
+          "current_emissions_ton": 546.2956974772364,
+          "predicted_emissions_ton": 573.1111440109318,
+          "emission_change_ton": 26.815446533695308,
+          "emission_change_percent": 4.908595593472101,
+          "prediction_year": 2026,
+          "prediction_factors": {
+            "sector_growth": 0.038,
+            "tech_level": "low",
+            "tech_factor": 0.98,
+            "regulation_effect": 0.96,
+            "economic_effect": 1.035
+          }
+        },
+        {
+          "factory_id": 1217064228,
+          "factory_name": "Fabrika - Konya 39",
+          "current_emissions_ton": 1066.3448269496225,
+          "predicted_emissions_ton": 1060.7461447057874,
+          "emission_change_ton": -5.598682243835128,
+          "emission_change_percent": -0.5250348763683389,
+          "prediction_year": 2026,
+          "prediction_factors": {
+            "sector_growth": 0.038,
+            "tech_level": "low",
+            "tech_factor": 0.98,
+            "regulation_effect": 0.96,
+            "economic_effect": 1.035
+          }
+        },
+        {
+          "factory_id": 1217064229,
+          "factory_name": "Fabrika - Konya 40",
+          "current_emissions_ton": 427.3475124745321,
+          "predicted_emissions_ton": 417.41453940998304,
+          "emission_change_ton": -9.93297306454906,
+          "emission_change_percent": -2.3243315509274245,
+          "prediction_year": 2026,
+          "prediction_factors": {
+            "sector_growth": 0.038,
+            "tech_level": "low",
+            "tech_factor": 0.98,
+            "regulation_effect": 0.96,
+            "economic_effect": 1.035
+          }
+        },
+        {
+          "factory_id": 1217064230,
+          "factory_name": "Fabrika - Konya 41",
+          "current_emissions_ton": 1263.8904916008637,
+          "predicted_emissions_ton": 1313.2117819328087,
+          "emission_change_ton": 49.321290331944965,
+          "emission_change_percent": 3.902338901962451,
+          "prediction_year": 2026,
+          "prediction_factors": {
+            "sector_growth": 0.038,
+            "tech_level": "low",
+            "tech_factor": 0.98,
+            "regulation_effect": 0.96,
+            "economic_effect": 1.035
+          }
+        },
+        {
+          "factory_id": 1217064231,
+          "factory_name": "Fabrika - Konya 42",
+          "current_emissions_ton": 861.0237320600088,
+          "predicted_emissions_ton": 791.106448896499,
+          "emission_change_ton": -69.91728316350975,
+          "emission_change_percent": -8.120250413566636,
+          "prediction_year": 2026,
+          "prediction_factors": {
+            "sector_growth": 0.038,
+            "tech_level": "high",
+            "tech_factor": 0.85,
+            "regulation_effect": 0.96,
+            "economic_effect": 1.035
+          }
+        },
+        {
+          "factory_id": 1217064232,
+          "factory_name": "Fabrika - Konya 43",
+          "current_emissions_ton": 1153.0522991374423,
+          "predicted_emissions_ton": 1062.3865761993143,
+          "emission_change_ton": -90.66572293812806,
+          "emission_change_percent": -7.863105863103684,
+          "prediction_year": 2026,
+          "prediction_factors": {
+            "sector_growth": 0.038,
+            "tech_level": "medium",
+            "tech_factor": 0.92,
+            "regulation_effect": 0.96,
+            "economic_effect": 1.035
+          }
+        },
+        {
+          "factory_id": 1217064233,
+          "factory_name": "Fabrika - Konya 44",
+          "current_emissions_ton": 411.9352326990726,
+          "predicted_emissions_ton": 362.05289271936584,
+          "emission_change_ton": -49.882339979706785,
+          "emission_change_percent": -12.10926767610259,
+          "prediction_year": 2026,
+          "prediction_factors": {
+            "sector_growth": 0.038,
+            "tech_level": "high",
+            "tech_factor": 0.85,
+            "regulation_effect": 0.96,
+            "economic_effect": 1.035
+          }
+        },
+        {
+          "factory_id": 1217064234,
+          "factory_name": "Fabrika - Konya 45",
+          "current_emissions_ton": 1844.663926059294,
+          "predicted_emissions_ton": 1634.9240686061032,
+          "emission_change_ton": -209.73985745319078,
+          "emission_change_percent": -11.37008505940984,
+          "prediction_year": 2026,
+          "prediction_factors": {
+            "sector_growth": 0.038,
+            "tech_level": "high",
+            "tech_factor": 0.85,
+            "regulation_effect": 0.96,
+            "economic_effect": 1.035
+          }
+        },
+        {
+          "factory_id": 1217064235,
+          "factory_name": "Fabrika - Konya 46",
+          "current_emissions_ton": 490.2372876605301,
+          "predicted_emissions_ton": 483.32411752639206,
+          "emission_change_ton": -6.913170134138056,
+          "emission_change_percent": -1.410168159000821,
+          "prediction_year": 2026,
+          "prediction_factors": {
+            "sector_growth": 0.038,
+            "tech_level": "low",
+            "tech_factor": 0.98,
+            "regulation_effect": 0.96,
+            "economic_effect": 1.035
+          }
+        },
+        {
+          "factory_id": 1217064236,
+          "factory_name": "Fabrika - Konya 47",
+          "current_emissions_ton": 771.7310877382165,
+          "predicted_emissions_ton": 730.9887007670376,
+          "emission_change_ton": -40.74238697117892,
+          "emission_change_percent": -5.279350232033076,
+          "prediction_year": 2026,
+          "prediction_factors": {
+            "sector_growth": 0.038,
+            "tech_level": "medium",
+            "tech_factor": 0.92,
+            "regulation_effect": 0.96,
+            "economic_effect": 1.035
+          }
+        },
+        {
+          "factory_id": 1217064237,
+          "factory_name": "Fabrika - Konya 48",
+          "current_emissions_ton": 194.8880040039103,
+          "predicted_emissions_ton": 185.28616497030342,
+          "emission_change_ton": -9.601839033606893,
+          "emission_change_percent": -4.9268496964103745,
+          "prediction_year": 2026,
+          "prediction_factors": {
+            "sector_growth": 0.038,
+            "tech_level": "medium",
+            "tech_factor": 0.92,
+            "regulation_effect": 0.96,
+            "economic_effect": 1.035
+          }
+        },
+        {
+          "factory_id": 1217064238,
+          "factory_name": "Fabrika - Konya 49",
+          "current_emissions_ton": 1356.1445714256329,
+          "predicted_emissions_ton": 1216.976693003196,
+          "emission_change_ton": -139.16787842243684,
+          "emission_change_percent": -10.262023780852365,
+          "prediction_year": 2026,
+          "prediction_factors": {
+            "sector_growth": 0.038,
+            "tech_level": "high",
+            "tech_factor": 0.85,
+            "regulation_effect": 0.96,
+            "economic_effect": 1.035
+          }
+        },
+        {
+          "factory_id": 1217064239,
+          "factory_name": "Fabrika - Konya 50",
+          "current_emissions_ton": 498.97105591582044,
+          "predicted_emissions_ton": 512.3897377192844,
+          "emission_change_ton": 13.418681803463983,
+          "emission_change_percent": 2.689270578798422,
+          "prediction_year": 2026,
+          "prediction_factors": {
+            "sector_growth": 0.038,
+            "tech_level": "low",
+            "tech_factor": 0.98,
+            "regulation_effect": 0.96,
+            "economic_effect": 1.035
+          }
+        },
+        {
+          "factory_id": 1217064240,
+          "factory_name": "Fabrika - Konya 51",
+          "current_emissions_ton": 596.2304253796123,
+          "predicted_emissions_ton": 542.2303734873354,
+          "emission_change_ton": -54.000051892276815,
+          "emission_change_percent": -9.056909810983845,
+          "prediction_year": 2026,
+          "prediction_factors": {
+            "sector_growth": 0.038,
+            "tech_level": "high",
+            "tech_factor": 0.85,
+            "regulation_effect": 0.96,
+            "economic_effect": 1.035
+          }
+        },
+        {
+          "factory_id": 1217064241,
+          "factory_name": "Fabrika - Konya 52",
+          "current_emissions_ton": 768.4330705916625,
+          "predicted_emissions_ton": 691.4735707566136,
+          "emission_change_ton": -76.95949983504886,
+          "emission_change_percent": -10.015120741197817,
+          "prediction_year": 2026,
+          "prediction_factors": {
+            "sector_growth": 0.038,
+            "tech_level": "high",
+            "tech_factor": 0.85,
+            "regulation_effect": 0.96,
+            "economic_effect": 1.035
+          }
+        },
+        {
+          "factory_id": 1217064242,
+          "factory_name": "Fabrika - Konya 53",
+          "current_emissions_ton": 1025.0378335583127,
+          "predicted_emissions_ton": 886.6741581208927,
+          "emission_change_ton": -138.36367543742006,
+          "emission_change_percent": -13.498396928150925,
+          "prediction_year": 2026,
+          "prediction_factors": {
+            "sector_growth": 0.038,
+            "tech_level": "high",
+            "tech_factor": 0.85,
+            "regulation_effect": 0.96,
+            "economic_effect": 1.035
+          }
+        },
+        {
+          "factory_id": 1217064243,
+          "factory_name": "Fabrika - Konya 54",
+          "current_emissions_ton": 716.9593199901517,
+          "predicted_emissions_ton": 643.2240797357116,
+          "emission_change_ton": -73.7352402544401,
+          "emission_change_percent": -10.284438488846611,
+          "prediction_year": 2026,
+          "prediction_factors": {
+            "sector_growth": 0.038,
+            "tech_level": "high",
+            "tech_factor": 0.85,
+            "regulation_effect": 0.96,
+            "economic_effect": 1.035
+          }
+        },
+        {
+          "factory_id": 1217064244,
+          "factory_name": "Fabrika - Konya 55",
+          "current_emissions_ton": 1949.6570858846026,
+          "predicted_emissions_ton": 1632.1978482188126,
+          "emission_change_ton": -317.45923766578994,
+          "emission_change_percent": -16.282824295830036,
+          "prediction_year": 2026,
+          "prediction_factors": {
+            "sector_growth": 0.038,
+            "tech_level": "high",
+            "tech_factor": 0.85,
+            "regulation_effect": 0.96,
+            "economic_effect": 1.035
+          }
+        },
+        {
+          "factory_id": 1217064245,
+          "factory_name": "Fabrika - Konya 56",
+          "current_emissions_ton": 1107.405380221142,
+          "predicted_emissions_ton": 1111.7655112479335,
+          "emission_change_ton": 4.360131026791578,
+          "emission_change_percent": 0.39372492717354207,
+          "prediction_year": 2026,
+          "prediction_factors": {
+            "sector_growth": 0.038,
+            "tech_level": "low",
+            "tech_factor": 0.98,
+            "regulation_effect": 0.96,
+            "economic_effect": 1.035
+          }
+        },
+        {
+          "factory_id": 1217064246,
+          "factory_name": "Fabrika - Konya 57",
+          "current_emissions_ton": 415.9347480086488,
+          "predicted_emissions_ton": 399.05543364522947,
+          "emission_change_ton": -16.879314363419326,
+          "emission_change_percent": -4.058164037563975,
+          "prediction_year": 2026,
+          "prediction_factors": {
+            "sector_growth": 0.038,
+            "tech_level": "medium",
+            "tech_factor": 0.92,
+            "regulation_effect": 0.96,
+            "economic_effect": 1.035
+          }
+        },
+        {
+          "factory_id": 1217064247,
+          "factory_name": "Fabrika - Konya 58",
+          "current_emissions_ton": 235.17195206704156,
+          "predicted_emissions_ton": 207.55590445917014,
+          "emission_change_ton": -27.616047607871423,
+          "emission_change_percent": -11.742917199581177,
+          "prediction_year": 2026,
+          "prediction_factors": {
+            "sector_growth": 0.038,
+            "tech_level": "high",
+            "tech_factor": 0.85,
+            "regulation_effect": 0.96,
+            "economic_effect": 1.035
+          }
+        },
+        {
+          "factory_id": 1217064248,
+          "factory_name": "Fabrika - Konya 59",
+          "current_emissions_ton": 435.722603754023,
+          "predicted_emissions_ton": 400.4066032726244,
+          "emission_change_ton": -35.31600048139859,
+          "emission_change_percent": -8.105156853725084,
+          "prediction_year": 2026,
+          "prediction_factors": {
+            "sector_growth": 0.038,
+            "tech_level": "high",
+            "tech_factor": 0.85,
+            "regulation_effect": 0.96,
+            "economic_effect": 1.035
+          }
+        },
+        {
+          "factory_id": 1217064249,
+          "factory_name": "Fabrika - Konya 60",
+          "current_emissions_ton": 1535.2297968030007,
+          "predicted_emissions_ton": 1469.8889141040336,
+          "emission_change_ton": -65.3408826989671,
+          "emission_change_percent": -4.256097871148314,
+          "prediction_year": 2026,
+          "prediction_factors": {
+            "sector_growth": 0.038,
+            "tech_level": "medium",
+            "tech_factor": 0.92,
+            "regulation_effect": 0.96,
+            "economic_effect": 1.035
+          }
+        },
+        {
+          "factory_id": 1217064250,
+          "factory_name": "Fabrika - Konya 61",
+          "current_emissions_ton": 198.5935178419397,
+          "predicted_emissions_ton": 190.48513619846426,
+          "emission_change_ton": -8.10838164347544,
+          "emission_change_percent": -4.082903476199505,
+          "prediction_year": 2026,
+          "prediction_factors": {
+            "sector_growth": 0.038,
+            "tech_level": "medium",
+            "tech_factor": 0.92,
+            "regulation_effect": 0.96,
+            "economic_effect": 1.035
+          }
+        },
+        {
+          "factory_id": 1217064251,
+          "factory_name": "Fabrika - Konya 62",
+          "current_emissions_ton": 294.9879643972388,
+          "predicted_emissions_ton": 299.5980446411662,
+          "emission_change_ton": 4.6100802439274275,
+          "emission_change_percent": 1.5628028259889848,
+          "prediction_year": 2026,
+          "prediction_factors": {
+            "sector_growth": 0.038,
+            "tech_level": "low",
+            "tech_factor": 0.98,
+            "regulation_effect": 0.96,
+            "economic_effect": 1.035
+          }
+        },
+        {
+          "factory_id": 1217064252,
+          "factory_name": "Fabrika - Konya 63",
+          "current_emissions_ton": 179.62067675952034,
+          "predicted_emissions_ton": 165.34385647169114,
+          "emission_change_ton": -14.276820287829196,
+          "emission_change_percent": -7.948316722435737,
+          "prediction_year": 2026,
+          "prediction_factors": {
+            "sector_growth": 0.038,
+            "tech_level": "medium",
+            "tech_factor": 0.92,
+            "regulation_effect": 0.96,
+            "economic_effect": 1.035
+          }
+        },
+        {
+          "factory_id": 1217064253,
+          "factory_name": "Fabrika - Konya 64",
+          "current_emissions_ton": 771.1445325663233,
+          "predicted_emissions_ton": 727.0428655636642,
+          "emission_change_ton": -44.10166700265904,
+          "emission_change_percent": -5.718988482728563,
+          "prediction_year": 2026,
+          "prediction_factors": {
+            "sector_growth": 0.038,
+            "tech_level": "medium",
+            "tech_factor": 0.92,
+            "regulation_effect": 0.96,
+            "economic_effect": 1.035
+          }
+        },
+        {
+          "factory_id": 1217064254,
+          "factory_name": "Fabrika - Konya 65",
+          "current_emissions_ton": 858.4708539317111,
+          "predicted_emissions_ton": 790.3838682067577,
+          "emission_change_ton": -68.08698572495337,
+          "emission_change_percent": -7.931193634952398,
+          "prediction_year": 2026,
+          "prediction_factors": {
+            "sector_growth": 0.038,
+            "tech_level": "medium",
+            "tech_factor": 0.92,
+            "regulation_effect": 0.96,
+            "economic_effect": 1.035
+          }
+        },
+        {
+          "factory_id": 1217067963,
+          "factory_name": "Fabrika - Konya 66",
+          "current_emissions_ton": 1047.7661922159896,
+          "predicted_emissions_ton": 956.943396028684,
+          "emission_change_ton": -90.82279618730558,
+          "emission_change_percent": -8.668231220098683,
+          "prediction_year": 2026,
+          "prediction_factors": {
+            "sector_growth": 0.038,
+            "tech_level": "high",
+            "tech_factor": 0.85,
+            "regulation_effect": 0.96,
+            "economic_effect": 1.035
+          }
+        },
+        {
+          "factory_id": 1217067964,
+          "factory_name": "Fabrika - Konya 67",
+          "current_emissions_ton": 134.80067310238329,
+          "predicted_emissions_ton": 119.8727849829198,
+          "emission_change_ton": -14.92788811946349,
+          "emission_change_percent": -11.074045682342785,
+          "prediction_year": 2026,
+          "prediction_factors": {
+            "sector_growth": 0.038,
+            "tech_level": "high",
+            "tech_factor": 0.85,
+            "regulation_effect": 0.96,
+            "economic_effect": 1.035
+          }
+        },
+        {
+          "factory_id": 1217067965,
+          "factory_name": "Fabrika - Konya 68",
+          "current_emissions_ton": 984.4029401815621,
+          "predicted_emissions_ton": 986.7690739046218,
+          "emission_change_ton": 2.3661337230596473,
+          "emission_change_percent": 0.2403623177540734,
+          "prediction_year": 2026,
+          "prediction_factors": {
+            "sector_growth": 0.038,
+            "tech_level": "low",
+            "tech_factor": 0.98,
+            "regulation_effect": 0.96,
+            "economic_effect": 1.035
+          }
+        },
+        {
+          "factory_id": 1217067966,
+          "factory_name": "Fabrika - Konya 69",
+          "current_emissions_ton": 409.28535850223034,
+          "predicted_emissions_ton": 352.6573306966685,
+          "emission_change_ton": -56.62802780556183,
+          "emission_change_percent": -13.835830339201651,
+          "prediction_year": 2026,
+          "prediction_factors": {
+            "sector_growth": 0.038,
+            "tech_level": "high",
+            "tech_factor": 0.85,
+            "regulation_effect": 0.96,
+            "economic_effect": 1.035
+          }
+        },
+        {
+          "factory_id": 1217067967,
+          "factory_name": "Fabrika - Konya 70",
+          "current_emissions_ton": 282.1488578750234,
+          "predicted_emissions_ton": 280.93549690651764,
+          "emission_change_ton": -1.2133609685057536,
+          "emission_change_percent": -0.4300428425066341,
+          "prediction_year": 2026,
+          "prediction_factors": {
+            "sector_growth": 0.038,
+            "tech_level": "medium",
+            "tech_factor": 0.92,
+            "regulation_effect": 0.96,
+            "economic_effect": 1.035
+          }
+        },
+        {
+          "factory_id": 1217067968,
+          "factory_name": "Fabrika - Konya 71",
+          "current_emissions_ton": 644.5326671803629,
+          "predicted_emissions_ton": 624.2433950290954,
+          "emission_change_ton": -20.289272151267483,
+          "emission_change_percent": -3.147904394051424,
+          "prediction_year": 2026,
+          "prediction_factors": {
+            "sector_growth": 0.038,
+            "tech_level": "medium",
+            "tech_factor": 0.92,
+            "regulation_effect": 0.96,
+            "economic_effect": 1.035
+          }
+        },
+        {
+          "factory_id": 1217067969,
+          "factory_name": "Fabrika - Konya 72",
+          "current_emissions_ton": 310.0566718881727,
+          "predicted_emissions_ton": 283.91546296777193,
+          "emission_change_ton": -26.141208920400743,
+          "emission_change_percent": -8.4311067267822,
+          "prediction_year": 2026,
+          "prediction_factors": {
+            "sector_growth": 0.038,
+            "tech_level": "medium",
+            "tech_factor": 0.92,
+            "regulation_effect": 0.96,
+            "economic_effect": 1.035
+          }
+        },
+        {
+          "factory_id": 1217067970,
+          "factory_name": "Fabrika - Konya 73",
+          "current_emissions_ton": 232.11384384014104,
+          "predicted_emissions_ton": 198.04860892432845,
+          "emission_change_ton": -34.065234915812596,
+          "emission_change_percent": -14.67608926388451,
+          "prediction_year": 2026,
+          "prediction_factors": {
+            "sector_growth": 0.038,
+            "tech_level": "high",
+            "tech_factor": 0.85,
+            "regulation_effect": 0.96,
+            "economic_effect": 1.035
+          }
+        },
+        {
+          "factory_id": 1217067971,
+          "factory_name": "Fabrika - Konya 74",
+          "current_emissions_ton": 617.3906752395101,
+          "predicted_emissions_ton": 536.850462959078,
+          "emission_change_ton": -80.54021228043212,
+          "emission_change_percent": -13.045258943891143,
+          "prediction_year": 2026,
+          "prediction_factors": {
+            "sector_growth": 0.038,
+            "tech_level": "high",
+            "tech_factor": 0.85,
+            "regulation_effect": 0.96,
+            "economic_effect": 1.035
+          }
+        }
+      ]
+    },
+    {
+      "region": "Ordu, Turkey",
+      "factory_count": 1,
+      "current_total_emissions_ton": 592.2583661130893,
+      "predicted_total_emissions_ton": 581.571210997524,
+      "emission_change_ton": -10.68715511556536,
+      "emission_change_percent": -1.804475162707063,
+      "factory_predictions": [
+        {
+          "factory_id": 286939527,
+          "factory_name": "Fatsa Organize Sanayi Bölgesi",
+          "current_emissions_ton": 592.2583661130893,
+          "predicted_emissions_ton": 581.571210997524,
+          "emission_change_ton": -10.68715511556536,
+          "emission_change_percent": -1.804475162707063,
+          "prediction_year": 2026,
+          "prediction_factors": {
+            "sector_growth": 0.038,
+            "tech_level": "low",
+            "tech_factor": 0.98,
+            "regulation_effect": 0.96,
+            "economic_effect": 1.035
+          }
+        }
+      ]
+    },
+    {
+      "region": "Sakarya, Turkey",
+      "factory_count": 3,
+      "current_total_emissions_ton": 1489.4390457490285,
+      "predicted_total_emissions_ton": 1321.4423585948584,
+      "emission_change_ton": -167.9966871541701,
+      "emission_change_percent": -11.279191829544507,
+      "factory_predictions": [
+        {
+          "factory_id": 263973835,
+          "factory_name": "Eski TÜVASAŞ",
+          "current_emissions_ton": 608.8338365713347,
+          "predicted_emissions_ton": 517.8649595023998,
+          "emission_change_ton": -90.96887706893494,
+          "emission_change_percent": -14.941494970323726,
+          "prediction_year": 2026,
+          "prediction_factors": {
+            "sector_growth": 0.038,
+            "tech_level": "high",
+            "tech_factor": 0.85,
+            "regulation_effect": 0.96,
+            "economic_effect": 1.035
+          }
+        },
+        {
+          "factory_id": 682954270,
+          "factory_name": "Hyundai EURotem Adapazarı Fabrikası",
+          "current_emissions_ton": 615.8057329615491,
+          "predicted_emissions_ton": 545.8571791019631,
+          "emission_change_ton": -69.94855385958601,
+          "emission_change_percent": -11.358866947078845,
+          "prediction_year": 2026,
+          "prediction_factors": {
+            "sector_growth": 0.038,
+            "tech_level": "high",
+            "tech_factor": 0.85,
+            "regulation_effect": 0.96,
+            "economic_effect": 1.035
+          }
+        },
+        {
+          "factory_id": 1084045983,
+          "factory_name": "Federal-Mogul",
+          "current_emissions_ton": 264.7994762161448,
+          "predicted_emissions_ton": 257.7202199904956,
+          "emission_change_ton": -7.079256225649203,
+          "emission_change_percent": -2.673440418692785,
+          "prediction_year": 2026,
+          "prediction_factors": {
+            "sector_growth": 0.038,
+            "tech_level": "medium",
+            "tech_factor": 0.92,
+            "regulation_effect": 0.96,
+            "economic_effect": 1.035
+          }
+        }
+      ]
+    },
+    {
+      "region": "Sivas, Turkey",
+      "factory_count": 1,
+      "current_total_emissions_ton": 1396.9833038618337,
+      "predicted_total_emissions_ton": 1225.9059844278088,
+      "emission_change_ton": -171.07731943402496,
+      "emission_change_percent": -12.246196426335034,
+      "factory_predictions": [
+        {
+          "factory_id": 1028593629,
+          "factory_name": "Demirağ Organize Sanayi Bölgesi",
+          "current_emissions_ton": 1396.9833038618337,
+          "predicted_emissions_ton": 1225.9059844278088,
+          "emission_change_ton": -171.07731943402496,
+          "emission_change_percent": -12.246196426335034,
+          "prediction_year": 2026,
+          "prediction_factors": {
+            "sector_growth": 0.038,
+            "tech_level": "high",
+            "tech_factor": 0.85,
+            "regulation_effect": 0.96,
+            "economic_effect": 1.035
+          }
+        }
+      ]
+    },
+    {
+      "region": "Tekirdag, Turkey",
+      "factory_count": 19,
+      "current_total_emissions_ton": 17298.984796788507,
+      "predicted_total_emissions_ton": 16311.298828353829,
+      "emission_change_ton": -987.6859684346782,
+      "emission_change_percent": -5.709502494146585,
+      "factory_predictions": [
+        {
+          "factory_id": 131888082,
+          "factory_name": "Bunge Gıda Sanayii ve Ticaret Anonim Şirketi",
+          "current_emissions_ton": 916.2761764206678,
+          "predicted_emissions_ton": 916.4882155395105,
+          "emission_change_ton": 0.2120391188427675,
+          "emission_change_percent": 0.0231413982267961,
+          "prediction_year": 2026,
+          "prediction_factors": {
+            "sector_growth": 0.038,
+            "tech_level": "low",
+            "tech_factor": 0.98,
+            "regulation_effect": 0.96,
+            "economic_effect": 1.035
+          }
+        },
+        {
+          "factory_id": 267333018,
+          "factory_name": "Kırklareli Cam Sanayi",
+          "current_emissions_ton": 1856.9191817166652,
+          "predicted_emissions_ton": 1706.2739127869309,
+          "emission_change_ton": -150.64526892973436,
+          "emission_change_percent": -8.11264541898196,
+          "prediction_year": 2026,
+          "prediction_factors": {
+            "sector_growth": 0.038,
+            "tech_level": "medium",
+            "tech_factor": 0.92,
+            "regulation_effect": 0.96,
+            "economic_effect": 1.035
+          }
+        },
+        {
+          "factory_id": 267333740,
+          "factory_name": "Lermioğlu Un",
+          "current_emissions_ton": 754.549862619691,
+          "predicted_emissions_ton": 648.9661223526675,
+          "emission_change_ton": -105.58374026702347,
+          "emission_change_percent": -13.992944071376751,
+          "prediction_year": 2026,
+          "prediction_factors": {
+            "sector_growth": 0.038,
+            "tech_level": "high",
+            "tech_factor": 0.85,
+            "regulation_effect": 0.96,
+            "economic_effect": 1.035
+          }
+        },
+        {
+          "factory_id": 267333741,
+          "factory_name": "Akın Tekstil",
+          "current_emissions_ton": 582.51946404166,
+          "predicted_emissions_ton": 507.0127648471081,
+          "emission_change_ton": -75.50669919455186,
+          "emission_change_percent": -12.962090342984977,
+          "prediction_year": 2026,
+          "prediction_factors": {
+            "sector_growth": 0.038,
+            "tech_level": "high",
+            "tech_factor": 0.85,
+            "regulation_effect": 0.96,
+            "economic_effect": 1.035
+          }
+        },
+        {
+          "factory_id": 626604946,
+          "factory_name": "Koleksiyon Mobilya",
+          "current_emissions_ton": 232.96035695893934,
+          "predicted_emissions_ton": 224.15870455149232,
+          "emission_change_ton": -8.801652407447023,
+          "emission_change_percent": -3.778176047780682,
+          "prediction_year": 2026,
+          "prediction_factors": {
+            "sector_growth": 0.038,
+            "tech_level": "medium",
+            "tech_factor": 0.92,
+            "regulation_effect": 0.96,
+            "economic_effect": 1.035
+          }
+        },
+        {
+          "factory_id": 724819712,
+          "factory_name": "Eskar",
+          "current_emissions_ton": 487.46126854193074,
+          "predicted_emissions_ton": 492.7217978913239,
+          "emission_change_ton": 5.260529349393153,
+          "emission_change_percent": 1.0791686824941353,
+          "prediction_year": 2026,
+          "prediction_factors": {
+            "sector_growth": 0.038,
+            "tech_level": "low",
+            "tech_factor": 0.98,
+            "regulation_effect": 0.96,
+            "economic_effect": 1.035
+          }
+        },
+        {
+          "factory_id": 724819714,
+          "factory_name": "Metropol Tül",
+          "current_emissions_ton": 1311.4021142624156,
+          "predicted_emissions_ton": 1215.8895085673541,
+          "emission_change_ton": -95.51260569506144,
+          "emission_change_percent": -7.283243229234955,
+          "prediction_year": 2026,
+          "prediction_factors": {
+            "sector_growth": 0.038,
+            "tech_level": "medium",
+            "tech_factor": 0.92,
+            "regulation_effect": 0.96,
+            "economic_effect": 1.035
+          }
+        },
+        {
+          "factory_id": 792389852,
+          "factory_name": "Fabrika - Tekirdag 8",
+          "current_emissions_ton": 1388.6395216572503,
+          "predicted_emissions_ton": 1255.0339935321408,
+          "emission_change_ton": -133.60552812510946,
+          "emission_change_percent": -9.621325480183655,
+          "prediction_year": 2026,
+          "prediction_factors": {
+            "sector_growth": 0.038,
+            "tech_level": "medium",
+            "tech_factor": 0.92,
+            "regulation_effect": 0.96,
+            "economic_effect": 1.035
+          }
+        },
+        {
+          "factory_id": 792389887,
+          "factory_name": "Erenko",
+          "current_emissions_ton": 354.62015252961237,
+          "predicted_emissions_ton": 345.4183534983014,
+          "emission_change_ton": -9.20179903131094,
+          "emission_change_percent": -2.594832517461779,
+          "prediction_year": 2026,
+          "prediction_factors": {
+            "sector_growth": 0.038,
+            "tech_level": "medium",
+            "tech_factor": 0.92,
+            "regulation_effect": 0.96,
+            "economic_effect": 1.035
+          }
+        },
+        {
+          "factory_id": 792389896,
+          "factory_name": "Marmara Cam",
+          "current_emissions_ton": 981.6971138742309,
+          "predicted_emissions_ton": 891.7354107590785,
+          "emission_change_ton": -89.96170311515243,
+          "emission_change_percent": -9.163896057524498,
+          "prediction_year": 2026,
+          "prediction_factors": {
+            "sector_growth": 0.038,
+            "tech_level": "medium",
+            "tech_factor": 0.92,
+            "regulation_effect": 0.96,
+            "economic_effect": 1.035
+          }
+        },
+        {
+          "factory_id": 938644039,
+          "factory_name": "Zet Lojistik Hazır Beton San. ve Tic. A.Ş.",
+          "current_emissions_ton": 935.7346846165191,
+          "predicted_emissions_ton": 910.4186760189575,
+          "emission_change_ton": -25.316008597561563,
+          "emission_change_percent": -2.7054686562074504,
+          "prediction_year": 2026,
+          "prediction_factors": {
+            "sector_growth": 0.038,
+            "tech_level": "low",
+            "tech_factor": 0.98,
+            "regulation_effect": 0.96,
+            "economic_effect": 1.035
+          }
+        },
+        {
+          "factory_id": 1039242107,
+          "factory_name": "Salcano Fabrika",
+          "current_emissions_ton": 677.2769377957708,
+          "predicted_emissions_ton": 647.2220032810886,
+          "emission_change_ton": -30.054934514682145,
+          "emission_change_percent": -4.437613749627638,
+          "prediction_year": 2026,
+          "prediction_factors": {
+            "sector_growth": 0.038,
+            "tech_level": "medium",
+            "tech_factor": 0.92,
+            "regulation_effect": 0.96,
+            "economic_effect": 1.035
+          }
+        },
+        {
+          "factory_id": 1047545431,
+          "factory_name": "Ergen Ziraat",
+          "current_emissions_ton": 1895.815975854156,
+          "predicted_emissions_ton": 1885.295441973486,
+          "emission_change_ton": -10.520533880669973,
+          "emission_change_percent": -0.554934340392926,
+          "prediction_year": 2026,
+          "prediction_factors": {
+            "sector_growth": 0.038,
+            "tech_level": "low",
+            "tech_factor": 0.98,
+            "regulation_effect": 0.96,
+            "economic_effect": 1.035
+          }
+        },
+        {
+          "factory_id": 1052363183,
+          "factory_name": "Kurt Tarım Makineleri",
+          "current_emissions_ton": 680.3724099613129,
+          "predicted_emissions_ton": 656.2468390078232,
+          "emission_change_ton": -24.125570953489728,
+          "emission_change_percent": -3.545936107970861,
+          "prediction_year": 2026,
+          "prediction_factors": {
+            "sector_growth": 0.038,
+            "tech_level": "medium",
+            "tech_factor": 0.92,
+            "regulation_effect": 0.96,
+            "economic_effect": 1.035
+          }
+        },
+        {
+          "factory_id": 1079144349,
+          "factory_name": "Slingsan Endüstriyel Torba San. A.Ş",
+          "current_emissions_ton": 747.3392078426466,
+          "predicted_emissions_ton": 721.4257794652444,
+          "emission_change_ton": -25.91342837740217,
+          "emission_change_percent": -3.467425247526727,
+          "prediction_year": 2026,
+          "prediction_factors": {
+            "sector_growth": 0.038,
+            "tech_level": "medium",
+            "tech_factor": 0.92,
+            "regulation_effect": 0.96,
+            "economic_effect": 1.035
+          }
+        },
+        {
+          "factory_id": 1079144410,
+          "factory_name": "Sarı Tohumculuk Ar Ge Teknoloji Kampüsü",
+          "current_emissions_ton": 290.2311866278592,
+          "predicted_emissions_ton": 262.0931011713169,
+          "emission_change_ton": -28.138085456542285,
+          "emission_change_percent": -9.695059233114584,
+          "prediction_year": 2026,
+          "prediction_factors": {
+            "sector_growth": 0.038,
+            "tech_level": "high",
+            "tech_factor": 0.85,
+            "regulation_effect": 0.96,
+            "economic_effect": 1.035
+          }
+        },
+        {
+          "factory_id": 1090330140,
+          "factory_name": "Eriş Un",
+          "current_emissions_ton": 781.8966379846009,
+          "predicted_emissions_ton": 710.5581823794703,
+          "emission_change_ton": -71.33845560513066,
+          "emission_change_percent": -9.123770603364026,
+          "prediction_year": 2026,
+          "prediction_factors": {
+            "sector_growth": 0.038,
+            "tech_level": "medium",
+            "tech_factor": 0.92,
+            "regulation_effect": 0.96,
+            "economic_effect": 1.035
+          }
+        },
+        {
+          "factory_id": 1326367611,
+          "factory_name": "OSB Dışı Sanayi Alanı",
+          "current_emissions_ton": 1748.3967614004246,
+          "predicted_emissions_ton": 1698.3861969470272,
+          "emission_change_ton": -50.010564453397365,
+          "emission_change_percent": -2.860367026380218,
+          "prediction_year": 2026,
+          "prediction_factors": {
+            "sector_growth": 0.038,
+            "tech_level": "medium",
+            "tech_factor": 0.92,
+            "regulation_effect": 0.96,
+            "economic_effect": 1.035
+          }
+        },
+        {
+          "factory_id": 1350682994,
+          "factory_name": "Tekirdağ Un",
+          "current_emissions_ton": 674.8757820821587,
+          "predicted_emissions_ton": 615.9538237835068,
+          "emission_change_ton": -58.92195829865193,
+          "emission_change_percent": -8.730785703535414,
+          "prediction_year": 2026,
+          "prediction_factors": {
+            "sector_growth": 0.038,
+            "tech_level": "medium",
+            "tech_factor": 0.92,
+            "regulation_effect": 0.96,
+            "economic_effect": 1.035
+          }
+        }
+      ]
+    },
+    {
+      "region": "Trabzon, Turkey",
+      "factory_count": 2,
+      "current_total_emissions_ton": 823.5761451730305,
+      "predicted_total_emissions_ton": 780.7998647528892,
+      "emission_change_ton": -42.776280420141234,
+      "emission_change_percent": -5.193967876662344,
+      "factory_predictions": [
+        {
+          "factory_id": 471123279,
+          "factory_name": "Doğsan Cerrahi Dikiş Mazlemeleri Üretim Tesisleri",
+          "current_emissions_ton": 609.1890261148494,
+          "predicted_emissions_ton": 575.8887589095012,
+          "emission_change_ton": -33.30026720534818,
+          "emission_change_percent": -5.466327490782826,
+          "prediction_year": 2026,
+          "prediction_factors": {
+            "sector_growth": 0.038,
+            "tech_level": "medium",
+            "tech_factor": 0.92,
+            "regulation_effect": 0.96,
+            "economic_effect": 1.035
+          }
+        },
+        {
+          "factory_id": 894767261,
+          "factory_name": "Deva Granit Mermer San. ve Tic. A.Ş.",
+          "current_emissions_ton": 214.387119058181,
+          "predicted_emissions_ton": 204.91110584338796,
+          "emission_change_ton": -9.476013214793056,
+          "emission_change_percent": -4.420047835160016,
+          "prediction_year": 2026,
+          "prediction_factors": {
+            "sector_growth": 0.038,
+            "tech_level": "medium",
+            "tech_factor": 0.92,
+            "regulation_effect": 0.96,
+            "economic_effect": 1.035
+          }
+        }
+      ]
+    },
+    {
+      "region": "Usak, Turkey",
+      "factory_count": 2,
+      "current_total_emissions_ton": 1321.0155275498628,
+      "predicted_total_emissions_ton": 1378.7976279625345,
+      "emission_change_ton": 57.78210041267175,
+      "emission_change_percent": 4.37406670910541,
+      "factory_predictions": [
+        {
+          "factory_id": 173444189,
+          "factory_name": "Uşak Deri (Karma) Organize Sanayi Bölgesi",
+          "current_emissions_ton": 942.4229438636089,
+          "predicted_emissions_ton": 985.8241346777849,
+          "emission_change_ton": 43.40119081417595,
+          "emission_change_percent": 4.605277396605609,
+          "prediction_year": 2026,
+          "prediction_factors": {
+            "sector_growth": 0.038,
+            "tech_level": "low",
+            "tech_factor": 0.98,
+            "regulation_effect": 0.96,
+            "economic_effect": 1.035
+          }
+        },
+        {
+          "factory_id": 190802921,
+          "factory_name": "Uşak Tekstil Organize Sanayi Bölgesi",
+          "current_emissions_ton": 378.5925836862538,
+          "predicted_emissions_ton": 392.9734932847497,
+          "emission_change_ton": 14.380909598495862,
+          "emission_change_percent": 3.7985185706684548,
+          "prediction_year": 2026,
+          "prediction_factors": {
+            "sector_growth": 0.038,
+            "tech_level": "low",
+            "tech_factor": 0.98,
+            "regulation_effect": 0.96,
+            "economic_effect": 1.035
+          }
+        }
+      ]
+    },
+    {
+      "region": "Yalova, Turkey",
+      "factory_count": 1,
+      "current_total_emissions_ton": 488.60557470472236,
+      "predicted_total_emissions_ton": 431.6906302997088,
+      "emission_change_ton": -56.91494440501356,
+      "emission_change_percent": -11.648443519992338,
+      "factory_predictions": [
+        {
+          "factory_id": 1115544718,
+          "factory_name": "Kar Boru Sanayi",
+          "current_emissions_ton": 488.60557470472236,
+          "predicted_emissions_ton": 431.6906302997088,
+          "emission_change_ton": -56.91494440501356,
+          "emission_change_percent": -11.648443519992338,
+          "prediction_year": 2026,
+          "prediction_factors": {
+            "sector_growth": 0.038,
+            "tech_level": "high",
+            "tech_factor": 0.85,
+            "regulation_effect": 0.96,
+            "economic_effect": 1.035
+          }
+        }
+      ]
+    }
+  ],
+  "current_total_emissions_ton": 121136.55350937517,
+  "predicted_total_emissions_ton": 114439.86500805271,
+  "emission_change_ton": -6696.688501322453,
+  "emission_change_percent": -5.52821448796145
+}

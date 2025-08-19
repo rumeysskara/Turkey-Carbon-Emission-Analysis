@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Türkiye Karbon Emisyon Analizi - Gelecek Senaryoları</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <style>
+        .scenario-card {
+            transition: transform 0.3s;
+            height: 100%;
+            border-left: 5px solid #28a745;
+        }
+        
+        .scenario-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .scenario-card.optimistic {
+            border-left-color: #28a745;
+        }
+        
+        .scenario-card.moderate {
+            border-left-color: #17a2b8;
+        }
+        
+        .scenario-card.pessimistic {
+            border-left-color: #dc3545;
+        }
+        
+        .scenario-card.disruptive {
+            border-left-color: #6f42c1;
+        }
+        
+        .scenario-card.policy {
+            border-left-color: #fd7e14;
+        }
+        
+        .probability-badge {
+            font-size: 0.8rem;
+            padding: 0.25rem 0.5rem;
+            border-radius: 50px;
+        }
+        
+        .probability-low {
+            background-color: rgba(220, 53, 69, 0.1);
+            color: #dc3545;
+        }
+        
+        .probability-medium {
+            background-color: rgba(255, 193, 7, 0.1);
+            color: #fd7e14;
+        }
+        
+        .probability-high {
+            background-color: rgba(40, 167, 69, 0.1);
+            color: #28a745;
+        }
+        
+        .impact-badge {
+            font-size: 0.8rem;
+            padding: 0.25rem 0.5rem;
+            border-radius: 50px;
+            margin-left: 0.5rem;
+        }
+        
+        .impact-medium {
+            background-color: rgba(23, 162, 184, 0.1);
+            color: #17a2b8;
+        }
+        
+        .impact-high {
+            background-color: rgba(111, 66, 193, 0.1);
+            color: #6f42c1;
+        }
+        
+        .impact-very-high {
+            background-color: rgba(220, 53, 69, 0.1);
+            color: #dc3545;
+        }
+        
+        .impact-very-high-positive {
+            background-color: rgba(40, 167, 69, 0.1);
+            color: #28a745;
+        }
+        
+        .gemma-section {
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-left: 5px solid #6f42c1;
+        }
+        
+        .gemma-logo {
+            max-width: 100px;
+            margin-bottom: 15px;
+        }
+        
+        .scenario-chart {
+            height: 400px;
+        }
+        
+        .factor-list li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .key-industry {
+            display: inline-block;
+            background-color: #f8f9fa;
+            padding: 0.25rem 0.5rem;
+            border-radius: 5px;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-success">
+        <div class="container">
+            <a class="navbar-brand" href="/">Türkiye Karbon Emisyon Analizi</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Ana Sayfa</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/all-turkey-emissions">Tüm Türkiye Analizi</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/carbon-predictions">Emisyon Tahminleri</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/emission-scenarios">Gelecek Senaryoları</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <div class="jumbotron bg-light p-4 rounded">
+            <h1 class="display-5">Karbon Emisyonu Gelecek Senaryoları</h1>
+            <p class="lead">Bu sayfa, Türkiye'deki fabrikaların gelecek yıl için farklı senaryolarda karbon emisyonu tahminlerini göstermektedir.</p>
+            <p>AI modeli ile oluşturulan senaryolar, farklı politika ve teknoloji koşullarında emisyon değişimlerini analiz etmektedir.</p>
+            <hr class="my-4">
+        </div>
+
+        <!-- AI Analizi Özeti -->
+        <div class="gemma-section mt-4">
+            <div class="d-flex align-items-center mb-3">
+                <i class="bi bi-robot fs-1 me-3 text-primary"></i>
+                <h3 class="mb-0">AI Senaryo Analizi</h3>
+                <button id="refresh-analysis" class="btn btn-outline-primary btn-sm ms-auto">
+                    <i class="bi bi-arrow-clockwise"></i> Verileri Güncelle
+                </button>
+            </div>
+            <div class="alert alert-primary">
+                <i class="bi bi-info-circle-fill me-2"></i>
+                <span id="scenario-summary">
+                    <div class="d-flex align-items-center">
+                        <div class="spinner-border spinner-border-sm text-primary me-2" role="status">
+                            <span class="visually-hidden">Yükleniyor...</span>
+                        </div>
+                        Senaryolar yükleniyor...
+                    </div>
+                </span>
+            </div>
+        </div>
+
+        <!-- Senaryo Karşılaştırma Grafiği -->
+        <div class="card mt-4">
+            <div class="card-header bg-success text-white">
+                <h5 class="mb-0"><i class="bi bi-graph-up"></i> Senaryo Karşılaştırması</h5>
+            </div>
+            <div class="card-body">
+                <canvas id="scenarios-chart" class="scenario-chart"></canvas>
+            </div>
+        </div>
+
+        <!-- Senaryolar -->
+        <h3 class="mt-5 mb-4"><i class="bi bi-diagram-3"></i> Emisyon Senaryoları</h3>
+        <div class="row" id="scenarios-container">
+            <!-- Senaryolar JavaScript ile doldurulacak -->
+        </div>
+
+        <!-- Senaryo Detayları -->
+        <div class="card mt-5">
+            <div class="card-header bg-success text-white">
+                <h5 class="mb-0"><i class="bi bi-search"></i> Senaryo Analiz Metodolojisi</h5>
+            </div>
+            <div class="card-body">
+                <p>Bu senaryolar, aşağıdaki faktörlerin farklı kombinasyonları kullanılarak oluşturulmuştur:</p>
+                <div class="row">
+                    <div class="col-md-6">
+                        <h6><i class="bi bi-arrow-up-right"></i> Büyüme Faktörleri</h6>
+                        <ul>
+                            <li>Ekonomik büyüme oranları</li>
+                            <li>Endüstriyel üretim artışı</li>
+                            <li>Sektörel gelişim trendleri</li>
+                            <li>Nüfus ve kentleşme değişimleri</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6">
+                        <h6><i class="bi bi-arrow-down-right"></i> Azaltım Faktörleri</h6>
+                        <ul>
+                            <li>Teknolojik yenilikler</li>
+                            <li>Enerji verimliliği iyileştirmeleri</li>
+                            <li>Yenilenebilir enerji entegrasyonu</li>
+                            <li>Politika ve düzenlemeler</li>
+                        </ul>
+                    </div>
+                </div>
+                <hr>
+                <p>AI modeli, geçmiş emisyon verilerini, küresel trendleri ve Türkiye'ye özgü faktörleri analiz ederek bu senaryoları oluşturmuştur. Her senaryo için olasılık ve etki değerlendirmesi yapılmıştır.</p>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-dark text-white text-center py-3 mt-5">
+        <p>Türkiye Karbon Emisyon Analizi by Rumeysa Kara</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        // Önbellek anahtarları
+        const CACHE_KEY_EMISSIONS = 'all_turkey_emissions_data';
+        const CACHE_KEY_SCENARIOS = 'emission_scenarios_data';
+        
+        // Veri yükleme (önbellekten veya API'den)
+        function loadData(useCache = true) {
+            if (useCache) {
+                // Önbellekten veri yüklemeyi dene
+                const cachedEmissions = localStorage.getItem(CACHE_KEY_EMISSIONS);
+                const cachedScenarios = localStorage.getItem(CACHE_KEY_SCENARIOS);
+                
+                if (cachedEmissions && cachedScenarios) {
+                    try {
+                        const emissionsData = JSON.parse(cachedEmissions);
+                        const scenarios = JSON.parse(cachedScenarios);
+                        displayScenarioData(emissionsData, scenarios);
+                        return;
+                    } catch (e) {
+                        console.error('Önbellek verisi ayrıştırılamadı:', e);
+                    }
+                }
+            }
+            
+            // Önbellekte veri yoksa veya güncelleme istenirse API'den yükle
+            Promise.all([
+                fetch('/static/data/all_turkey_factory_emissions.json').then(response => response.json()),
+                fetch('/static/data/emission_scenarios.json').then(response => response.json())
+            ]).then(([emissionsData, scenarios]) => {
+                // Verileri önbelleğe kaydet
+                localStorage.setItem(CACHE_KEY_EMISSIONS, JSON.stringify(emissionsData));
+                localStorage.setItem(CACHE_KEY_SCENARIOS, JSON.stringify(scenarios));
+                
+                // Verileri göster
+                displayScenarioData(emissionsData, scenarios);
+            }).catch(error => {
+                console.error('Veri yükleme hatası:', error);
+            });
+        }
+        
+        // Sayfa yüklendiğinde verileri yükle
+        loadData();
+        
+        // Güncelleme butonu işleyicisi
+        document.getElementById('refresh-analysis').addEventListener('click', function() {
+            // Butonu devre dışı bırak ve yükleniyor simgesi göster
+            const button = this;
+            const originalContent = button.innerHTML;
+            button.disabled = true;
+            button.innerHTML = '<i class="bi bi-arrow-repeat"></i> Yükleniyor...';
+            
+            // Verileri yeniden yükle (önbelleği kullanmadan)
+            loadData(false).finally(() => {
+                // İşlem tamamlandığında butonu eski haline getir
+                setTimeout(() => {
+                    button.disabled = false;
+                    button.innerHTML = originalContent;
+                }, 1000);
+            });
+        });
+        
+        function displayScenarioData(emissionsData, scenarios) {
+            // Mevcut emisyon değeri
+            const currentEmissions = emissionsData.total_annual_emissions_ton;
+            
+            // Yükleme animasyonunu kaldır ve özet metni göster
+            document.getElementById('scenario-summary').innerHTML = 
+                'AI, farklı ekonomik, teknolojik ve politik koşullarda Türkiye\'deki fabrikaların karbon emisyonlarının nasıl değişebileceğini analiz etmiştir. Aşağıda beş farklı senaryo ve detaylı analizleri bulunmaktadır.';
+            
+            // Senaryo grafiğini oluştur
+            createScenariosChart(currentEmissions, scenarios);
+            
+            // Senaryo kartlarını oluştur
+            createScenarioCards(currentEmissions, scenarios);
+        }
+        
+        function createScenariosChart(currentEmissions, scenarios) {
+            const scenarioNames = {
+                "optimistic": "İyimser Senaryo",
+                "moderate": "Ilımlı Senaryo",
+                "pessimistic": "Kötümser Senaryo",
+                "disruptive_innovation": "Yenilikçi Senaryo",
+                "climate_policy_shift": "Politika Değişimi"
+            };
+            
+            const labels = Object.keys(scenarios).map(key => scenarioNames[key]);
+            const currentData = Array(labels.length).fill(currentEmissions);
+            const predictedData = Object.values(scenarios).map(scenario => scenario.predicted_emissions);
+            
+            // Değişim yönüne göre renkleri belirle
+            const backgroundColors = Object.values(scenarios).map(scenario => {
+                const change = scenario.emission_change;
+                return change < 0 ? 'rgba(40, 167, 69, 0.7)' : 'rgba(220, 53, 69, 0.7)';
+            });
+            
+            const ctx = document.getElementById('scenarios-chart').getContext('2d');
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: labels,
+                    datasets: [
+                        {
+                            label: 'Mevcut Emisyon (2025)',
+                            data: currentData,
+                            backgroundColor: 'rgba(0, 123, 255, 0.7)',
+                            borderColor: 'rgba(0, 123, 255, 1)',
+                            borderWidth: 1
+                        },
+                        {
+                            label: 'Tahmin Edilen Emisyon (2026)',
+                            data: predictedData,
+                            backgroundColor: backgroundColors,
+                            borderWidth: 1
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            title: {
+                                display: true,
+                                text: 'Emisyon (ton CO2e/yıl)'
+                            }
+                        }
+                    }
+                }
+            });
+        }
+        
+        function createScenarioCards(currentEmissions, scenarios) {
+            const container = document.getElementById('scenarios-container');
+            
+            // Senaryo bilgileri
+            const scenarioInfo = {
+                "optimistic": {
+                    title: "İyimser Senaryo",
+                    icon: "bi-graph-up-arrow",
+                    class: "optimistic"
+                },
+                "moderate": {
+                    title: "Ilımlı Senaryo",
+                    icon: "bi-arrow-right",
+                    class: "moderate"
+                },
+                "pessimistic": {
+                    title: "Kötümser Senaryo",
+                    icon: "bi-graph-down-arrow",
+                    class: "pessimistic"
+                },
+                "disruptive_innovation": {
+                    title: "Yenilikçi Senaryo",
+                    icon: "bi-lightning",
+                    class: "disruptive"
+                },
+                "climate_policy_shift": {
+                    title: "Politika Değişimi",
+                    icon: "bi-globe",
+                    class: "policy"
+                }
+            };
+            
+            // Olasılık ve etki sınıfları
+            const probabilityClasses = {
+                "Düşük": "probability-low",
+                "Düşük-Orta": "probability-low",
+                "Orta": "probability-medium",
+                "Yüksek": "probability-high"
+            };
+            
+            const impactClasses = {
+                "Orta": "impact-medium",
+                "Yüksek": "impact-high",
+                "Çok Yüksek (Negatif)": "impact-very-high",
+                "Çok Yüksek (Pozitif)": "impact-very-high-positive"
+            };
+            
+            // Her senaryo için kart oluştur
+            Object.entries(scenarios).forEach(([key, scenario]) => {
+                const info = scenarioInfo[key];
+                const analysis = scenario.gemma_analysis;
+                
+                // Değişim yönünü ve miktarını belirle
+                const change = scenario.emission_change;
+                const changePercent = scenario.emission_change_percent;
+                const changeDirection = change < 0 ? "azalış" : "artış";
+                const changeClass = change < 0 ? "text-success" : "text-danger";
+                
+                // Kart HTML'i
+                const cardHTML = `
+                    <div class="col-md-6 mb-4">
+                        <div class="card scenario-card ${info.class}">
+                            <div class="card-header bg-light">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <h5 class="mb-0"><i class="bi ${info.icon} me-2"></i>${info.title}</h5>
+                                    <div>
+                                        <span class="probability-badge ${probabilityClasses[analysis.probability]}">
+                                            Olasılık: ${analysis.probability}
+                                        </span>
+                                        <span class="impact-badge ${impactClasses[analysis.impact]}">
+                                            Etki: ${analysis.impact}
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <p class="mb-3">${analysis.summary}</p>
+                                
+                                <div class="row mb-3">
+                                    <div class="col-md-6">
+                                        <h6>Mevcut Emisyon (2025)</h6>
+                                        <p class="h5">${currentEmissions.toLocaleString('tr-TR')} ton CO2e</p>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <h6>Tahmin Edilen Emisyon (2026)</h6>
+                                        <p class="h5">${scenario.predicted_emissions.toLocaleString('tr-TR')} ton CO2e</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="alert alert-${change < 0 ? 'success' : 'danger'} mb-3">
+                                    <strong>Değişim:</strong> ${Math.abs(changePercent).toFixed(2)}% ${changeDirection}
+                                    (${change < 0 ? '' : '+'}${change.toLocaleString('tr-TR')} ton CO2e)
+                                </div>
+                                
+                                <h6>Etkileyen Faktörler</h6>
+                                <ul class="factor-list mb-3">
+                                    ${analysis.factors.map(factor => `<li>${factor}</li>`).join('')}
+                                </ul>
+                                
+                                <h6>Anahtar Sektörler</h6>
+                                <div class="mb-3">
+                                    ${analysis.key_industries.map(industry => `<span class="key-industry">${industry}</span>`).join('')}
+                                </div>
+                                
+                                <h6>Politika Gereksinimleri</h6>
+                                <ul class="factor-list mb-3">
+                                    ${analysis.policy_requirements.map(policy => `<li>${policy}</li>`).join('')}
+                                </ul>
+                                
+                                <h6>Bölgesel Etkiler</h6>
+                                <ul class="factor-list">
+                                    ${analysis.regional_impacts.map(impact => `<li>${impact}</li>`).join('')}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                
+                container.innerHTML += cardHTML;
+            });
+        }
+    </script>
+</body>
+</html>

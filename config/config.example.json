@@ -1,0 +1,77 @@
+{
+  "api": {
+    "nominatim": {
+      "user_agent": "SustainableSupplyChainOptimizer/1.0",
+      "rate_limit": 1
+    },
+    "osrm": {
+      "base_url": "http://router.project-osrm.org",
+      "profile": "driving"
+    },
+    "overpass": {
+      "base_url": "https://overpass-api.de/api/interpreter",
+      "timeout": 25
+    },
+    "world_bank": {
+      "base_url": "https://api.worldbank.org/v2"
+    },
+    "eurostat": {
+      "base_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data"
+    },
+    "openaq": {
+      "base_url": "https://api.openaq.org/v2"
+    },
+    "un_sdg": {
+      "base_url": "https://unstats.un.org/SDGAPI/v1/sdg"
+    },
+    "open_corporates": {
+      "base_url": "https://api.opencorporates.com/v0.4",
+      "api_token": ""
+    }
+  },
+  "emission_factors": {
+    "transportation": {
+      "car": 0.17,
+      "truck": 0.85,
+      "van": 0.25,
+      "train": 0.04,
+      "ship": 0.02,
+      "plane": 1.5
+    },
+    "electricity": {
+      "turkey": 0.42,
+      "germany": 0.35,
+      "france": 0.05,
+      "poland": 0.78,
+      "spain": 0.25,
+      "italy": 0.33,
+      "uk": 0.23,
+      "usa": 0.45
+    },
+    "fuel": {
+      "diesel": 2.68,
+      "gasoline": 2.31,
+      "lng": 1.86,
+      "cng": 1.75
+    }
+  },
+  "sustainability_weights": {
+    "distance": 0.3,
+    "emissions": 0.3,
+    "local_sourcing": 0.25,
+    "environmental_certifications": 0.15
+  },
+  "local_sourcing": {
+    "threshold_km": 50
+  },
+  "web_app": {
+    "host": "0.0.0.0",
+    "port": 5000,
+    "debug": true
+  },
+  "data_paths": {
+    "cache_dir": "data/cache",
+    "results_dir": "data/results",
+    "logs_dir": "data/logs"
+  }
+}

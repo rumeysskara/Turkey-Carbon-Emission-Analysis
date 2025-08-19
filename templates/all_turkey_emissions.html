@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Türkiye Karbon Emisyon Analizi - Tüm Türkiye</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <style>
+        .emissions-chart {
+            height: 400px;
+        }
+        
+        .bg-gradient-green {
+            background: linear-gradient(to right, #28a745, #20c997);
+        }
+        
+        .text-success-dark {
+            color: #146c43;
+        }
+        
+        .city-card {
+            transition: transform 0.3s;
+        }
+        
+        .city-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .progress-bar-success {
+            background-color: #28a745;
+        }
+        
+        .progress-bar-warning {
+            background-color: #ffc107;
+        }
+        
+        .progress-bar-danger {
+            background-color: #dc3545;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-success">
+        <div class="container">
+            <a class="navbar-brand" href="/">Türkiye Karbon Emisyon Analizi</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Ana Sayfa</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/all-turkey-emissions">Tüm Türkiye Analizi</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/carbon-predictions">Emisyon Tahminleri</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/emission-scenarios">Gelecek Senaryoları</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <div class="jumbotron bg-light p-4 rounded">
+            <h1 class="display-5">Türkiye'deki Tüm Fabrikaların Karbon Emisyonu Analizi</h1>
+            <p class="lead">Bu sayfa, Türkiye'nin tüm önemli şehirlerindeki fabrikaların <strong>yıllık</strong> karbon emisyonlarını analiz eder ve görselleştirir.</p>
+            <p>Tüm emisyon değerleri ton CO2 eşdeğeri (CO2e) olarak ifade edilmektedir ve yıllık bazda hesaplanmıştır.</p>
+            <hr class="my-4">
+        </div>
+
+        <!-- Özet Bilgiler -->
+        <div class="row mt-4">
+            <div class="col-md-4">
+                <div class="card bg-gradient-green text-white">
+                    <div class="card-body text-center">
+                        <i class="bi bi-building fs-1"></i>
+                        <h5 class="card-title">Analiz Edilen Toplam Fabrika Sayısı</h5>
+                        <p class="display-4" id="total-factory-count">0</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card bg-gradient-green text-white">
+                    <div class="card-body text-center">
+                        <i class="bi bi-cloud fs-1"></i>
+                        <h5 class="card-title">Toplam Yıllık Karbon Emisyonu</h5>
+                        <p class="display-4" id="total-emissions">0</p>
+                        <p>ton CO2e/yıl</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card bg-gradient-green text-white">
+                    <div class="card-body text-center">
+                        <i class="bi bi-bar-chart fs-1"></i>
+                        <h5 class="card-title">Fabrika Başına Ortalama Emisyon</h5>
+                        <p class="display-4" id="avg-emissions">0</p>
+                        <p>ton CO2e/fabrika/yıl</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Grafikler -->
+        <div class="row mt-4">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header bg-success text-white">
+                        <i class="bi bi-geo-alt"></i> Şehirlere Göre Yıllık Emisyonlar
+                    </div>
+                    <div class="card-body">
+                        <canvas id="cities-chart" class="emissions-chart"></canvas>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header bg-success text-white">
+                        <i class="bi bi-pie-chart"></i> Şehirlere Göre Fabrika Dağılımı
+                    </div>
+                    <div class="card-body">
+                        <canvas id="distribution-chart" class="emissions-chart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Şehir Kartları -->
+        <h3 class="mt-5 mb-4 text-success-dark"><i class="bi bi-geo-alt"></i> Şehirlere Göre Fabrika Analizi</h3>
+        <div class="row" id="city-cards">
+            <!-- Şehir kartları JavaScript ile doldurulacak -->
+        </div>
+
+        <!-- Fabrika Listesi -->
+        <div class="card mt-5">
+            <div class="card-header bg-success text-white">
+                <i class="bi bi-list-ul"></i> Tüm Fabrikalar ve Yıllık Emisyonları
+            </div>
+            <div class="card-body">
+                <div class="alert alert-info">
+                    <i class="bi bi-info-circle"></i> Aşağıdaki tabloda fabrikaların yıllık karbon emisyon değerleri ton CO2e cinsinden gösterilmektedir.
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-striped table-hover" id="factories-table">
+                        <thead class="table-success">
+                            <tr>
+                                <th>Fabrika Adı</th>
+                                <th>Şehir</th>
+                                <th>Tür</th>
+                                <th>Boyut (m²)</th>
+                                <th class="text-center">Yıllık Emisyon (ton CO2e)</th>
+                            </tr>
+                        </thead>
+                        <tbody id="factories-tbody">
+                            <!-- Fabrika verileri JavaScript ile doldurulacak -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        // Fabrika emisyon verilerini yükle
+        fetch('/static/data/all_turkey_factory_emissions.json')
+            .then(response => response.json())
+            .then(data => {
+                displayFactoryData(data);
+            })
+            .catch(error => {
+                console.error('Veri yükleme hatası:', error);
+            });
+        
+        function displayFactoryData(data) {
+            // Özet bilgileri göster
+            document.getElementById('total-factory-count').textContent = data.total_factory_count;
+            document.getElementById('total-emissions').textContent = data.total_annual_emissions_ton.toLocaleString('tr-TR');
+            document.getElementById('avg-emissions').textContent = data.average_annual_emissions_ton.toLocaleString('tr-TR', {maximumFractionDigits: 1});
+            
+            // Grafikleri oluştur
+            createCitiesChart(data);
+            createDistributionChart(data);
+            
+            // Şehir kartlarını oluştur
+            createCityCards(data);
+            
+            // Fabrika tablosunu doldur
+            populateFactoriesTable(data);
+        }
+        
+        function createCitiesChart(data) {
+            // Sadece fabrika bulunan şehirleri filtrele
+            const citiesWithFactories = data.region_results.filter(region => region.factory_count > 0);
+            
+            // Şehirlere göre emisyon verileri
+            const cities = citiesWithFactories.map(region => region.region.split(',')[0]);
+            const emissions = citiesWithFactories.map(region => region.total_annual_emissions_ton);
+            
+            // Grafik oluştur
+            const ctx = document.getElementById('cities-chart').getContext('2d');
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: cities,
+                    datasets: [{
+                        label: 'Yıllık Emisyon (ton CO2e)',
+                        data: emissions,
+                        backgroundColor: 'rgba(40, 167, 69, 0.7)',
+                        borderColor: 'rgba(40, 167, 69, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            title: {
+                                display: true,
+                                text: 'Yıllık Emisyon (ton CO2e)'
+                            }
+                        }
+                    }
+                }
+            });
+        }
+        
+        function createDistributionChart(data) {
+            // Sadece fabrika bulunan şehirleri filtrele
+            const citiesWithFactories = data.region_results.filter(region => region.factory_count > 0);
+            
+            // Şehirlere göre fabrika sayıları
+            const cities = citiesWithFactories.map(region => region.region.split(',')[0]);
+            const factoryCounts = citiesWithFactories.map(region => region.factory_count);
+            
+            // Grafik oluştur
+            const ctx = document.getElementById('distribution-chart').getContext('2d');
+            new Chart(ctx, {
+                type: 'pie',
+                data: {
+                    labels: cities,
+                    datasets: [{
+                        data: factoryCounts,
+                        backgroundColor: [
+                            'rgba(40, 167, 69, 0.7)',
+                            'rgba(255, 193, 7, 0.7)',
+                            'rgba(220, 53, 69, 0.7)',
+                            'rgba(0, 123, 255, 0.7)',
+                            'rgba(111, 66, 193, 0.7)',
+                            'rgba(23, 162, 184, 0.7)',
+                            'rgba(255, 127, 80, 0.7)',
+                            'rgba(50, 205, 50, 0.7)',
+                            'rgba(255, 99, 132, 0.7)',
+                            'rgba(54, 162, 235, 0.7)'
+                        ],
+                        borderColor: [
+                            'rgba(40, 167, 69, 1)',
+                            'rgba(255, 193, 7, 1)',
+                            'rgba(220, 53, 69, 1)',
+                            'rgba(0, 123, 255, 1)',
+                            'rgba(111, 66, 193, 1)',
+                            'rgba(23, 162, 184, 1)',
+                            'rgba(255, 127, 80, 1)',
+                            'rgba(50, 205, 50, 1)',
+                            'rgba(255, 99, 132, 1)',
+                            'rgba(54, 162, 235, 1)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'right'
+                        }
+                    }
+                }
+            });
+        }
+        
+        function createCityCards(data) {
+            const cityCardsContainer = document.getElementById('city-cards');
+            
+            // Sadece fabrika bulunan şehirleri filtrele ve fabrika sayısına göre sırala
+            const citiesWithFactories = data.region_results
+                .filter(region => region.factory_count > 0)
+                .sort((a, b) => b.factory_count - a.factory_count);
+            
+            // Her şehir için kart oluştur
+            citiesWithFactories.forEach(city => {
+                const cityName = city.region.split(',')[0];
+                const factoryCount = city.factory_count;
+                const totalEmissions = city.total_annual_emissions_ton;
+                const avgEmissions = city.average_annual_emissions_ton;
+                
+                // Emisyon oranı (en yüksek emisyona sahip şehre göre)
+                const maxEmissions = Math.max(...citiesWithFactories.map(c => c.total_annual_emissions_ton));
+                const emissionRatio = (totalEmissions / maxEmissions) * 100;
+                
+                // Progress bar rengi
+                let progressClass = 'progress-bar-success';
+                if (emissionRatio > 75) {
+                    progressClass = 'progress-bar-danger';
+                } else if (emissionRatio > 25) {
+                    progressClass = 'progress-bar-warning';
+                }
+                
+                // Kart HTML'i
+                const cardHTML = `
+                    <div class="col-md-4 mb-4">
+                        <div class="card city-card h-100">
+                            <div class="card-header bg-success text-white">
+                                <h5 class="mb-0">${cityName}</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <span><i class="bi bi-building"></i> Fabrika Sayısı:</span>
+                                    <span class="badge bg-success rounded-pill">${factoryCount}</span>
+                                </div>
+                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <span><i class="bi bi-cloud"></i> Toplam Emisyon:</span>
+                                    <span class="badge bg-secondary rounded-pill">${totalEmissions.toLocaleString('tr-TR')} ton CO2e/yıl</span>
+                                </div>
+                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <span><i class="bi bi-calculator"></i> Ortalama Emisyon:</span>
+                                    <span class="badge bg-secondary rounded-pill">${avgEmissions.toLocaleString('tr-TR')} ton CO2e/fabrika/yıl</span>
+                                </div>
+                                <div class="mt-4">
+                                    <p class="mb-1">Emisyon Oranı:</p>
+                                    <div class="progress">
+                                        <div class="progress-bar ${progressClass}" role="progressbar" style="width: ${emissionRatio}%" 
+                                            aria-valuenow="${emissionRatio}" aria-valuemin="0" aria-valuemax="100">
+                                            ${emissionRatio.toFixed(1)}%
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                
+                // Kartı ekle
+                cityCardsContainer.innerHTML += cardHTML;
+            });
+        }
+        
+        function populateFactoriesTable(data) {
+            const tableBody = document.getElementById('factories-tbody');
+            
+            // Tüm fabrikaları topla
+            const factories = [];
+            data.region_results.forEach(region => {
+                if (region.factories && region.factories.length > 0) {
+                    region.factories.forEach(factory => {
+                        factories.push({
+                            ...factory,
+                            city: region.region.split(',')[0]
+                        });
+                    });
+                }
+            });
+            
+            // Emisyona göre sırala (yüksekten düşüğe)
+            factories.sort((a, b) => b.annual_emissions_ton - a.annual_emissions_ton);
+            
+            // Tabloyu doldur
+            factories.forEach((factory, index) => {
+                const row = document.createElement('tr');
+                
+                // Emisyon değerine göre renk sınıfı belirle
+                let emissionClass = '';
+                if (factory.annual_emissions_ton > 1000) {
+                    emissionClass = 'text-danger fw-bold';
+                } else if (factory.annual_emissions_ton > 500) {
+                    emissionClass = 'text-warning fw-bold';
+                } else {
+                    emissionClass = 'text-success fw-bold';
+                }
+                
+                row.innerHTML = `
+                    <td>${index + 1}. ${factory.name}</td>
+                    <td>${factory.city}</td>
+                    <td>${factory.type}</td>
+                    <td>${factory.size_m2.toLocaleString('tr-TR')}</td>
+                    <td class="text-center ${emissionClass}">${factory.annual_emissions_ton.toLocaleString('tr-TR')}</td>
+                `;
+                
+                tableBody.appendChild(row);
+            });
+        }
+    </script>
+
+    <footer class="bg-dark text-white text-center py-3 mt-5">
+        <p>Türkiye Karbon Emisyon Analizi by Rumeysa Kara</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karbon Emisyonu Tahminleri - Türkiye Karbon Emisyon Analizi</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="/static/css/style.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-success">
+        <div class="container">
+            <a class="navbar-brand" href="/">Türkiye Karbon Emisyon Analizi</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Ana Sayfa</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/all-turkey-emissions">Tüm Türkiye Analizi</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/carbon-predictions">Emisyon Tahminleri</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/emission-scenarios">Gelecek Senaryoları</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <div class="jumbotron bg-light p-4 rounded">
+            <h1 class="display-5">Karbon Emisyonu Tahminleri</h1>
+            <p class="lead">Bu sayfa, Türkiye'deki fabrikaların gelecek yıl için karbon emisyonu tahminlerini ve AI ile yapılan analizleri göstermektedir.</p>
+            <p>Tüm emisyon değerleri ton CO2 eşdeğeri (CO2e) olarak ifade edilmektedir.</p>
+            <hr class="my-4">
+        </div>
+
+        <!-- AI Analizi Özeti -->
+        <div class="gemma-section mt-4">
+            <div class="d-flex align-items-center mb-3">
+                <i class="bi bi-robot fs-1 me-3 text-primary"></i>
+                <h3 class="mb-0">AI Analizi</h3>
+                <button id="refresh-analysis" class="btn btn-outline-primary btn-sm ms-auto">
+                    <i class="bi bi-arrow-clockwise"></i> Verileri Güncelle
+                </button>
+            </div>
+            <div class="alert alert-primary">
+                <i class="bi bi-info-circle-fill me-2"></i>
+                <span id="ai-summary">Yükleniyor...</span>
+            </div>
+        </div>
+
+        <!-- Özet Bilgiler -->
+        <div class="row mt-4">
+            <div class="col-md-4">
+                <div class="card bg-primary text-white">
+                    <div class="card-body text-center">
+                        <i class="bi bi-calendar-check fs-1"></i>
+                        <h5 class="card-title">Mevcut Yıllık Emisyon</h5>
+                        <p class="display-4" id="current-emissions">0</p>
+                        <p>ton CO2e/yıl (2025)</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card bg-info text-white">
+                    <div class="card-body text-center">
+                        <i class="bi bi-calendar-plus fs-1"></i>
+                        <h5 class="card-title">Tahmin Edilen Yıllık Emisyon</h5>
+                        <p class="display-4" id="predicted-emissions">0</p>
+                        <p>ton CO2e/yıl (2026)</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card bg-success text-white">
+                    <div class="card-body text-center">
+                        <i class="bi bi-arrow-down-right fs-1"></i>
+                        <h5 class="card-title">Emisyon Değişimi</h5>
+                        <p class="display-4" id="emission-change">0</p>
+                        <p><span id="emission-change-percent">0</span>% (2025-2026)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Şehir Bazlı Tahminler -->
+        <div class="row mt-5">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header bg-success text-white">
+                        <i class="bi bi-geo-alt"></i> Şehir Bazlı Emisyon Tahminleri
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-striped" id="cities-table">
+                                <thead>
+                                    <tr>
+                                        <th>Şehir</th>
+                                        <th>Fabrika Sayısı</th>
+                                        <th>Mevcut Emisyon (2025)</th>
+                                        <th>Tahmin (2026)</th>
+                                        <th>Değişim</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="cities-table-body">
+                                    <tr><td colspan="5" class="text-center">Veriler yükleniyor...</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- AI Önerileri -->
+        <div class="row mt-5">
+            <div class="col-md-4">
+                <div class="card h-100">
+                    <div class="card-header bg-success text-white">
+                        <i class="bi bi-arrow-down-circle"></i> Emisyon Azaltma
+                    </div>
+                    <div class="card-body">
+                        <ul id="emission-recommendations" class="list-unstyled">
+                            <li class="mb-2"><i class="bi bi-clock me-2"></i>Yükleniyor...</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card h-100">
+                    <div class="card-header bg-primary text-white">
+                        <i class="bi bi-shield-check"></i> Politika Önerileri
+                    </div>
+                    <div class="card-body">
+                        <ul id="policy-recommendations" class="list-unstyled">
+                            <li class="mb-2"><i class="bi bi-clock me-2"></i>Yükleniyor...</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card h-100">
+                    <div class="card-header bg-warning text-white">
+                        <i class="bi bi-cpu"></i> Teknoloji Önerileri
+                    </div>
+                    <div class="card-body">
+                        <ul id="technology-recommendations" class="list-unstyled">
+                            <li class="mb-2"><i class="bi bi-clock me-2"></i>Yükleniyor...</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Trend Analizi -->
+        <div class="row mt-5">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header bg-info text-white">
+                        <i class="bi bi-graph-up"></i> Trend Analizi ve Risk Değerlendirmesi
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h6><i class="bi bi-trending-up me-2"></i>Trend Analizi</h6>
+                                <p id="trend-analysis" class="text-muted">Analiz yükleniyor...</p>
+                            </div>
+                            <div class="col-md-6">
+                                <h6><i class="bi bi-exclamation-triangle me-2"></i>Risk Değerlendirmesi</h6>
+                                <p id="risk-assessment" class="text-muted">Değerlendirme yükleniyor...</p>
+                            </div>
+                        </div>
+                        <hr>
+                        <h6><i class="bi bi-check-circle me-2"></i>Sonuç</h6>
+                        <p id="conclusion" class="text-muted">Sonuç hazırlanıyor...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-dark text-white text-center py-3 mt-5">
+        <p>Türkiye Karbon Emisyon Analizi by Rumeysa Kara</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        console.log('Basit JavaScript başlatıldı');
+        
+        // Sayfa yüklendiğinde verileri çek
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('DOM yüklendi, veri çekiliyor...');
+            loadData();
+        });
+        
+        function loadData() {
+            console.log('loadData fonksiyonu çağırıldı');
+            
+            fetch('/static/data/carbon_predictions.json')
+                .then(response => {
+                    console.log('Predictions response:', response.status);
+                    return response.json();
+                })
+                .then(predictions => {
+                    console.log('Predictions data:', predictions);
+                    
+                    return fetch('/static/data/gpt_sustainability_report.json')
+                        .then(response => {
+                            console.log('Report response:', response.status);
+                            return response.json();
+                        })
+                        .then(report => {
+                            console.log('Report data:', report);
+                            displayData(predictions, report);
+                        });
+                })
+                .catch(error => {
+                    console.error('Veri yükleme hatası:', error);
+                    document.getElementById('ai-summary').innerHTML = 
+                        '<span class="text-danger">Veri yüklenirken hata oluştu: ' + error.message + '</span>';
+                });
+        }
+        
+        function displayData(predictions, report) {
+            console.log('displayData çağırıldı');
+            
+            // Temel verileri göster
+            document.getElementById('current-emissions').textContent = 
+                Math.round(predictions.current_total_emissions_ton).toLocaleString('tr-TR');
+            
+            document.getElementById('predicted-emissions').textContent = 
+                Math.round(predictions.predicted_total_emissions_ton).toLocaleString('tr-TR');
+            
+            document.getElementById('emission-change').textContent = 
+                Math.round(Math.abs(predictions.emission_change_ton)).toLocaleString('tr-TR');
+            
+            document.getElementById('emission-change-percent').textContent = 
+                Math.abs(predictions.emission_change_percent).toFixed(1);
+            
+            // AI özetini göster
+            document.getElementById('ai-summary').innerHTML = 
+                '<i class="bi bi-check-circle me-2"></i>' + report.executive_summary;
+            
+            // Şehir tablosunu doldur
+            displayCitiesTable(predictions.city_predictions);
+            
+            // AI analizlerini göster
+            displayAIAnalysis(report);
+            
+            // Önerileri göster
+            displayRecommendations(report);
+            
+            console.log('Veriler başarıyla görüntülendi');
+        }
+        
+        function displayCitiesTable(cityPredictions) {
+            const tbody = document.getElementById('cities-table-body');
+            tbody.innerHTML = '';
+            
+            // İlk 10 şehri göster (en yüksek emisyona sahip olanlar)
+            const sortedCities = cityPredictions
+                .sort((a, b) => b.current_total_emissions_ton - a.current_total_emissions_ton)
+                .slice(0, 10);
+            
+            sortedCities.forEach(city => {
+                const changePercent = city.emission_change_percent;
+                const changeClass = changePercent > 0 ? 'text-danger' : 'text-success';
+                const changeIcon = changePercent > 0 ? 'bi-arrow-up' : 'bi-arrow-down';
+                
+                const row = `
+                    <tr>
+                        <td><strong>${city.region.replace(', Turkey', '')}</strong></td>
+                        <td><span class="badge bg-secondary">${city.factory_count}</span></td>
+                        <td>${Math.round(city.current_total_emissions_ton).toLocaleString('tr-TR')} ton</td>
+                        <td>${Math.round(city.predicted_total_emissions_ton).toLocaleString('tr-TR')} ton</td>
+                        <td class="${changeClass}">
+                            <i class="bi ${changeIcon} me-1"></i>
+                            ${Math.abs(changePercent).toFixed(1)}%
+                        </td>
+                    </tr>
+                `;
+                tbody.innerHTML += row;
+            });
+        }
+        
+        function displayAIAnalysis(report) {
+            try {
+                // JSON string'i ayıkla ve parse et
+                const currentAnalysisString = extractJsonFromMarkdown(report.current_emissions.analysis);
+                const futureAnalysisString = extractJsonFromMarkdown(report.future_predictions.analysis);
+                
+                const currentAnalysis = JSON.parse(currentAnalysisString);
+                const futureAnalysis = JSON.parse(futureAnalysisString);
+                
+                console.log('Parsed future analysis:', futureAnalysis);
+                
+                document.getElementById('trend-analysis').innerHTML = 
+                    '<i class="bi bi-info-circle text-info me-2"></i>' + 
+                    futureAnalysis.insights.trend_analysis;
+                
+                document.getElementById('risk-assessment').innerHTML = 
+                    '<i class="bi bi-exclamation-triangle text-warning me-2"></i>' + 
+                    futureAnalysis.insights.risk_assessment;
+                
+                document.getElementById('conclusion').innerHTML = 
+                    '<i class="bi bi-check-circle text-success me-2"></i>' + 
+                    report.conclusion;
+                    
+            } catch (e) {
+                console.error('AI analizi parse hatası:', e);
+                document.getElementById('trend-analysis').innerHTML = 
+                    '<i class="bi bi-info-circle text-muted me-2"></i>Analiz mevcut değil';
+                document.getElementById('risk-assessment').innerHTML = 
+                    '<i class="bi bi-exclamation-triangle text-muted me-2"></i>Değerlendirme mevcut değil';
+                document.getElementById('conclusion').innerHTML = 
+                    '<i class="bi bi-check-circle text-success me-2"></i>' + 
+                    (report.conclusion || 'Sonuç mevcut değil');
+            }
+        }
+        
+        function displayRecommendations(report) {
+            try {
+                // JSON string'i ayıkla ve parse et
+                const futureAnalysisString = extractJsonFromMarkdown(report.future_predictions.analysis);
+                const futureAnalysis = JSON.parse(futureAnalysisString);
+                const recommendations = futureAnalysis.recommendations;
+                
+                console.log('Parsed recommendations:', recommendations);
+                
+                // Emisyon azaltma önerileri
+                const emissionList = document.getElementById('emission-recommendations');
+                emissionList.innerHTML = '';
+                recommendations.emission_reduction.forEach(rec => {
+                    emissionList.innerHTML += `<li class="mb-2"><i class="bi bi-check-circle text-success me-2"></i>${rec}</li>`;
+                });
+                
+                // Politika önerileri
+                const policyList = document.getElementById('policy-recommendations');
+                policyList.innerHTML = '';
+                recommendations.policy_suggestions.forEach(rec => {
+                    policyList.innerHTML += `<li class="mb-2"><i class="bi bi-shield-check text-primary me-2"></i>${rec}</li>`;
+                });
+                
+                // Teknoloji önerileri
+                const techList = document.getElementById('technology-recommendations');
+                techList.innerHTML = '';
+                recommendations.technology_investments.forEach(rec => {
+                    techList.innerHTML += `<li class="mb-2"><i class="bi bi-cpu text-warning me-2"></i>${rec}</li>`;
+                });
+                
+            } catch (e) {
+                console.error('Öneriler parse hatası:', e, 'Data:', report.future_predictions.analysis);
+                document.getElementById('emission-recommendations').innerHTML = 
+                    '<li class="mb-2"><i class="bi bi-exclamation-triangle text-warning me-2"></i>Öneriler yüklenemedi</li>';
+                document.getElementById('policy-recommendations').innerHTML = 
+                    '<li class="mb-2"><i class="bi bi-exclamation-triangle text-warning me-2"></i>Öneriler yüklenemedi</li>';
+                document.getElementById('technology-recommendations').innerHTML = 
+                    '<li class="mb-2"><i class="bi bi-exclamation-triangle text-warning me-2"></i>Öneriler yüklenemedi</li>';
+            }
+        }
+        
+        // JSON'u markdown'dan ayıklama fonksiyonu
+        function extractJsonFromMarkdown(markdownText) {
+            console.log('extractJsonFromMarkdown çağırıldı, text başlangıcı:', markdownText.substring(0, 100));
+            
+            // Basit string manipulation ile JSON'u çıkar
+            const startMarker = '```json';
+            const endMarker = '```';
+            
+            const startIdx = markdownText.indexOf(startMarker);
+            if (startIdx === -1) {
+                console.log('```json marker bulunamadı, raw text döndürülüyor');
+                return markdownText;
+            }
+            
+            const jsonStartIdx = markdownText.indexOf('\n', startIdx) + 1;
+            const endIdx = markdownText.indexOf(endMarker, jsonStartIdx);
+            
+            if (endIdx === -1) {
+                console.log('Closing ``` marker bulunamadı');
+                return markdownText;
+            }
+            
+            const jsonContent = markdownText.substring(jsonStartIdx, endIdx).trim();
+            console.log('JSON content çıkarıldı, uzunluk:', jsonContent.length);
+            return jsonContent;
+        }
+        
+        // Yenile butonu
+        document.getElementById('refresh-analysis').addEventListener('click', function() {
+            console.log('Yenile butonuna tıklandı');
+            location.reload();
+        });
+    </script>
+</body>
+</html>

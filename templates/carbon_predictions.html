@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Türkiye Karbon Emisyon Analizi - Emisyon Tahminleri</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <style>
+        .emissions-chart {
+            height: 400px;
+        }
+        
+        .bg-gradient-green {
+            background: linear-gradient(to right, #28a745, #20c997);
+        }
+        
+        .bg-gradient-blue {
+            background: linear-gradient(to right, #007bff, #00c6ff);
+        }
+        
+        .bg-gradient-purple {
+            background: linear-gradient(to right, #6f42c1, #9a55ff);
+        }
+        
+        .text-success-dark {
+            color: #146c43;
+        }
+        
+        .city-card {
+            transition: transform 0.3s;
+        }
+        
+        .city-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .prediction-card {
+            border-left: 5px solid #28a745;
+        }
+        
+        .prediction-card.increase {
+            border-left-color: #dc3545;
+        }
+        
+        .prediction-card.decrease {
+            border-left-color: #28a745;
+        }
+        
+        .recommendation-card {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            height: 100%;
+        }
+        
+        .recommendation-card .card-header {
+            font-weight: 600;
+        }
+        
+        .recommendation-card ul {
+            padding-left: 1.2rem;
+        }
+        
+        .recommendation-card li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .gemma-section {
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-left: 5px solid #6f42c1;
+        }
+        
+        .gemma-logo {
+            max-width: 100px;
+            margin-bottom: 15px;
+        }
+        
+        .prediction-badge {
+            font-size: 0.9rem;
+            padding: 0.5rem 0.75rem;
+            border-radius: 50px;
+        }
+        
+        .prediction-badge.increase {
+            background-color: rgba(220, 53, 69, 0.1);
+            color: #dc3545;
+        }
+        
+        .prediction-badge.decrease {
+            background-color: rgba(40, 167, 69, 0.1);
+            color: #28a745;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-success">
+        <div class="container">
+            <a class="navbar-brand" href="/">Türkiye Karbon Emisyon Analizi</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Ana Sayfa</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/all-turkey-emissions">Tüm Türkiye Analizi</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/carbon-predictions">Emisyon Tahminleri</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/emission-scenarios">Gelecek Senaryoları</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <div class="jumbotron bg-light p-4 rounded">
+            <h1 class="display-5">Karbon Emisyonu Tahminleri</h1>
+            <p class="lead">Bu sayfa, Türkiye'deki fabrikaların gelecek yıl için karbon emisyonu tahminlerini ve AI ile yapılan analizleri göstermektedir.</p>
+            <p>Tüm emisyon değerleri ton CO2 eşdeğeri (CO2e) olarak ifade edilmektedir.</p>
+            <hr class="my-4">
+        </div>
+
+        <!-- AI Analizi Özeti -->
+        <div class="gemma-section mt-4">
+            <div class="d-flex align-items-center mb-3">
+                <i class="bi bi-robot fs-1 me-3 text-primary"></i>
+                <h3 class="mb-0">AI Analizi</h3>
+                <button id="refresh-analysis" class="btn btn-outline-primary btn-sm ms-auto">
+                    <i class="bi bi-arrow-clockwise"></i> Verileri Güncelle
+                </button>
+            </div>
+            <div class="alert alert-primary">
+                <i class="bi bi-info-circle-fill me-2"></i>
+                <span id="gemma-executive-summary">
+                    <div id="ai-loading" class="d-flex align-items-center">
+                        <div class="spinner-border spinner-border-sm text-primary me-2" role="status">
+                            <span class="visually-hidden">Yükleniyor...</span>
+                        </div>
+                        AI analizi yükleniyor...
+                    </div>
+                </span>
+            </div>
+        </div>
+
+        <!-- Özet Bilgiler -->
+        <div class="row mt-4">
+            <div class="col-md-4">
+                <div class="card bg-gradient-blue text-white">
+                    <div class="card-body text-center">
+                        <i class="bi bi-calendar-check fs-1"></i>
+                        <h5 class="card-title">Mevcut Yıllık Emisyon</h5>
+                        <p class="display-4" id="current-emissions">0</p>
+                        <p>ton CO2e/yıl (2025)</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card bg-gradient-purple text-white">
+                    <div class="card-body text-center">
+                        <i class="bi bi-calendar-plus fs-1"></i>
+                        <h5 class="card-title">Tahmin Edilen Yıllık Emisyon</h5>
+                        <p class="display-4" id="predicted-emissions">0</p>
+                        <p>ton CO2e/yıl (2026)</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card" id="change-card">
+                    <div class="card-body text-center">
+                        <i class="bi bi-arrow-up-right fs-1" id="change-icon"></i>
+                        <h5 class="card-title">Emisyon Değişimi</h5>
+                        <p class="display-4" id="emission-change">0</p>
+                        <p><span id="emission-change-percent">0</span>% (2025-2026)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Grafikler -->
+        <div class="row mt-4">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header bg-success text-white">
+                        <i class="bi bi-bar-chart"></i> Şehirlere Göre Emisyon Tahminleri
+                    </div>
+                    <div class="card-body">
+                        <canvas id="cities-prediction-chart" class="emissions-chart"></canvas>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header bg-success text-white">
+                        <i class="bi bi-graph-up"></i> Emisyon Değişim Oranları
+                    </div>
+                    <div class="card-body">
+                        <canvas id="change-chart" class="emissions-chart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Gemma Önerileri -->
+        <h3 class="mt-5 mb-4 text-success-dark"><i class="bi bi-lightbulb"></i> AI Önerileri</h3>
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="card recommendation-card">
+                    <div class="card-header bg-success text-white">
+                        <i class="bi bi-arrow-down-circle"></i> Emisyon Azaltma Önerileri
+                    </div>
+                    <div class="card-body">
+                        <ul id="emission-reduction-list">
+                            <li id="emission-loading" class="d-flex align-items-center">
+                                <div class="spinner-border spinner-border-sm text-success me-2" role="status">
+                                    <span class="visually-hidden">Yükleniyor...</span>
+                                </div>
+                                Öneriler yükleniyor...
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card recommendation-card">
+                    <div class="card-header bg-success text-white">
+                        <i class="bi bi-file-earmark-text"></i> Politika Önerileri
+                    </div>
+                    <div class="card-body">
+                        <ul id="policy-list">
+                            <li id="policy-loading" class="d-flex align-items-center">
+                                <div class="spinner-border spinner-border-sm text-success me-2" role="status">
+                                    <span class="visually-hidden">Yükleniyor...</span>
+                                </div>
+                                Politikalar yükleniyor...
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card recommendation-card">
+                    <div class="card-header bg-success text-white">
+                        <i class="bi bi-gear"></i> Teknoloji Yatırımları
+                    </div>
+                    <div class="card-body">
+                        <ul id="technology-list">
+                            <li id="technology-loading" class="d-flex align-items-center">
+                                <div class="spinner-border spinner-border-sm text-success me-2" role="status">
+                                    <span class="visually-hidden">Yükleniyor...</span>
+                                </div>
+                                Teknolojiler yükleniyor...
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Şehir Tahminleri -->
+        <h3 class="mt-5 mb-4 text-success-dark"><i class="bi bi-geo-alt"></i> Şehirlere Göre Emisyon Tahminleri</h3>
+        <div class="row" id="city-predictions">
+            <!-- Şehir tahminleri JavaScript ile doldurulacak -->
+        </div>
+
+        <!-- Stratejik Öneriler -->
+        <div class="card mt-5">
+            <div class="card-header bg-success text-white">
+                <i class="bi bi-diagram-3"></i> Stratejik Sürdürülebilirlik Önerileri
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-4">
+                        <h5 class="text-success-dark"><i class="bi bi-clock"></i> Kısa Vadeli Öneriler</h5>
+                        <ul id="short-term-list">
+                            <li>Yükleniyor...</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4">
+                        <h5 class="text-success-dark"><i class="bi bi-calendar3"></i> Orta Vadeli Öneriler</h5>
+                        <ul id="medium-term-list">
+                            <li>Yükleniyor...</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4">
+                        <h5 class="text-success-dark"><i class="bi bi-calendar2-check"></i> Uzun Vadeli Öneriler</h5>
+                        <ul id="long-term-list">
+                            <li>Yükleniyor...</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Gemma Analiz Detayları -->
+        <div class="card mt-5">
+            <div class="card-header bg-success text-white">
+                <i class="bi bi-search"></i> AI Analiz Detayları
+            </div>
+            <div class="card-body">
+                <div class="alert alert-secondary">
+                    <h5 class="alert-heading">Trend Analizi</h5>
+                    <p id="trend-analysis">
+                        <div id="trend-loading" class="d-flex align-items-center">
+                            <div class="spinner-border spinner-border-sm text-secondary me-2" role="status">
+                                <span class="visually-hidden">Yükleniyor...</span>
+                            </div>
+                            Trend analizi yükleniyor...
+                        </div>
+                    </p>
+                </div>
+                <div class="alert alert-secondary">
+                    <h5 class="alert-heading">Bölgesel Trendler</h5>
+                    <p id="regional-trends">
+                        <div class="d-flex align-items-center">
+                            <div class="spinner-border spinner-border-sm text-secondary me-2" role="status">
+                                <span class="visually-hidden">Yükleniyor...</span>
+                            </div>
+                            Yükleniyor...
+                        </div>
+                    </p>
+                </div>
+                <div class="alert alert-secondary">
+                    <h5 class="alert-heading">Risk Değerlendirmesi</h5>
+                    <p id="risk-assessment">
+                        <div class="d-flex align-items-center">
+                            <div class="spinner-border spinner-border-sm text-secondary me-2" role="status">
+                                <span class="visually-hidden">Yükleniyor...</span>
+                            </div>
+                            Yükleniyor...
+                        </div>
+                    </p>
+                </div>
+                <div class="alert alert-secondary">
+                    <h5 class="alert-heading">Sonuç</h5>
+                    <p id="conclusion">
+                        <div class="d-flex align-items-center">
+                            <div class="spinner-border spinner-border-sm text-secondary me-2" role="status">
+                                <span class="visually-hidden">Yükleniyor...</span>
+                            </div>
+                            Yükleniyor...
+                        </div>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-dark text-white text-center py-3 mt-5">
+        <p>Türkiye Karbon Emisyon Analizi by Rumeysa Kara</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        console.log('JavaScript yükleniyor...');
+        
+        // Önbellek anahtarları
+        const CACHE_KEY_PREDICTIONS = 'carbon_predictions_data';
+        const CACHE_KEY_REPORT = 'ai_sustainability_report';
+        
+        // Veri yükleme (önbellekten veya API'den)
+        function loadData(useCache = true) {
+            console.log('loadData çağırıldı, useCache:', useCache);
+            
+            // Loading state'i göster
+            showLoadingState();
+            
+            if (useCache) {
+                // Önbellekten veri yüklemeyi dene
+                const cachedPredictions = localStorage.getItem(CACHE_KEY_PREDICTIONS);
+                const cachedReport = localStorage.getItem(CACHE_KEY_REPORT);
+                
+                console.log('Cache durumu:', {
+                    hasPredictions: !!cachedPredictions,
+                    hasReport: !!cachedReport
+                });
+                
+                if (cachedPredictions && cachedReport) {
+                    try {
+                        const predictions = JSON.parse(cachedPredictions);
+                        const report = JSON.parse(cachedReport);
+                        console.log('Önbellekten veri yüklendi');
+                        hideLoadingState();
+                        displayPredictionData(predictions, report);
+                        return;
+                    } catch (e) {
+                        console.error('Önbellek verisi ayrıştırılamadı:', e);
+                    }
+                }
+            }
+            
+            // Önbellekte veri yoksa veya güncelleme istenirse API'den yükle
+            console.log('API\'den veri çekiliyor...');
+            Promise.all([
+                fetch('/static/data/carbon_predictions.json').then(response => {
+                    console.log('Predictions response status:', response.status);
+                    if (!response.ok) throw new Error('Prediction data yüklenemedi: ' + response.status);
+                    return response.json();
+                }),
+                fetch('/static/data/gpt_sustainability_report.json').then(response => {
+                    console.log('Report response status:', response.status);
+                    if (!response.ok) throw new Error('Report data yüklenemedi: ' + response.status);
+                    return response.json();
+                })
+            ]).then(([predictions, report]) => {
+                console.log('API\'den fresh veri yüklendi', {predictions, report});
+                
+                // Verileri önbelleğe kaydet
+                localStorage.setItem(CACHE_KEY_PREDICTIONS, JSON.stringify(predictions));
+                localStorage.setItem(CACHE_KEY_REPORT, JSON.stringify(report));
+                
+                // Loading state'i gizle ve verileri göster
+                hideLoadingState();
+                displayPredictionData(predictions, report);
+            }).catch(error => {
+                console.error('Veri yükleme hatası:', error);
+                hideLoadingState();
+                
+                // Hata durumunda daha güzel fallback göster
+                const summaryElement = document.getElementById('gemma-executive-summary');
+                if (summaryElement) {
+                    summaryElement.innerHTML = 
+                        '<div class="alert alert-danger"><i class="bi bi-exclamation-triangle me-2"></i>Veri yüklenirken hata oluştu: ' + error.message + '</div>';
+                }
+                
+                // Cache'den veri varsa onu göster
+                const cachedPredictions = localStorage.getItem(CACHE_KEY_PREDICTIONS);
+                const cachedReport = localStorage.getItem(CACHE_KEY_REPORT);
+                
+                if (cachedPredictions && cachedReport) {
+                    try {
+                        console.log('Fallback: Cache\'den veri gösteriliyor');
+                        const predictions = JSON.parse(cachedPredictions);
+                        const report = JSON.parse(cachedReport);
+                        displayPredictionData(predictions, report);
+                    } catch (e) {
+                        console.error('Cache verisi ayrıştırılamadı:', e);
+                        summaryElement.innerHTML = 
+                            '<div class="alert alert-danger"><i class="bi bi-x-circle me-2"></i>Hiçbir veri bulunamadı. Sayfayı yenileyin.</div>';
+                    }
+                } else {
+                    summaryElement.innerHTML = 
+                        '<div class="alert alert-danger"><i class="bi bi-x-circle me-2"></i>Hiçbir veri bulunamadı. Sayfayı yenileyin.</div>';
+                }
+            });
+        }
+        
+        function showLoadingState() {
+            // Tüm yükleniyor elementlerini göster
+            const loadingElements = document.querySelectorAll('[id*="loading"]');
+            loadingElements.forEach(el => {
+                if (el.style.display === 'none') {
+                    el.style.display = 'flex';
+                }
+            });
+        }
+        
+        function hideLoadingState() {
+            // Tüm yükleniyor elementlerini gizle
+            const loadingElements = document.querySelectorAll('[id*="loading"], [id*="Loading"]');
+            loadingElements.forEach(el => {
+                el.style.display = 'none';
+            });
+            
+            // Spesifik loading elementleri de gizle
+            const specificLoadingIds = [
+                'ai-loading', 'trend-loading', 'regional-loading', 'risk-loading', 'conclusion-loading',
+                'emission-loading', 'policy-loading', 'technology-loading'
+            ];
+            
+            specificLoadingIds.forEach(id => {
+                const element = document.getElementById(id);
+                if (element) {
+                    element.style.display = 'none';
+                }
+            });
+        }
+        
+        // Sayfa yüklendiğinde verileri yükle
+        console.log('Sayfa yüklendi, veri yükleme başlatılıyor...');
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('DOM yüklendi, loadData çağrılıyor...');
+            loadData();
+        });
+        
+        // Güncelleme butonu işleyicisi
+        document.getElementById('refresh-analysis').addEventListener('click', function() {
+            console.log('Verileri Güncelle butonuna tıklandı');
+            
+            // Önbelleği temizle
+            localStorage.removeItem(CACHE_KEY_PREDICTIONS);
+            localStorage.removeItem(CACHE_KEY_REPORT);
+            
+            // Butonu devre dışı bırak ve yükleniyor simgesi göster
+            const button = this;
+            const originalContent = button.innerHTML;
+            button.disabled = true;
+            button.innerHTML = '<i class="bi bi-arrow-repeat spin"></i> Güncelleniyor...';
+            
+            // Sayfayı yenile - en garantili yöntem
+            setTimeout(() => {
+                window.location.reload();
+            }, 500);
+        });
+        
+        function displayPredictionData(predictions, report) {
+            console.log('displayPredictionData çağırıldı', {predictions, report});
+            
+            // Veri yapısını kontrol et
+            if (!predictions || !report) {
+                console.error('Gerekli veriler eksik:', {predictions, report});
+                return;
+            }
+            
+            // TÜM loading elementlerini gizle
+            const allLoadingElements = document.querySelectorAll('[id*="loading"], [id*="Loading"]');
+            allLoadingElements.forEach(el => {
+                el.style.display = 'none';
+            });
+            
+            // Statik yükleniyor metinlerini değiştir
+            document.querySelectorAll('*').forEach(el => {
+                if (el.textContent && el.textContent.includes('Yükleniyor') && 
+                    (el.tagName === 'LI' || el.tagName === 'SPAN' || el.tagName === 'DIV')) {
+                    el.style.display = 'none';
+                }
+            });
+            
+            // Özet bilgileri güvenli şekilde göster
+            const currentEmissions = predictions.current_total_emissions_ton || 0;
+            const predictedEmissions = predictions.predicted_total_emissions_ton || 0;
+            
+            console.log('Emisyon değerleri:', {currentEmissions, predictedEmissions});
+            
+            const currentElement = document.getElementById('current-emissions');
+            const predictedElement = document.getElementById('predicted-emissions');
+            
+            if (currentElement) {
+                currentElement.textContent = currentEmissions.toLocaleString('tr-TR');
+                console.log('Current emissions güncellendi:', currentElement.textContent);
+            }
+            if (predictedElement) {
+                predictedElement.textContent = predictedEmissions.toLocaleString('tr-TR');
+                console.log('Predicted emissions güncellendi:', predictedElement.textContent);
+            }
+            
+            const emissionChange = predictions.emission_change_ton || 0;
+            const emissionChangePercent = predictions.emission_change_percent || 0;
+            
+            console.log('Değişim değerleri:', {emissionChange, emissionChangePercent});
+            
+            const changeElement = document.getElementById('emission-change');
+            const changePercentElement = document.getElementById('emission-change-percent');
+            
+            if (changeElement) {
+                changeElement.textContent = Math.abs(emissionChange).toLocaleString('tr-TR');
+                console.log('Emission change güncellendi:', changeElement.textContent);
+            }
+            if (changePercentElement) {
+                changePercentElement.textContent = emissionChangePercent.toFixed(2);
+                console.log('Emission change percent güncellendi:', changePercentElement.textContent);
+            }
+            
+            // Değişim yönüne göre stil ayarla
+            const changeCard = document.getElementById('change-card');
+            const changeIcon = document.getElementById('change-icon');
+            
+            if (emissionChange > 0) {
+                changeCard.classList.add('bg-danger', 'text-white');
+                changeIcon.classList.remove('bi-arrow-up-right');
+                changeIcon.classList.add('bi-arrow-up-right');
+            } else {
+                changeCard.classList.add('bg-success', 'text-white');
+                changeIcon.classList.remove('bi-arrow-up-right');
+                changeIcon.classList.add('bi-arrow-down-right');
+            }
+            
+            // AI analizi göster ve yükleme animasyonunu gizle
+            const summaryElement = document.getElementById('gemma-executive-summary');
+            const loadingElement = document.getElementById('ai-loading');
+            
+            if (loadingElement) {
+                loadingElement.style.display = 'none';
+            }
+            
+            const executiveSummary = report.executive_summary || 'AI analizi mevcut değil.';
+            console.log('AI analizi:', executiveSummary);
+            
+            if (summaryElement) {
+                summaryElement.innerHTML = `<div class="d-flex align-items-center">
+                    <i class="bi bi-check-circle text-success me-2"></i>
+                    ${executiveSummary}
+                </div>`;
+                console.log('AI analizi güncellendi');
+            }
+            
+            // Önerileri göster
+            displayRecommendations(report);
+            
+            // Grafikleri oluştur
+            createCitiesPredictionChart(predictions);
+            createChangeChart(predictions);
+            
+            // Şehir tahminlerini göster
+            displayCityPredictions(predictions);
+            
+            // Analiz detaylarını göster
+            displayAnalysisDetails(report);
+            
+            console.log('Tüm veriler başarıyla yüklendi ve görüntülendi');
+        }
+        
+        function displayRecommendations(report) {
+            console.log('displayRecommendations çağırıldı', report);
+            
+            // TÜM loading elementlerini kaldır
+            const allLoadings = document.querySelectorAll('[id*="loading"], [id*="Loading"]');
+            allLoadings.forEach(el => {
+                if (el.parentNode) {
+                    el.parentNode.removeChild(el);
+                }
+            });
+            
+            // Statik "Yükleniyor..." yazılarını temizle
+            document.querySelectorAll('li').forEach(li => {
+                if (li.textContent.trim() === 'Yükleniyor...' || li.textContent.includes('yükleniyor')) {
+                    li.remove();
+                }
+            });
+            
+            // Emisyon azaltma önerileri
+            const emissionReductionList = document.getElementById('emission-reduction-list');
+            emissionReductionList.innerHTML = '';
+            if (report.future_predictions && report.future_predictions.recommendations) {
+                report.future_predictions.recommendations.emission_reduction.forEach(recommendation => {
+                    const li = document.createElement('li');
+                    li.innerHTML = `<i class="bi bi-check text-success me-2"></i>${recommendation}`;
+                    emissionReductionList.appendChild(li);
+                });
+                
+                // Politika önerileri
+                const policyList = document.getElementById('policy-list');
+                policyList.innerHTML = '';
+                report.future_predictions.recommendations.policy_suggestions.forEach(policy => {
+                    const li = document.createElement('li');
+                    li.innerHTML = `<i class="bi bi-check text-success me-2"></i>${policy}`;
+                    policyList.appendChild(li);
+                });
+                
+                // Teknoloji yatırımları - eğer varsa
+                const technologyList = document.getElementById('technology-list');
+                if (technologyList && report.future_predictions.recommendations.technology_investments) {
+                    technologyList.innerHTML = '';
+                    report.future_predictions.recommendations.technology_investments.forEach(tech => {
+                        const li = document.createElement('li');
+                        li.innerHTML = `<i class="bi bi-check text-success me-2"></i>${tech}`;
+                        technologyList.appendChild(li);
+                    });
+                } else if (technologyList) {
+                    // Teknoloji yatırımları yoksa varsayılan öneriler göster
+                    technologyList.innerHTML = `
+                        <li><i class="bi bi-check text-success me-2"></i>Enerji verimli ekipman yatırımları</li>
+                        <li><i class="bi bi-check text-success me-2"></i>Yenilenebilir enerji sistemleri</li>
+                        <li><i class="bi bi-check text-success me-2"></i>Akıllı otomasyon teknolojileri</li>
+                        <li><i class="bi bi-check text-success me-2"></i>Karbon yakalama ve depolama</li>
+                    `;
+                }
+            } else {
+                // Veri yoksa varsayılan öneriler göster
+                emissionReductionList.innerHTML = `
+                    <li><i class="bi bi-check text-success me-2"></i>Enerji verimliliği artırımı</li>
+                    <li><i class="bi bi-check text-success me-2"></i>Yenilenebilir enerji kullanımı</li>
+                    <li><i class="bi bi-check text-success me-2"></i>Atık yönetimi optimizasyonu</li>
+                `;
+                
+                const policyList = document.getElementById('policy-list');
+                policyList.innerHTML = `
+                    <li><i class="bi bi-check text-success me-2"></i>Karbon vergisi uygulaması</li>
+                    <li><i class="bi bi-check text-success me-2"></i>Emisyon standartları güçlendirme</li>
+                    <li><i class="bi bi-check text-success me-2"></i>Çevre dostu teşvikler</li>
+                `;
+                
+                const technologyList = document.getElementById('technology-list');
+                if (technologyList) {
+                    technologyList.innerHTML = `
+                        <li><i class="bi bi-check text-success me-2"></i>Enerji verimli ekipman yatırımları</li>
+                        <li><i class="bi bi-check text-success me-2"></i>Yenilenebilir enerji sistemleri</li>
+                        <li><i class="bi bi-check text-success me-2"></i>Akıllı otomasyon teknolojileri</li>
+                    `;
+                }
+            }
+        }
+        
+        function createCitiesPredictionChart(predictions) {
+            // Sadece fabrika bulunan şehirleri filtrele
+            const citiesWithFactories = predictions.city_predictions.filter(city => city.factory_count > 0);
+            
+            // Şehirlere göre emisyon verileri
+            const cities = citiesWithFactories.map(city => city.region.split(',')[0]);
+            const currentEmissions = citiesWithFactories.map(city => city.current_total_emissions_ton);
+            const predictedEmissions = citiesWithFactories.map(city => city.predicted_total_emissions_ton);
+            
+            // Grafik oluştur
+            const ctx = document.getElementById('cities-prediction-chart').getContext('2d');
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: cities,
+                    datasets: [
+                        {
+                            label: 'Mevcut Emisyon (2025)',
+                            data: currentEmissions,
+                            backgroundColor: 'rgba(0, 123, 255, 0.7)',
+                            borderColor: 'rgba(0, 123, 255, 1)',
+                            borderWidth: 1
+                        },
+                        {
+                            label: 'Tahmin Edilen Emisyon (2026)',
+                            data: predictedEmissions,
+                            backgroundColor: 'rgba(111, 66, 193, 0.7)',
+                            borderColor: 'rgba(111, 66, 193, 1)',
+                            borderWidth: 1
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            title: {
+                                display: true,
+                                text: 'Emisyon (ton CO2e/yıl)'
+                            }
+                        }
+                    }
+                }
+            });
+        }
+        
+        function createChangeChart(predictions) {
+            // Sadece fabrika bulunan şehirleri filtrele
+            const citiesWithFactories = predictions.city_predictions.filter(city => city.factory_count > 0);
+            
+            // Şehirlere göre emisyon değişim verileri
+            const cities = citiesWithFactories.map(city => city.region.split(',')[0]);
+            const changePercent = citiesWithFactories.map(city => city.emission_change_percent);
+            
+            // Değişim yönüne göre renkleri belirle
+            const backgroundColors = changePercent.map(change => 
+                change > 0 ? 'rgba(220, 53, 69, 0.7)' : 'rgba(40, 167, 69, 0.7)'
+            );
+            const borderColors = changePercent.map(change => 
+                change > 0 ? 'rgba(220, 53, 69, 1)' : 'rgba(40, 167, 69, 1)'
+            );
+            
+            // Grafik oluştur
+            const ctx = document.getElementById('change-chart').getContext('2d');
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: cities,
+                    datasets: [
+                        {
+                            label: 'Emisyon Değişim Oranı (%)',
+                            data: changePercent,
+                            backgroundColor: backgroundColors,
+                            borderColor: borderColors,
+                            borderWidth: 1
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            title: {
+                                display: true,
+                                text: 'Değişim Oranı (%)'
+                            }
+                        }
+                    }
+                }
+            });
+        }
+        
+        function displayCityPredictions(predictions) {
+            const cityPredictionsContainer = document.getElementById('city-predictions');
+            
+            // Sadece fabrika bulunan şehirleri filtrele ve emisyon değişimine göre sırala
+            const citiesWithFactories = predictions.city_predictions
+                .filter(city => city.factory_count > 0)
+                .sort((a, b) => Math.abs(b.emission_change_percent) - Math.abs(a.emission_change_percent));
+            
+            // Her şehir için kart oluştur
+            citiesWithFactories.forEach(city => {
+                const cityName = city.region.split(',')[0];
+                const factoryCount = city.factory_count;
+                const currentEmissions = city.current_total_emissions_ton;
+                const predictedEmissions = city.predicted_total_emissions_ton;
+                const emissionChange = city.emission_change_ton;
+                const emissionChangePercent = city.emission_change_percent;
+                
+                // Değişim yönüne göre stil belirle
+                const changeClass = emissionChange > 0 ? 'increase' : 'decrease';
+                const changeIcon = emissionChange > 0 ? 'bi-arrow-up-right' : 'bi-arrow-down-right';
+                const changeText = emissionChange > 0 ? 'artış' : 'azalış';
+                
+                // Kart HTML'i
+                const cardHTML = `
+                    <div class="col-md-6 mb-4">
+                        <div class="card prediction-card ${changeClass}">
+                            <div class="card-header bg-light">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <h5 class="mb-0">${cityName}</h5>
+                                    <span class="prediction-badge ${changeClass}">
+                                        <i class="bi ${changeIcon}"></i> ${Math.abs(emissionChangePercent).toFixed(2)}% ${changeText}
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="mb-3">
+                                            <small class="text-muted">Fabrika Sayısı</small>
+                                            <h5>${factoryCount}</h5>
+                                        </div>
+                                        <div class="mb-3">
+                                            <small class="text-muted">Mevcut Emisyon (2025)</small>
+                                            <h5>${currentEmissions.toLocaleString('tr-TR')} ton CO2e/yıl</h5>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="mb-3">
+                                            <small class="text-muted">Tahmin Edilen Emisyon (2026)</small>
+                                            <h5>${predictedEmissions.toLocaleString('tr-TR')} ton CO2e/yıl</h5>
+                                        </div>
+                                        <div>
+                                            <small class="text-muted">Emisyon Değişimi</small>
+                                            <h5 class="text-${emissionChange > 0 ? 'danger' : 'success'}">
+                                                ${emissionChange > 0 ? '+' : ''}${emissionChange.toLocaleString('tr-TR')} ton CO2e/yıl
+                                            </h5>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                
+                // Kartı ekle
+                cityPredictionsContainer.innerHTML += cardHTML;
+            });
+        }
+        
+        function displayAnalysisDetails(report) {
+            // Yükleme animasyonlarını gizle
+            const trendLoading = document.getElementById('trend-loading');
+            if (trendLoading) trendLoading.style.display = 'none';
+            
+            // Trend analizi
+            if (report.future_predictions && report.future_predictions.insights) {
+                document.getElementById('trend-analysis').innerHTML = `
+                    <div class="d-flex align-items-center">
+                        <i class="bi bi-graph-up text-primary me-2"></i>
+                        ${report.future_predictions.insights.trend_analysis}
+                    </div>
+                `;
+                
+                // Bölgesel trendler
+                document.getElementById('regional-trends').innerHTML = `
+                    <div class="d-flex align-items-center">
+                        <i class="bi bi-geo-alt text-info me-2"></i>
+                        ${report.future_predictions.insights.regional_trends}
+                    </div>
+                `;
+                
+                // Risk değerlendirmesi
+                document.getElementById('risk-assessment').innerHTML = `
+                    <div class="d-flex align-items-center">
+                        <i class="bi bi-exclamation-triangle text-warning me-2"></i>
+                        ${report.future_predictions.insights.risk_assessment}
+                    </div>
+                `;
+            }
+            
+            // Sonuç
+            document.getElementById('conclusion').innerHTML = `
+                <div class="d-flex align-items-center">
+                    <i class="bi bi-check-circle text-success me-2"></i>
+                    ${report.conclusion}
+                </div>
+            `;
+        }
+    </script>
+</body>
+</html>
