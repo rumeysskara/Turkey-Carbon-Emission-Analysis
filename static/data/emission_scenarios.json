@@ -1,0 +1,197 @@
+{
+  "title": "Türkiye Karbon Emisyonu Gelecek Senaryoları",
+  "base_year": 2025,
+  "projection_years": [2026, 2027, 2028, 2029, 2030],
+  "current_total_emissions": 121137.55,
+  
+  "scenarios": {
+    "optimistic": {
+      "name": "En İyi Senaryo",
+      "description": "Tüm fabrikalar yenilenebilir enerjiye geçiş, sıkı çevre düzenlemeleri",
+      "icon": "🌱",
+      "color": "success",
+      "assumptions": [
+        "Tüm fabrikalar %100 yenilenebilir enerjiye geçiş",
+        "Sıkı karbon vergisi uygulaması",
+        "Teknoloji yatırım desteği maksimum",
+        "Uluslararası iklim fonu desteği",
+        "Sıfır atık hedefi"
+      ],
+      "projections": {
+        "2026": 108524.00,
+        "2027": 96871.00,
+        "2028": 85218.00,
+        "2029": 73565.00,
+        "2030": 61912.00
+      },
+      "reduction_rates": {
+        "2026": -10.4,
+        "2027": -20.0,
+        "2028": -29.7,
+        "2029": -39.3,
+        "2030": -48.9
+      }
+    },
+    
+    "moderate": {
+      "name": "Beklenen Senaryo", 
+      "description": "Mevcut politikalar devam, kademeli geçiş",
+      "icon": "⚖️",
+      "color": "warning",
+      "assumptions": [
+        "Mevcut çevre politikaları devam ediyor",
+        "Kademeli yenilenebilir enerji geçişi",
+        "Orta düzey teknoloji yatırımları",
+        "AB uyum süreci normal hızda",
+        "Pazar odaklı çözümler"
+      ],
+      "projections": {
+        "2026": 114440.00,
+        "2027": 108892.00,
+        "2028": 103344.00,
+        "2029": 97796.00,
+        "2030": 92248.00
+      },
+      "reduction_rates": {
+        "2026": -5.5,
+        "2027": -10.1,
+        "2028": -14.7,
+        "2029": -19.3,
+        "2030": -23.9
+      }
+    },
+    
+    "pessimistic": {
+      "name": "En Kötü Senaryo",
+      "description": "Ekonomik durgunluk, çevre politikalarının ihmal edilmesi", 
+      "icon": "⚠️",
+      "color": "danger",
+      "assumptions": [
+        "Ekonomik durgunluk ve yatırım azalması",
+        "Çevre düzenlemelerinin gevşetilmesi",
+        "Fosil yakıt bağımlılığında artış",
+        "Teknoloji yatırımlarında duraksama",
+        "Uluslararası iklim hedeflerinden sapma"
+      ],
+      "projections": {
+        "2026": 125043.00,
+        "2027": 128949.00,
+        "2028": 132854.00,
+        "2029": 136760.00,
+        "2030": 140665.00
+      },
+      "reduction_rates": {
+        "2026": 3.2,
+        "2027": 6.4,
+        "2028": 9.7,
+        "2029": 12.9,
+        "2030": 16.1
+      }
+    }
+  },
+  
+  "key_factors": {
+    "policy": [
+      "Karbon vergisi düzeyi",
+      "Yenilenebilir enerji teşvikleri", 
+      "Çevre düzenlemelerinin sıkılığı",
+      "AB Green Deal uyum hızı"
+    ],
+    "technology": [
+      "Temiz teknoloji maliyetleri",
+      "Enerji depolama teknolojileri",
+      "Karbon yakalama ve depolama",
+      "Endüstri 4.0 dijitalleşme"
+    ],
+    "economic": [
+      "GDP büyüme oranı",
+      "Enerji fiyatları",
+      "Yatırım kapasitesi",
+      "Uluslararası finansman"
+    ],
+    "social": [
+      "Toplumsal farkındalık",
+      "Tüketici tercihleri",
+      "İstihdamda yeşil geçiş",
+      "Eğitim ve kapasite geliştirme"
+    ]
+  },
+  
+  "implementation_roadmap": {
+    "2025-2026": {
+      "phase": "Hazırlık ve Planlama",
+      "actions": [
+        "Detaylı emisyon envanter çalışması",
+        "Sektörel azaltım hedeflerinin belirlenmesi",
+        "Teknoloji roadmap hazırlığı",
+        "Finansman mekanizmalarının tasarımı"
+      ]
+    },
+    "2026-2027": {
+      "phase": "Pilot Uygulamalar",
+      "actions": [
+        "Pilot fabrikalarla yenilenebilir enerji geçişi",
+        "Enerji verimliliği proje destekleri",
+        "Karbon ayak izi ölçüm sistemleri",
+        "Sektörel best practice geliştirme"
+      ]
+    },
+    "2027-2028": {
+      "phase": "Yaygınlaştırma",
+      "actions": [
+        "Tüm sektörlerde teknoloji transferi",
+        "Kapsamlı finansal teşvik programları",
+        "Sürekli izleme ve raporlama sistemi",
+        "Uluslararası işbirliği projeleriri"
+      ]
+    },
+    "2028-2030": {
+      "phase": "Hedeflere Ulaşım",
+      "actions": [
+        "Net sıfır emisyon hedefine yaklaşım",
+        "Sürekli iyileştirme ve optimizasyon",
+        "Gelişmiş teknoloji entegrasyonu",
+        "Global iklim liderliği"
+      ]
+    }
+  },
+  
+  "risk_analysis": {
+    "high_risks": [
+      "Global ekonomik kriz etkisi",
+      "Enerji güvenliği endişeleri",
+      "Teknoloji maliyetlerinin beklenenden yüksek olması"
+    ],
+    "medium_risks": [
+      "Sektörel direnç ve uyum zorlukları",
+      "Finansman kaynaklarının yetersizliği",
+      "Düzenleyici belirsizlikler"
+    ],
+    "low_risks": [
+      "Toplumsal kabul sorunları",
+      "Teknik kapasite eksiklikleri",
+      "Uluslararası rekabet kaygıları"
+    ]
+  },
+  
+  "success_indicators": {
+    "environmental": [
+      "Yıllık emisyon azaltım oranları",
+      "Yenilenebilir enerji kullanım payı",
+      "Enerji verimliliği artışı",
+      "Atık azaltım oranları"
+    ],
+    "economic": [
+      "Yeşil yatırım miktarı",
+      "Temiz teknoloji istihdamı",
+      "Enerji maliyetlerinde tasarruf",
+      "İhracat rekabet gücü"
+    ],
+    "social": [
+      "Hava kalitesi iyileşmesi",
+      "Yeşil becerilere sahip istihdam",
+      "Toplumsal farkındalık düzeyi",
+      "Bölgesel kalkınma etkisi"
+    ]
+  }
+}
