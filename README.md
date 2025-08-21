@@ -5,7 +5,7 @@ Bu proje, Türkiye'deki fabrikaların karbon emisyonlarını analiz eden ve gele
 ## 🌟 Özellikler
 
 - **📊 Tüm Türkiye Analizi**: 81 ildeki fabrikaların emisyon analizi
-- **🔮 AI Destekli Tahminler**: 2026 yılı için emisyon tahminleri
+- **🔮 AI Destekli Tahminler**: 2025 yılı için emisyon tahminleri
 - **📈 Gelecek Senaryoları**: Farklı ekonomik koşullarda emisyon senaryoları
 - **🤖 AI Analizi**: GPT destekli sürdürülebilirlik önerileri
 
