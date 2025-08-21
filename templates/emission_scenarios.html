@@ -337,11 +337,11 @@
             
             const labels = Object.keys(scenarios).map(key => scenarioNames[key] || scenarios[key].name);
             const currentData = Array(labels.length).fill(currentEmissions);
-            const predictedData = Object.values(scenarios).map(scenario => scenario.projections["2030"]);
+            const predictedData = Object.values(scenarios).map(scenario => scenario.projections["2025"]);
             
             // Değişim yönüne göre renkleri belirle
             const backgroundColors = Object.values(scenarios).map(scenario => {
-                const change = scenario.reduction_rates["2030"];
+                const change = scenario.reduction_rates["2025"];
                 return change < 0 ? 'rgba(40, 167, 69, 0.7)' : 'rgba(220, 53, 69, 0.7)';
             });
             
@@ -352,14 +352,14 @@
                     labels: labels,
                     datasets: [
                         {
-                            label: 'Mevcut Emisyon (2025)',
+                            label: 'Mevcut Emisyon (2024)',
                             data: currentData,
                             backgroundColor: 'rgba(0, 123, 255, 0.7)',
                             borderColor: 'rgba(0, 123, 255, 1)',
                             borderWidth: 1
                         },
                         {
-                            label: 'Tahmin Edilen Emisyon (2026)',
+                            label: 'Tahmin Edilen Emisyon (2025)',
                             data: predictedData,
                             backgroundColor: backgroundColors,
                             borderWidth: 1
@@ -433,9 +433,9 @@
             Object.entries(scenarios).forEach(([key, scenario]) => {
                 const info = scenarioInfo[key] || { title: scenario.name, icon: "bi-graph-up", class: "moderate" };
                 
-                // 2030 projeksiyonu ve değişim oranı
-                const targetEmission = scenario.projections["2030"];
-                const reductionRate = scenario.reduction_rates["2030"];
+                // 2025 projeksiyonu ve değişim oranı
+                const targetEmission = scenario.projections["2025"];
+                const reductionRate = scenario.reduction_rates["2025"];
                 const changeDirection = reductionRate < 0 ? "azalış" : "artış";
                 
                 // Kart HTML'i
@@ -451,12 +451,12 @@
                                 
                                 <div class="row text-center mb-3">
                                     <div class="col-6">
-                                        <h6>Mevcut (2025)</h6>
+                                        <h6>Mevcut (2024)</h6>
                                         <h4 class="text-muted">${currentEmissions.toLocaleString('tr-TR')}</h4>
                                         <small>ton CO2e</small>
                                     </div>
                                     <div class="col-6">
-                                        <h6>Hedef (2030)</h6>
+                                        <h6>Hedef (2025)</h6>
                                         <h4 class="text-${reductionRate < 0 ? 'success' : 'danger'}">${targetEmission.toLocaleString('tr-TR')}</h4>
                                         <small>ton CO2e</small>
                                     </div>
