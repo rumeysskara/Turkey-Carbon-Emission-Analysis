@@ -1,0 +1,31 @@
+{
+  "overall_accuracy": 0.822,
+  "baseline_accuracy": 0.838,
+  "prediction_variance": {
+    "variance": 20.1,
+    "std_deviation": 4.48,
+    "mean_change": -22.61,
+    "coefficient_variation": 0.198,
+    "consistency_score": 0.85,
+    "prediction_count": 8290
+  },
+  "coverage_metrics": {
+    "geographical_coverage": 0.963,
+    "sectoral_coverage": 1.0,
+    "size_diversity": 0.5,
+    "emission_diversity": 0.902,
+    "overall_coverage": 0.841,
+    "cities_covered": 78,
+    "total_factories": 8290
+  },
+  "temporal_reliability": {
+    "temporal_depth": 0.5,
+    "update_frequency": 0.8,
+    "data_freshness": 0.917,
+    "temporal_reliability": 0.739
+  },
+  "confidence_interval_95": 0.1,
+  "calculation_timestamp": "2025-08-21T13:09:17.761698",
+  "model_type": "Hibrit Regel-bazlı Tahmin Sistemi",
+  "methodology": "7-faktörlü tarihsel trend analizi + çoklu kaynak validasyonu"
+}

@@ -9,32 +9,41 @@
     <link rel="stylesheet" href="/static/css/style.css">
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-success">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-success fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="#">Türkiye Karbon Emisyon Analizi</a>
+            <a class="navbar-brand" href="/">
+                <i class="bi bi-leaf me-2"></i>
+                Türkiye Karbon Emisyon Analizi
+            </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
+                <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link active" href="/">Ana Sayfa</a>
+                        <a class="nav-link" href="/all-turkey-emissions">
+                            <i class="bi bi-globe me-1"></i>
+                            Tüm Türkiye Analizi
+                        </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/all-turkey-emissions">Tüm Türkiye Analizi</a>
+                        <a class="nav-link" href="/carbon-predictions">
+                            <i class="bi bi-graph-up me-1"></i>
+                            Emisyon Tahminleri
+                        </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/carbon-predictions">Emisyon Tahminleri</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/emission-scenarios">Gelecek Senaryoları</a>
+                        <a class="nav-link" href="/emission-scenarios">
+                            <i class="bi bi-clipboard-data me-1"></i>
+                            Gelecek Senaryoları
+                        </a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <div class="container mt-4">
+    <div class="container" style="margin-top: 76px;">
         <div class="jumbotron bg-light p-4 rounded">
             <h1 class="display-5">Türkiye Karbon Emisyon Analizi</h1>
             <p class="lead">Türkiye'nin 81 ilindeki fabrikaların karbon emisyonlarını analiz eden ve gelecek yıl tahminleri sunan sistem</p>

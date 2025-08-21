@@ -42,32 +42,41 @@
     </style>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-success">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-success fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="/">Türkiye Karbon Emisyon Analizi</a>
+            <a class="navbar-brand" href="/">
+                <i class="bi bi-leaf me-2"></i>
+                Türkiye Karbon Emisyon Analizi
+            </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
+                <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="/">Ana Sayfa</a>
+                        <a class="nav-link active" href="/all-turkey-emissions">
+                            <i class="bi bi-globe me-1"></i>
+                            Tüm Türkiye Analizi
+                        </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="/all-turkey-emissions">Tüm Türkiye Analizi</a>
+                        <a class="nav-link" href="/carbon-predictions">
+                            <i class="bi bi-graph-up me-1"></i>
+                            Emisyon Tahminleri
+                        </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/carbon-predictions">Emisyon Tahminleri</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/emission-scenarios">Gelecek Senaryoları</a>
+                        <a class="nav-link" href="/emission-scenarios">
+                            <i class="bi bi-clipboard-data me-1"></i>
+                            Gelecek Senaryoları
+                        </a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <div class="container mt-4">
+    <div class="container" style="margin-top: 76px;">
         <div class="jumbotron bg-light p-4 rounded">
             <h1 class="display-5">Türkiye'deki Tüm Fabrikaların Karbon Emisyonu Analizi</h1>
             <p class="lead">Bu sayfa, Türkiye'nin tüm önemli şehirlerindeki fabrikaların <strong>yıllık</strong> karbon emisyonlarını analiz eder ve görselleştirir.</p>
@@ -147,13 +156,60 @@
                 <div class="alert alert-info">
                     <i class="bi bi-info-circle"></i> Aşağıdaki tabloda fabrikaların yıllık karbon emisyon değerleri ton CO2e cinsinden gösterilmektedir.
                 </div>
+                
+                <!-- Filtreler -->
+                <div class="row mb-4">
+                    <div class="col-lg-2 col-md-3 mb-2">
+                        <input type="text" id="factory-search" class="form-control" placeholder="🔍 Fabrika adı ara...">
+                    </div>
+                    <div class="col-lg-2 col-md-3 mb-2">
+                        <select id="city-filter" class="form-select">
+                            <option value="">🏙️ Tüm Şehirler</option>
+                        </select>
+                    </div>
+                    <div class="col-lg-2 col-md-3 mb-2">
+                        <select id="sector-filter" class="form-select">
+                            <option value="">🏭 Tüm Sektörler</option>
+                        </select>
+                    </div>
+                    <div class="col-lg-2 col-md-3 mb-2">
+                        <select id="emission-filter" class="form-select">
+                            <option value="">📊 Tüm Emisyonlar</option>
+                            <option value="high">🔴 Yüksek (>1000 ton)</option>
+                            <option value="medium">🟡 Orta (500-1000 ton)</option>
+                            <option value="low">🟢 Düşük (<500 ton)</option>
+                        </select>
+                    </div>
+                    <div class="col-lg-2 col-md-3 mb-2">
+                        <select id="items-per-page" class="form-select">
+                            <option value="50">50 kayıt</option>
+                            <option value="100" selected>100 kayıt</option>
+                            <option value="250">250 kayıt</option>
+                            <option value="all">Tümü</option>
+                        </select>
+                    </div>
+                    <div class="col-lg-2 col-md-3 mb-2">
+                        <button id="clear-filters" class="btn btn-outline-secondary w-100">
+                            <i class="bi bi-x-circle me-1"></i>
+                            Temizle
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Sonuç sayısı -->
+                <div class="mb-3">
+                    <span class="badge bg-primary"><span id="total-results">0</span> fabrika bulundu</span>
+                    <span class="badge bg-secondary ms-2">Sayfa <span id="current-page">1</span> / <span id="total-pages">1</span></span>
+                </div>
+                
                 <div class="table-responsive">
                     <table class="table table-striped table-hover" id="factories-table">
                         <thead class="table-success">
                             <tr>
+                                <th>Sıra</th>
                                 <th>Fabrika Adı</th>
                                 <th>Şehir</th>
-                                <th>Tür</th>
+                                <th>Sektör</th>
                                 <th>Boyut (m²)</th>
                                 <th class="text-center">Yıllık Emisyon (ton CO2e)</th>
                             </tr>
@@ -163,6 +219,13 @@
                         </tbody>
                     </table>
                 </div>
+                
+                <!-- Sayfalama -->
+                <nav aria-label="Fabrika sayfalama">
+                    <ul class="pagination justify-content-center" id="pagination">
+                        <!-- Sayfalama JavaScript ile oluşturulacak -->
+                    </ul>
+                </nav>
             </div>
         </div>
     </div>
@@ -181,29 +244,49 @@
             });
         
         function displayFactoryData(data) {
-            // Özet bilgileri göster
-            document.getElementById('total-factory-count').textContent = data.total_factory_count;
+            // Özet bilgileri göster (yeni JSON formatı)
+            document.getElementById('total-factory-count').textContent = data.total_factories || 0;
             document.getElementById('total-emissions').textContent = data.total_annual_emissions_ton.toLocaleString('tr-TR');
-            document.getElementById('avg-emissions').textContent = data.average_annual_emissions_ton.toLocaleString('tr-TR', {maximumFractionDigits: 1});
+            document.getElementById('avg-emissions').textContent = data.average_emissions_per_factory.toLocaleString('tr-TR', {maximumFractionDigits: 1});
+            
+            // Fabrikaları şehirlere göre grupla
+            const cityGroups = {};
+            data.factories.forEach(factory => {
+                if (!cityGroups[factory.city]) {
+                    cityGroups[factory.city] = {
+                        city: factory.city,
+                        factory_count: 0,
+                        total_emissions: 0,
+                        factories: []
+                    };
+                }
+                cityGroups[factory.city].factory_count++;
+                cityGroups[factory.city].total_emissions += factory.annual_emission_ton;
+                cityGroups[factory.city].factories.push(factory);
+            });
+            
+            // Array'e çevir ve sırala
+            const citiesWithFactories = Object.values(cityGroups)
+                .sort((a, b) => b.total_emissions - a.total_emissions);
             
             // Grafikleri oluştur
-            createCitiesChart(data);
-            createDistributionChart(data);
+            createCitiesChart(citiesWithFactories);
+            createDistributionChart(citiesWithFactories);
             
             // Şehir kartlarını oluştur
-            createCityCards(data);
+            createCityCards(citiesWithFactories);
             
-            // Fabrika tablosunu doldur
-            populateFactoriesTable(data);
+            // Fabrika tablosunu doldur (tüm fabrikalar - filtreleme ve sayfalama ile)
+            populateFactoriesTable(data.factories);
         }
         
-        function createCitiesChart(data) {
-            // Sadece fabrika bulunan şehirleri filtrele
-            const citiesWithFactories = data.region_results.filter(region => region.factory_count > 0);
+        function createCitiesChart(citiesWithFactories) {
+            // En çok emisyona sahip 10 şehir
+            const topCities = citiesWithFactories.slice(0, 10);
             
             // Şehirlere göre emisyon verileri
-            const cities = citiesWithFactories.map(region => region.region.split(',')[0]);
-            const emissions = citiesWithFactories.map(region => region.total_annual_emissions_ton);
+            const cities = topCities.map(city => city.city);
+            const emissions = topCities.map(city => city.total_emissions);
             
             // Grafik oluştur
             const ctx = document.getElementById('cities-chart').getContext('2d');
@@ -235,13 +318,13 @@
             });
         }
         
-        function createDistributionChart(data) {
-            // Sadece fabrika bulunan şehirleri filtrele
-            const citiesWithFactories = data.region_results.filter(region => region.factory_count > 0);
+        function createDistributionChart(citiesWithFactories) {
+            // En çok fabrikaya sahip 8 şehir
+            const topCities = citiesWithFactories.slice(0, 8);
             
             // Şehirlere göre fabrika sayıları
-            const cities = citiesWithFactories.map(region => region.region.split(',')[0]);
-            const factoryCounts = citiesWithFactories.map(region => region.factory_count);
+            const cities = topCities.map(city => city.city);
+            const factoryCounts = topCities.map(city => city.factory_count);
             
             // Grafik oluştur
             const ctx = document.getElementById('distribution-chart').getContext('2d');
@@ -290,23 +373,21 @@
             });
         }
         
-        function createCityCards(data) {
+        function createCityCards(citiesWithFactories) {
             const cityCardsContainer = document.getElementById('city-cards');
             
-            // Sadece fabrika bulunan şehirleri filtrele ve fabrika sayısına göre sırala
-            const citiesWithFactories = data.region_results
-                .filter(region => region.factory_count > 0)
-                .sort((a, b) => b.factory_count - a.factory_count);
+            // İlk 12 şehir için kart oluştur
+            const topCities = citiesWithFactories.slice(0, 12);
             
             // Her şehir için kart oluştur
-            citiesWithFactories.forEach(city => {
-                const cityName = city.region.split(',')[0];
+            topCities.forEach(city => {
+                const cityName = city.city;
                 const factoryCount = city.factory_count;
-                const totalEmissions = city.total_annual_emissions_ton;
-                const avgEmissions = city.average_annual_emissions_ton;
+                const totalEmissions = city.total_emissions;
+                const avgEmissions = totalEmissions / factoryCount;
                 
                 // Emisyon oranı (en yüksek emisyona sahip şehre göre)
-                const maxEmissions = Math.max(...citiesWithFactories.map(c => c.total_annual_emissions_ton));
+                const maxEmissions = Math.max(...citiesWithFactories.map(c => c.total_emissions));
                 const emissionRatio = (totalEmissions / maxEmissions) * 100;
                 
                 // Progress bar rengi
@@ -356,45 +437,222 @@
             });
         }
         
-        function populateFactoriesTable(data) {
-            const tableBody = document.getElementById('factories-tbody');
+        // Global değişkenler
+        let allFactories = [];
+        let filteredFactories = [];
+        let currentPage = 1;
+        let itemsPerPage = 100;
+        
+        function populateFactoriesTable(factories) {
+            allFactories = factories;
             
-            // Tüm fabrikaları topla
-            const factories = [];
-            data.region_results.forEach(region => {
-                if (region.factories && region.factories.length > 0) {
-                    region.factories.forEach(factory => {
-                        factories.push({
-                            ...factory,
-                            city: region.region.split(',')[0]
-                        });
-                    });
-                }
+            // Filtreleri doldur
+            populateCityFilter();
+            populateSectorFilter();
+            
+            // Filter event listeners ekle
+            setupFilterListeners();
+            
+            // İlk yüklemede tüm fabrikaları göster
+            applyFilters();
+        }
+        
+        function populateCityFilter() {
+            const cityFilter = document.getElementById('city-filter');
+            const cities = [...new Set(allFactories.map(f => f.city))].sort();
+            
+            cityFilter.innerHTML = '<option value="">🏙️ Tüm Şehirler</option>';
+            
+            cities.forEach(city => {
+                const option = document.createElement('option');
+                option.value = city;
+                option.textContent = city;
+                cityFilter.appendChild(option);
+            });
+        }
+        
+        function populateSectorFilter() {
+            const sectorFilter = document.getElementById('sector-filter');
+            const sectors = [...new Set(allFactories.map(f => f.sector))].sort();
+            
+            // Sektör isimlerini Türkçeleştir
+            const sectorNames = {
+                'manufacturing': '🏭 Genel İmalat',
+                'textile': '👕 Tekstil',
+                'food': '🍔 Gıda',
+                'chemical': '🧪 Kimya',
+                'metal': '⚙️ Metal',
+                'automotive': '🚗 Otomotiv',
+                'cement': '🏗️ Çimento',
+                'paper': '📄 Kağıt',
+                'plastic': '🔗 Plastik',
+                'electronics': '📱 Elektronik',
+                'energy': '⚡ Enerji',
+                'wood': '🌳 Ahşap'
+            };
+            
+            sectorFilter.innerHTML = '<option value="">🏭 Tüm Sektörler</option>';
+            
+            sectors.forEach(sector => {
+                const option = document.createElement('option');
+                option.value = sector;
+                option.textContent = sectorNames[sector] || `🔧 ${sector}`;
+                sectorFilter.appendChild(option);
+            });
+        }
+        
+        function setupFilterListeners() {
+            document.getElementById('factory-search').addEventListener('input', applyFilters);
+            document.getElementById('city-filter').addEventListener('change', applyFilters);
+            document.getElementById('sector-filter').addEventListener('change', applyFilters);
+            document.getElementById('emission-filter').addEventListener('change', applyFilters);
+            document.getElementById('items-per-page').addEventListener('change', function() {
+                itemsPerPage = this.value === 'all' ? allFactories.length : parseInt(this.value);
+                currentPage = 1;
+                applyFilters();
             });
             
-            // Emisyona göre sırala (yüksekten düşüğe)
-            factories.sort((a, b) => b.annual_emissions_ton - a.annual_emissions_ton);
+            // Temizle butonunu ekle
+            document.getElementById('clear-filters').addEventListener('click', function() {
+                document.getElementById('factory-search').value = '';
+                document.getElementById('city-filter').value = '';
+                document.getElementById('sector-filter').value = '';
+                document.getElementById('emission-filter').value = '';
+                document.getElementById('items-per-page').value = '100';
+                itemsPerPage = 100;
+                currentPage = 1;
+                applyFilters();
+            });
+        }
+        
+        function applyFilters() {
+            const searchTerm = document.getElementById('factory-search').value.toLowerCase();
+            const cityFilter = document.getElementById('city-filter').value;
+            const sectorFilter = document.getElementById('sector-filter').value;
+            const emissionFilter = document.getElementById('emission-filter').value;
+            
+            // Filtreleme uygula
+            filteredFactories = allFactories.filter(factory => {
+                // İsim filtreleme
+                const nameMatch = factory.name.toLowerCase().includes(searchTerm);
+                
+                // Şehir filtreleme
+                const cityMatch = !cityFilter || factory.city === cityFilter;
+                
+                // Sektör filtreleme
+                const sectorMatch = !sectorFilter || factory.sector === sectorFilter;
+                
+                // Emisyon filtreleme
+                let emissionMatch = true;
+                if (emissionFilter === 'high') {
+                    emissionMatch = factory.annual_emission_ton > 1000;
+                } else if (emissionFilter === 'medium') {
+                    emissionMatch = factory.annual_emission_ton >= 500 && factory.annual_emission_ton <= 1000;
+                } else if (emissionFilter === 'low') {
+                    emissionMatch = factory.annual_emission_ton < 500;
+                }
+                
+                return nameMatch && cityMatch && sectorMatch && emissionMatch;
+            });
+            
+            // Emisyona göre sırala
+            filteredFactories.sort((a, b) => b.annual_emission_ton - a.annual_emission_ton);
+            
+            // Sayfalama hesapla
+            updatePagination();
+            
+            // Tabloyu güncelle
+            renderTable();
+        }
+        
+        function updatePagination() {
+            const totalItems = filteredFactories.length;
+            const totalPages = itemsPerPage === allFactories.length ? 1 : Math.ceil(totalItems / itemsPerPage);
+            
+            // Sonuç sayısını güncelle
+            document.getElementById('total-results').textContent = totalItems.toLocaleString('tr-TR');
+            document.getElementById('current-page').textContent = currentPage;
+            document.getElementById('total-pages').textContent = totalPages;
+            
+            // Sayfalama butonlarını oluştur
+            createPaginationButtons(totalPages);
+        }
+        
+        function createPaginationButtons(totalPages) {
+            const pagination = document.getElementById('pagination');
+            pagination.innerHTML = '';
+            
+            if (totalPages <= 1) return;
+            
+            // Önceki sayfa
+            const prevLi = document.createElement('li');
+            prevLi.className = `page-item ${currentPage === 1 ? 'disabled' : ''}`;
+            prevLi.innerHTML = `<a class="page-link" href="#" onclick="changePage(${currentPage - 1})">⬅️ Önceki</a>`;
+            pagination.appendChild(prevLi);
+            
+            // Sayfa numaraları (max 5 tane göster)
+            const startPage = Math.max(1, currentPage - 2);
+            const endPage = Math.min(totalPages, startPage + 4);
+            
+            for (let i = startPage; i <= endPage; i++) {
+                const li = document.createElement('li');
+                li.className = `page-item ${i === currentPage ? 'active' : ''}`;
+                li.innerHTML = `<a class="page-link" href="#" onclick="changePage(${i})">${i}</a>`;
+                pagination.appendChild(li);
+            }
+            
+            // Sonraki sayfa
+            const nextLi = document.createElement('li');
+            nextLi.className = `page-item ${currentPage === totalPages ? 'disabled' : ''}`;
+            nextLi.innerHTML = `<a class="page-link" href="#" onclick="changePage(${currentPage + 1})">Sonraki ➡️</a>`;
+            pagination.appendChild(nextLi);
+        }
+        
+        function changePage(page) {
+            const totalPages = itemsPerPage === allFactories.length ? 1 : Math.ceil(filteredFactories.length / itemsPerPage);
+            if (page < 1 || page > totalPages) return;
+            
+            currentPage = page;
+            updatePagination();
+            renderTable();
+            
+            // Tabloya scroll
+            document.getElementById('factories-table').scrollIntoView({ behavior: 'smooth' });
+        }
+        
+        function renderTable() {
+            const tableBody = document.getElementById('factories-tbody');
+            tableBody.innerHTML = '';
+            
+            // Sayfalama için başlangıç ve bitiş indeksleri
+            const startIndex = itemsPerPage === allFactories.length ? 0 : (currentPage - 1) * itemsPerPage;
+            const endIndex = itemsPerPage === allFactories.length ? filteredFactories.length : startIndex + itemsPerPage;
+            const factoriesToShow = filteredFactories.slice(startIndex, endIndex);
             
             // Tabloyu doldur
-            factories.forEach((factory, index) => {
+            factoriesToShow.forEach((factory, index) => {
                 const row = document.createElement('tr');
                 
                 // Emisyon değerine göre renk sınıfı belirle
                 let emissionClass = '';
-                if (factory.annual_emissions_ton > 1000) {
+                if (factory.annual_emission_ton > 1000) {
                     emissionClass = 'text-danger fw-bold';
-                } else if (factory.annual_emissions_ton > 500) {
+                } else if (factory.annual_emission_ton > 500) {
                     emissionClass = 'text-warning fw-bold';
                 } else {
                     emissionClass = 'text-success fw-bold';
                 }
                 
+                // Global sıra numarası
+                const globalIndex = startIndex + index + 1;
+                
                 row.innerHTML = `
-                    <td>${index + 1}. ${factory.name}</td>
-                    <td>${factory.city}</td>
-                    <td>${factory.type}</td>
-                    <td>${factory.size_m2.toLocaleString('tr-TR')}</td>
-                    <td class="text-center ${emissionClass}">${factory.annual_emissions_ton.toLocaleString('tr-TR')}</td>
+                    <td>${globalIndex}</td>
+                    <td>${factory.name}</td>
+                    <td><span class="badge bg-info">${factory.city}</span></td>
+                    <td><span class="badge bg-secondary">${factory.sector}</span></td>
+                    <td>${factory.size_m2.toLocaleString('tr-TR')} m²</td>
+                    <td class="text-center ${emissionClass}">${factory.annual_emission_ton.toLocaleString('tr-TR')} ton</td>
                 `;
                 
                 tableBody.appendChild(row);
