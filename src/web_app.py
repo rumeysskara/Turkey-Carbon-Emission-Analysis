@@ -21,8 +21,8 @@ except ImportError:
     optimizer = None
 
 app = Flask(__name__, 
-            template_folder=os.path.join(os.path.dirname(os.path.dirname(__file__)), "templates"),
-            static_folder=os.path.join(os.path.dirname(os.path.dirname(__file__)), "static"))
+            template_folder="../templates",
+            static_folder="../static")
 
 
 @app.route("/")
@@ -46,7 +46,9 @@ def all_turkey_emissions():
 @app.route("/carbon-predictions")
 def carbon_predictions():
     """Karbon emisyonu tahminleri ve GPT analizi sayfası"""
-    return render_template("carbon_predictions_simple.html")
+    return render_template("carbon_predictions.html")
+
+
 
 
 @app.route("/emission-scenarios")
@@ -117,6 +119,36 @@ def test_page():
 def carbon_predictions_simple():
     """Basit emisyon tahminleri sayfası"""
     return render_template("carbon_predictions_simple.html")
+
+
+@app.route("/debug-json")
+def debug_json():
+    """JSON dosyalarının durumunu kontrol et"""
+    import os
+    json_files = [
+        'static/data/carbon_predictions.json',
+        'static/data/gpt_sustainability_report.json', 
+        'static/data/model_performance.json',
+        'static/data/all_turkey_factory_emissions.json'
+    ]
+    
+    results = {}
+    for file_path in json_files:
+        try:
+            if os.path.exists(file_path):
+                with open(file_path, 'r', encoding='utf-8') as f:
+                    data = json.load(f)
+                    results[file_path] = {
+                        'exists': True,
+                        'size': len(str(data)),
+                        'keys': list(data.keys()) if isinstance(data, dict) else 'not_dict'
+                    }
+            else:
+                results[file_path] = {'exists': False, 'error': 'File not found'}
+        except Exception as e:
+            results[file_path] = {'exists': False, 'error': str(e)}
+    
+    return jsonify(results)
 
 
 if __name__ == "__main__":
