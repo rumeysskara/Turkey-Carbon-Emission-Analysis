@@ -11,7 +11,7 @@ Bu proje, Türkiye'deki fabrikaların karbon emisyonlarını analiz eden ve gele
 
 ## 🚀 Canlı Demo
 
-[Türkiye Karbon Emisyon Analizi]([https://turkiye-karbon-emisyon-analizi.vercel.app](https://turkey-carbon-emission-analysis.onrender.com)
+[Türkiye Karbon Emisyon Analizi]([https://turkey-carbon-emission-analysis.onrender.com])
 
 ## 💻 Teknolojiler
 
